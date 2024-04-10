@@ -46,7 +46,7 @@ class UserService():
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
             with connection.cursor() as cursor:
-                cursor.execute("UPDATE user SET nombre_user = '{0}', name_user = '{1}', password_user = '{2}', id_user_typeFK = {3}  WHERE user.id_user = {4}".format(name_user,password_user,user_typeFK,id_user))
+                cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
                 # cursor.callproc('update_user', (id_user,name_user,password_user,id_user_type,dni_person))
                 connection.commit()
                 print('User updated successfully')
