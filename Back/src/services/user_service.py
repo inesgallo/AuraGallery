@@ -54,18 +54,19 @@ class UserService():
             return "Data base is close"
         except Exception as ex:
             print(ex)
-    # @classmethod
-    # def delete_user(cls, id_user):
-    #     try:
-    #         connection  = get_connection()
-    #         print(connection)
-    #         with connection.cursor() as cursor:
-    #             cursor.callproc('delete_user', (id_user,)) # Aqui uso otro metodo callproc para trabajar con procedimientos
-    #             connection.commit()
-    #         connection.close()
-    #         return "Data base is close"
-    #     except Exception as ex:
-    #         print(ex)
+    @classmethod
+    def delete_user(cls, id_user):
+        try:
+            connection  = get_connection()
+            print(connection)
+            with connection.cursor() as cursor:
+                cursor.execute('DELETE FROM user WHERE user.id_user = %s', (id_user)) 
+                # cursor.callproc('delete_user', (id_user,)) # Aqui uso otro metodo callproc para trabajar con procedimientos
+                connection.commit()
+            connection.close()
+            return "Data base is close"
+        except Exception as ex:
+            print(ex)
 
 
 

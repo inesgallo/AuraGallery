@@ -30,9 +30,9 @@ def manage_user():
                         user_typeFK)
         patch_user = UserService.patch_user(user_table)
         print(patch_user)
-    # elif request.method == "DELETE":
-    #     id_user = request.json['id_user']
-    #     delete_user = UserService.delete_user(id_user)
-    #     print(delete_user)
+    elif request.method == "DELETE":
+        id_user = request.json['id_user']
+        delete_user = UserService.delete_user(id_user)
+        print(delete_user)
     print('Esto se imprime en consola')
     return 'Esto se ve en la pagina'
