@@ -9,8 +9,8 @@ class UserService():
             connection  = get_connection()
             print(connection)
             with connection.cursor() as cursor:
-                cursor.execute('SELECT * FROM user')
-                # cursor.callproc('select_user')
+                # cursor.execute('SELECT * FROM user')
+                cursor.callproc('select_user')
                 result = cursor.fetchall()
                 print(result)
             connection.close()
@@ -22,15 +22,15 @@ class UserService():
         try:
             connection  = get_connection()
             #print(connection)
-            id_user = user_table.id_user
+            # id_user = user_table.id_user
             name_user = user_table.name_user
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
             
             with connection.cursor() as cursor:
-                cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
-                               .format(id_user,name_user,password_user,user_typeFK))
-                # cursor.callproc('insert_user', (name_user,password_user,id_user_type,dni_person))
+                # cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
+                            #    .format(id_user,name_user,password_user,user_typeFK))
+                cursor.callproc('post_user', (name_user,password_user,user_typeFK))
                 connection.commit()
                 print('User added successfully')
             connection.close()
@@ -46,8 +46,8 @@ class UserService():
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
             with connection.cursor() as cursor:
-                cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
-                # cursor.callproc('update_user', (id_user,name_user,password_user,id_user_type,dni_person))
+                # cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
+                cursor.callproc('update_user', (id_user,name_user,password_user,user_typeFK))
                 connection.commit()
                 print('User updated successfully')
             connection.close()
@@ -60,8 +60,8 @@ class UserService():
             connection  = get_connection()
             print(connection)
             with connection.cursor() as cursor:
-                cursor.execute('DELETE FROM user WHERE user.id_user = %s', (id_user)) 
-                # cursor.callproc('delete_user', (id_user,)) # Aqui uso otro metodo callproc para trabajar con procedimientos
+                # cursor.execute('DELETE FROM user WHERE user.id_user = %s', (id_user)) 
+                cursor.callproc('delete_user', (id_user,)) # Aqui uso otro metodo callproc para trabajar con procedimientos
                 connection.commit()
             connection.close()
             return "Data base is close"
