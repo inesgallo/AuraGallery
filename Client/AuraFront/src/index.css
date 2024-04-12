@@ -1,8 +1,55 @@
 /* reset */
-input,textarea {width:100%; outline:none; font-size:16px; resize:vertical;}
-* {margin:0;box-sizing: border-box;}
-ul {list-style: none;padding: 0; margin:0;}
-img, figure {max-width: 100%;display: block;height: auto}
-a {text-decoration: none; color: none;}
-h1,h2,h3,h4,h5,h6 {margin:0; font-family: 'Montserrat';}
-p {margin:0; font-family: 'Montserrat';}
+input,
+textarea {
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    resize: vertical;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img,
+figure {
+    max-width: 100%;
+    display: block;
+    height: auto
+}
+
+a {
+    text-decoration: none;
+    color: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+p {
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+
+/* PALETA */
+:root {
+    --blanco: #FFFFFF;
+    --gris: #F4F4F2;
+    --negro: #161412;
+    --coral: #FC4308;
+}
