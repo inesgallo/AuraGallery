@@ -1,16 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarCustom from './components/navbarCustom/NavbarCustom.jsx';
+import { routerProvider } from './router/RouterProvider';
+import { RouterProvider } from 'react-router-dom';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<NavbarCustom />} />
-      </Routes>
-    </BrowserRouter>
+  <RouterProvider router={routerProvider}></RouterProvider>
   </React.StrictMode>,
 )
