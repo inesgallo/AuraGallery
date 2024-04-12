@@ -4,7 +4,7 @@ import './footerCustom.css'
 const FooterCustom = () => {
   return (
     <div>
-      
+      soy footer
     </div>
   )
 }
