@@ -11,14 +11,13 @@ class AuthService():
             connection  = get_connection()
             auth_user = None
             with connection.cursor() as cursor:
-                cursor.execute('SELECT * FROM user')
-                # cursor.callproc('select_user')
+                cursor.execute("CALL sp_verify_identity(%s)", user.name_user)
                 row = cursor.fetchone()
-                print(row)
-                if (row != None and check_password_hash(row[2], user_table.password_user)) :
-                    auth_user = row
-                else: 
-                    auth_user = None
+                
+            if(row != None and check_password_hash(row[2], user.password_user)):
+                    authenticated_user = row
+            else:
+                    authenticated_user = None
             connection.close()
             return auth_user
         except Exception as ex:

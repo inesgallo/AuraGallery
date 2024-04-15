@@ -1,5 +1,5 @@
 from src.database.db_phpMySql import get_connection
-
+from werkzeug.security import generate_password_hash
 from src.models.user_model import User
 
 from werkzeug.security import generate_password_hash
@@ -29,13 +29,13 @@ class UserService():
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
             
-            encripted_password = generate_password_hash(password_user, 'pbkdf2:sha256',30)
-
+            encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
+            
             with connection.cursor() as cursor:
                 
                 # cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
                             #    .format(id_user,name_user,password_user,user_typeFK))
-                cursor.callproc('post_user', (name_user,encripted_password,user_typeFK))
+                cursor.callproc('post_user', (name_user,password_user,user_typeFK))
                 connection.commit()
                 print('User added successfully')
             connection.close()
@@ -50,9 +50,12 @@ class UserService():
             name_user = user_table.name_user
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
+            
+            encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
+            
             with connection.cursor() as cursor:
                 # cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
-                cursor.callproc('update_user', (id_user,name_user,password_user,user_typeFK))
+                cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
                 connection.commit()
                 print('User updated successfully')
             connection.close()
