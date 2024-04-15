@@ -72,7 +72,7 @@ const LoginComponent = () => {
             <Col xs = {12}  md={6} className="text-center d-flex justify-content-center">
             <div className="loginCard">
                 <Form onSubmit={handlerSubmitNewAcces}>
-                  <Form.Group className="mb-5" controlId="emailAccess" >
+                  <Form.Group className="mb-3" controlId="emailAccess" >
                     <p className="fs-5 mb-5">SOLICITUD DE ACCESO</p>
                     <div className="loginLine"></div>
                     <div className="d-flex ms-2">
