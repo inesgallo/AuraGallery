@@ -4,6 +4,7 @@ import './artistForm.css'
 
 const ArtistForm = () => {
 
+  const [artistName, setArtistName] = useState('');
   const [artworkName, setArtworkName] = useState('');
   const [artworkType, setArtworkType] = useState('');
   const [price, setPrice] = useState('');
@@ -46,7 +47,7 @@ const ArtistForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes manejar el envío del formulario, por ejemplo, enviar los datos a un servidor
-    console.log({ artworkName, artworkType, price, description, images, categories });
+    console.log({ artistName, artworkName, artworkType, price, description, images, categories });
   };
 
   const handleImages = (e) => {
@@ -58,49 +59,53 @@ const ArtistForm = () => {
 
     <form onSubmit={handleSubmit}>
       <label>
-        Artwork Name:
-        <input type="text" name="artworkName" value={artworkName} onChange={handleChange} />
-      </label>
-      <label>
-        Artwork Type:
-        <input type="text" name="artworkType" value={artworkType} onChange={handleChange} />
-      </label>
-      <label>
-        Price:
-        <input type="number" name="price" value={price} onChange={handleChange} />
-      </label>
-      <label>
-        Description of the Artwork:
-        <textarea name="description" value={description} onChange={handleChange} />
-      </label>
-      <fieldset>
-        <legend>Categories:</legend>
-        <label>
-          <input type="checkbox" name="category1" checked={categories.category1} onChange={handleChange} />
-          Category 1
+        Nombre del artista
+        <input type="text" name="artistName" value={artistName} onChange={handleChange} />
         </label>
         <label>
-          <input type="checkbox" name="category2" checked={categories.category2} onChange={handleChange} />
-          Category 2
+          nombre de la obra:
+          <input type="text" name="artworkName" value={artworkName} onChange={handleChange} />
         </label>
         <label>
-          <input type="checkbox" name="category3" checked={categories.category3} onChange={handleChange} />
-          Category 3
+          tipo de obra:
+          <input type="text" name="artworkType" value={artworkType} onChange={handleChange} />
         </label>
         <label>
-          <input type="checkbox" name="category4" checked={categories.category4} onChange={handleChange} />
-          Category 4
+          precio:
+          <input type="number" name="price" value={price} onChange={handleChange} />
         </label>
         <label>
-          <input type="checkbox" name="category5" checked={categories.category5} onChange={handleChange} />
-          Category 5
+          descripción de la obra:
+          <textarea name="description" value={description} onChange={handleChange} />
         </label>
-      </fieldset>
-      <label>
-        Upload Images:
-        <input type="file" multiple onChange={handleImages} />
-      </label>
-      <button type="submit">Submit</button>
+        <fieldset>
+          <legend>Categorías:</legend>
+          <label>
+            <input type="checkbox" name="category1" checked={categories.category1} onChange={handleChange} />
+            arte abstracto
+          </label>
+          <label>
+            <input type="checkbox" name="category2" checked={categories.category2} onChange={handleChange} />
+            realismo contemporáneo
+          </label>
+          <label>
+            <input type="checkbox" name="category3" checked={categories.category3} onChange={handleChange} />
+            expresionismo
+          </label>
+          <label>
+            <input type="checkbox" name="category4" checked={categories.category4} onChange={handleChange} />
+            arte digital
+          </label>
+          <label>
+            <input type="checkbox" name="category5" checked={categories.category5} onChange={handleChange} />
+            neo-pop
+          </label>
+        </fieldset>
+        <label>
+          subir imágenes::
+          <input type="file" multiple onChange={handleImages} />
+        </label>
+        <button type="submit">enviar</button>
     </form>
   );
 }
