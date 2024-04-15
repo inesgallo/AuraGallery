@@ -1,10 +1,10 @@
 import React from 'react'
-import { Outlet, useNavigation } from "react-router-dom";
+import LoginComponent from '../../components/loginComponent/LoginComponent';
 
 const Login = () => {
   return (
     <>
-    <h1>Login</h1>
+      <LoginComponent />
     </>
   )
 }
