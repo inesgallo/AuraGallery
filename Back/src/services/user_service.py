@@ -47,9 +47,12 @@ class UserService():
             name_user = user_table.name_user
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
+            
+            encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
+            
             with connection.cursor() as cursor:
                 # cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
-                cursor.callproc('update_user', (id_user,name_user,password_user,user_typeFK))
+                cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
                 connection.commit()
                 print('User updated successfully')
             connection.close()
