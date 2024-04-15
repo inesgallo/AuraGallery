@@ -14,7 +14,7 @@ export const useUserHandler = () => {
       // Redirigir basado en el tipo de usuario
       switch (response.userType) {
         case 'admin':
-            navigate('/admin/dashboard'); 
+            navigate('/admin/dashboard');
           break;
         case 'artist':
             navigate('/artist/dashboard');
