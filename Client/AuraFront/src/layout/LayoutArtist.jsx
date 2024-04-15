@@ -7,7 +7,6 @@ const LayoutArtist = () => {
   return (
     <>
     <NavbarCustom />
-    <h1>Soy el Layout artist</h1>
     <Outlet />
     <FooterCustom />
     </>
