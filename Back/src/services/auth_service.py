@@ -10,9 +10,9 @@ class AuthService():
             authenticated_user = None
             
             with connection.cursor() as cursor:
-                #cursor.execute('CALL sp_verify_identity(%s)', user.name_user)
-                cursor.execute('SELECT * FROM users WHERE name = %s', (user.name_user,))
+                cursor.execute("CALL sp_verify_identity(%s)", user.name_user)
                 row = cursor.fetchone()
+                print(row)
                 
             if(row != None and check_password_hash(row[2], user.password_user)):
                     authenticated_user = row
