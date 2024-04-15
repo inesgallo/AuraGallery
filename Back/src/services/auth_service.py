@@ -6,10 +6,10 @@ from werkzeug.security import check_password_hash
 class AuthService():
     
     @classmethod
-    def verify_identity(cls, user_table:User):
+    def verify_identity(cls, user:User):
         try:
             connection  = get_connection()
-            auth_user = None
+            authenticated_user = None
             with connection.cursor() as cursor:
                 cursor.execute("CALL sp_verify_identity(%s)", user.name_user)
                 row = cursor.fetchone()
@@ -19,6 +19,6 @@ class AuthService():
             else:
                     authenticated_user = None
             connection.close()
-            return auth_user
+            return authenticated_user
         except Exception as ex:
             print(ex)
