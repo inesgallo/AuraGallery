@@ -39,10 +39,10 @@ const LoginComponent = () => {
    
   return (
     <>
-      <section className="contentLogin  me-4 ms-4 mt-5 mb-3 ">
+      <section className="contentLogin  me-4 ms-4 mt-5 mb-5 ">
         <Container >
           <Row className="d-flex justify-content-around">
-          <Col xs = {12} md={4} className="text-center mb-3 d-flex justify-content-center" >
+          <Col xs = {12} md={4} className="text-center mb-3 d-flex justify-content-center align-items-stretch" >
             <div className="loginCard">
               <p className="fs-5 mb-5">LOGIN</p>
               <div className="loginLine"></div>
@@ -69,7 +69,7 @@ const LoginComponent = () => {
                 </Form>
                 </div>
             </Col>
-            <Col xs = {12}  md={4} className="text-center d-flex justify-content-center">
+            <Col xs = {12}  md={6} className="text-center d-flex justify-content-center">
             <div className="loginCard">
                 <Form onSubmit={handlerSubmitNewAcces}>
                   <Form.Group className="mb-5" controlId="emailAccess" >
@@ -96,7 +96,6 @@ const LoginComponent = () => {
                 </Form>
               </div>
             </Col>
-            
           </Row>
         </Container>
       </section>

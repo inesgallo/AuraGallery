@@ -1,7 +1,11 @@
 .contentLogin{
-    
     background-color: var(--gris);
     padding: 200px;
+    background-image: url('/img-8/marcaAguaLogin.png') ;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
 }
 .contentLogin .loginCard{
     width:324px ;
@@ -25,7 +29,6 @@
     height: 25px;
     color: white;
     border: none;
-    margin-bottom: 20px;
 }
 .form-control {
     display: block;
@@ -43,7 +46,7 @@
     background-clip: padding-box;
 }
 .form-control:focus {
-    box-shadow: none; /* Elimina el efecto de sombra */
-    border-color: white; /* Cambia el color del borde a verde */
-    outline: none; /* Elimina el contorno */
+    box-shadow: none; 
+    border-color: white; 
+    outline: none; 
 }
