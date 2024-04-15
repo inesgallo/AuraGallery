@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.user_service import UserService
 from src.models.user_model import User
 
@@ -8,7 +8,7 @@ main = Blueprint('aura_gallery_blueprint', __name__)
 def manage_user():
     if request.method == "GET":
         get_user = UserService.get_user()
-        print(get_user)
+        return  jsonify(get_user)
     elif request.method == "POST":
         name_user = request.json['name_user']
         password_user = request.json['password_user']
