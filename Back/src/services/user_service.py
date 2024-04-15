@@ -14,7 +14,7 @@ class UserService():
                 result = cursor.fetchall()
                 print(result)
             connection.close()
-            return "Data base is close"
+            return result
         except Exception as ex:
             print(ex)
     @classmethod
