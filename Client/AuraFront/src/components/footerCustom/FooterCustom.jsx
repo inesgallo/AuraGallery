@@ -19,7 +19,6 @@ const FooterCustom = () => {
       </Row>
     </Container>
     </footer>
-
     </>
   )
 }

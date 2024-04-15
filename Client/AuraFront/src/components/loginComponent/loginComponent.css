@@ -1,8 +1,49 @@
 .contentLogin{
-    width: 100%;
-    background-color: coral;
-   
+    
+    background-color: var(--gris);
+    padding: 200px;
 }
 .contentLogin .loginCard{
-    border: 2px solid black;
+    width:324px ;
+    height: 390px;
+}
+.contentLogin .loginCard .loginText{
+    font-size: 20px;
+}
+.loginLine{
+    border-top: 1px solid black;
+    height: auto; 
+    width: auto; 
+    padding: 0; 
+    box-shadow: 21px;
+    margin-bottom: 30px;
+}
+
+.btnLogin{
+    background-color: var(--coral);
+    width: 160px;
+    height: 25px;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 1px;
+    border: var(--bs-border-width) solid #ffffff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    background-clip: padding-box;
+}
+.form-control:focus {
+    box-shadow: none; /* Elimina el efecto de sombra */
+    border-color: white; /* Cambia el color del borde a verde */
+    outline: none; /* Elimina el contorno */
 }

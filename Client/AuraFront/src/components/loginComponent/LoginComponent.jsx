@@ -39,49 +39,64 @@ const LoginComponent = () => {
    
   return (
     <>
-      <section className="contentLogin me-4 ms-4 mt-5 mb-5 mb-3 py-5">
-        <Container className="d-flex">
-          <Row>
-            <Col md="6">
-              <div className="loginCard">
-                <Form onSubmit={handleSubmit}>
-                  <Form.Group className="mb-3" controlId="email">
-                    <p>Login</p>
-                    <Form.Label>Nombre usuario</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+      <section className="contentLogin  me-4 ms-4 mt-5 mb-3 ">
+        <Container >
+          <Row className="d-flex justify-content-around">
+          <Col xs = {12} md={4} className="text-center mb-3 d-flex justify-content-center" >
+            <div className="loginCard">
+              <p className="fs-5 mb-5">LOGIN</p>
+              <div className="loginLine"></div>
+                <Form onSubmit={handleSubmit} >
+                  <Form.Group className="mb-5" controlId="email">
+                    <div className="d-flex ms-2">
+                    <Form.Label sm={2}>nombre de usuario :</Form.Label>
+                    </div>
+                    <Form.Control type="email"/>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                  <div className="d-flex ms-2">
+                    <Form.Label className="m-0">contraseña :</Form.Label>
+                    </div>
+                    <Form.Control type="password"/>
                   </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Acceder
-                  </Button>
+                  <Container>
+                    
+                  </Container>
+                  <button className ="center btnLogin mt-5 " type="submit">
+                    ACCEDER
+                  </button>
                 </Form>
-              </div>
+                </div>
             </Col>
-            <Col md="6">
-              <div className="loginCard">
+            <Col xs = {12}  md={4} className="text-center d-flex justify-content-center">
+            <div className="loginCard">
                 <Form onSubmit={handlerSubmitNewAcces}>
-                  <Form.Group className="mb-3" controlId="emailAccess" >
-                    <p>Solicitud acceso</p>
-                    <Form.Label>Nombre usuario</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" value={email} 
+                  <Form.Group className="mb-5" controlId="emailAccess" >
+                    <p className="fs-5 mb-5">SOLICITUD DE ACCESO</p>
+                    <div className="loginLine"></div>
+                    <div className="d-flex ms-2">
+                    <Form.Label sm={2}>nombre :</Form.Label>
+                    </div>
+                    <Form.Control type="email"  value={email} 
                     onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
-
                   <Form.Group className="mb-3" controlId="passwordAccess">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={password} 
+                  <div className="d-flex ms-2">
+                    <Form.Label sm={2}>mensaje :</Form.Label>
+                    </div>
+                    <Form.Control type="text" value={password} 
                     onChange={(e) => setPassword(e.target.value)} />
                   </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Acceder
-                  </Button>
+
+                  <button className ="center btnLogin mt-5" type="submit">
+                    ENVIAR
+                  </button>
+
                 </Form>
               </div>
             </Col>
+            
           </Row>
         </Container>
       </section>
