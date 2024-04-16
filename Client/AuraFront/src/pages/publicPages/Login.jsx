@@ -1,10 +1,11 @@
 import React from 'react'
-import { Outlet, useNavigation } from "react-router-dom";
+import LoginComponent from '../../components/loginComponent/LoginComponent';
 
 const Login = () => {
   return (
     <>
-    <h1>Login</h1>
+      <h1 className='d-flex justify-content-center'>NAVBAR</h1>
+      <LoginComponent />
     </>
   )
 }

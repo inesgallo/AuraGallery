@@ -13,13 +13,12 @@ const FooterCustom = () => {
       <Row >
         <Col >
         <figure >
-          <img src={logoFooter} className='imgFooter ' alt="" />
+          <img src={logoFooter} className='imgFooter ' alt="logo" />
         </figure>
         </Col>
       </Row>
     </Container>
     </footer>
-
     </>
   )
 }
