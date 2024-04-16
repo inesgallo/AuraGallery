@@ -26,6 +26,9 @@ const ArtistForm = () => {
         break;
       default:
         switch (name) {
+          case 'artistName':
+            setArtistName(value);
+            break;
           case 'artworkName':
             setArtworkName(value);
             break;
@@ -58,9 +61,10 @@ const ArtistForm = () => {
   return (
 
     <form onSubmit={handleSubmit}>
-      <label>
-        Nombre del artista
-        <input type="text" name="artistName" value={artistName} onChange={handleChange} />
+
+        <label>
+          nombre del artista:
+          <input type="text" name="artistName" value={artistName} onChange={handleChange} />
         </label>
         <label>
           nombre de la obra:
