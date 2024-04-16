@@ -9,9 +9,7 @@ import ArtDetail from "../pages/publicPages/ArtDetail";
 import ShoppingCart from "../pages/publicPages/ShoppingCart";
 import Home from "../pages/publicPages/Home";
 
-{
-  /* Creacion de rutas publicas */
-}
+
 
 export const routerProvider = createBrowserRouter([
   {
