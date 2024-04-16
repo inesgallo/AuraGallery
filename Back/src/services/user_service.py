@@ -35,7 +35,7 @@ class UserService():
                 
                 # cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
                             #    .format(id_user,name_user,password_user,user_typeFK))
-                cursor.callproc('post_user', (name_user,password_user,user_typeFK))
+                cursor.callproc('post_user', (name_user,encriped_password,user_typeFK))
                 connection.commit()
                 print('User added successfully')
             connection.close()
