@@ -2,6 +2,8 @@ from src.database.db_phpMySql import get_connection
 
 from src.models.user_model import User
 
+from src.models.user_type_model import  User_type
+
 from werkzeug.security import check_password_hash
 class AuthService():
     
@@ -15,7 +17,9 @@ class AuthService():
                 row = cursor.fetchone()
                 
             if(row != None and check_password_hash(row[2], user.password_user)):
-                    authenticated_user = row
+                    
+                    user_type = User_type(None, row[3])
+                    authenticated_user = User(row[0], row[1], row[2],  user_type)
             else:
                     authenticated_user = None
             connection.close()
