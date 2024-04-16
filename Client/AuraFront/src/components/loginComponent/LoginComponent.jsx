@@ -78,7 +78,7 @@ const LoginComponent = () => {
                     <div className="d-flex ms-2">
                     <Form.Label sm={2}>nombre :</Form.Label>
                     </div>
-                    <Form.Control type="email"  value={email} 
+                    <Form.Control type="text"  value={email} 
                     onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="passwordAccess">
