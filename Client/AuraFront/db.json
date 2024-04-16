@@ -11,24 +11,96 @@
       "age": 40
     }
   ],
-  "products": [
+  "artworks": [
+
     {
       "id": "1",
-      "artistName": "Arista",
-      "artWork": "aoldf",
-      "artWorkType": "dsfg",
-      "description": "fdgds",
-      "categories": "fdggs",
-      "file": "dfgdfg"
+      "artworkImage": "public/img-8/banana.png",
+      "artworkName": "Banana rama",
+      "artistName": "Manuel Villegas",
+      "description": "óleo sobre lienzo",
+      "selectedCategory": "ArteAbstracto",
+      "artworkPrice": 2000,
+      "stock": 1
     },
     {
-      "id": "d696",
-      "artistName": "Arista",
-      "artWork": "aoldf",
-      "artWorkType": "dsfg",
+      "id": "2",
+      "artworkImage": "public/img-8/fantasy.png",
+      "artworkName": "Fantastic planet",
+      "artistName": "Gemila",
+      "description": "acuarela sobre papel",
+      "selectedCategory": "RealismoContemporaneo",
+      "artworkPrice": 2000,
+      "stock": 1
+    },
+    {
+      "id": "3",
+      "artworkImage": "public/img-8/dalmatas.png",
+      "artworkName": "Woooohoo",
+      "artistName": "Manuel Villegas",
       "description": "fdgds",
-      "categories": "fdggs",
-      "file": "dfgdfg"
+      "selectedCategory": "expresionismo",
+      "artworkPrice": 2000,
+      "stock": 1
+    },
+    {
+      "id": "4",
+      "artworkImage": "public/img-8/fruits.png",
+      "artworkName": "Fruticas",
+      "artistName": "Manuel Villegas",
+      "description": "óleo sobre lienzo",
+      "selectedCategory": "RealismoContemporaneo",
+      "artworkPrice": 2000,
+      "stock": 1
+    },    {
+      "id": "5",
+      "artworkImage": "public/img-8/joungboy.png",
+      "artworkName": "Obra 789",
+      "artistName": "Manuel Villegas",
+      "description": "acuarela sobre papel",
+      "selectedCategory": "expresionismo",
+      "artworkPrice": 2000,
+      "stock": 1
+    },
+    {
+      "id": "6",
+      "artworkImage": "public/img-8/mural.png",
+      "artworkName": "El mural",
+      "artistName": "Manuel Villegas",
+      "description": "gouache",
+      "selectedCategory": "ArteAbstracto",
+      "artworkPrice": 2000,
+      "stock": 1
+    },
+    {
+      "id": "7",
+      "artworkImage": "public/img-8/painting.png",
+      "artworkName": "Pintura",
+      "artistName": "Manuel Villegas",
+      "description": "óleo sobre lienzo",
+      "selectedCategory": "ArteDigital",
+      "artworkPrice": 2000,
+      "stock": 1
+    },    {
+      "id": "8",
+      "artworkImage": "public/img-8/womanred.png",
+      "artworkName": "Obra 1",
+      "artistName": "Manuel Villegas",
+      "description": "fotografía",
+      "selectedCategory": "ArteAbstracto",
+      "artworkPrice": 2000,
+      "stock": 1
+    },
+    {
+      "id": "9",
+      "artworkImage": "public/img-8/womenmagnolias.png",
+      "artworkName": "Obra 1",
+      "artistName": "Manuel Villegas",
+      "description": "gouache",
+      "selectedCategory": "NeoPop",
+      "artworkPrice": 2000,
+      "stock": 1
     }
+
   ]
 }

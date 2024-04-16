@@ -12,7 +12,7 @@ const apiClient = axios.create({
 export const ArtworkService = {
     async getArtworks() {
         try {
-            let response = await apiClient.get("/artwork");
+            let response = await apiClient.get("/artworks");
             let allArtworks = response.data;
             return allArtworks;
         } catch (error) {
@@ -21,7 +21,7 @@ export const ArtworkService = {
     },
     async getArtwork(id) {
         try {
-            let response = await apiClient.get("/artwork/" + id);
+            let response = await apiClient.get("/artworks/" + id);
             let artwork = response.data;
             return artwork;
         } catch (error) {

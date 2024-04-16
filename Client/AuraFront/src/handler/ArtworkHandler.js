@@ -35,12 +35,12 @@ export const ArtworkHandler = {
   },
 
   // Funcion de filtrado
-  async getFilteredArtworks(artworkCategory) {
+  async getFilteredArtworks(selectedCategory) {
     let allArtworks = await ArtworkService.getArtworks();
 
     // Aplicar filtros si se proporcionan
-    if (artworkCategory) {
-      allArtworks = allArtworks.filter(artwork => artwork.artworkCategory === artworkCategory);
+    if (selectedCategory) {
+      allArtworks = allArtworks.filter(artwork => artwork.selectedCategory === selectedCategory);
     }
 
     return allArtworks;

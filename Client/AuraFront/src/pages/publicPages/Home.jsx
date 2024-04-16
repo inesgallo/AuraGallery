@@ -1,12 +1,14 @@
-import React from 'react'
-import { Outlet, useNavigation } from "react-router-dom";
 import Hero from '../../components/hero/Hero';
+import Catalogue from '../../components/catalogue/Catalogue';
 
 const Home = () => {
 
     return (
         <>
             <h1>Home</h1>
+            <Hero />
+            <Catalogue />
+
         </>
     );
 };
