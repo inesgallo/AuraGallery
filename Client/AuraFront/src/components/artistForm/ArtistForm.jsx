@@ -1,117 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import './artistForm.css'
+import React, { useState } from 'react';
+import { ArtworkHandler } from '../../handler/ArtworkHandler'; // Cambia la importación
 
 
 const ArtistForm = () => {
-
   const [artistName, setArtistName] = useState('');
   const [artworkName, setArtworkName] = useState('');
   const [artworkType, setArtworkType] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [categories, setCategories] = useState({
-    category1: false,
-    category2: false,
-    category3: false,
-    category4: false,
-    category5: false,
-  });
+  const [categories, setCategories] = useState('');
   const [images, setImages] = useState([]);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    switch (type) {
-      case 'checkbox':
-        setCategories({ ...categories, [name]: checked });
-        break;
-      default:
-        switch (name) {
-          case 'artistName':
-            setArtistName(value);
-            break;
-          case 'artworkName':
-            setArtworkName(value);
-            break;
-          case 'artworkType':
-            setArtworkType(value);
-            break;
-          case 'price':
-            setPrice(value);
-            break;
-          case 'description':
-            setDescription(value);
-            break;
-          default:
-            break;
-        }
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes manejar el envío del formulario, por ejemplo, enviar los datos a un servidor
-    console.log({ artistName, artworkName, artworkType, price, description, images, categories });
+    const { value } = e.target;
+    setCategories(value);
   };
 
   const handleImages = (e) => {
     setImages([...e.target.files]);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('artistName', artistName);
+    formData.append('artworkName', artworkName);
+    formData.append('artworkType', artworkType);
+    formData.append('price', price);
+    formData.append('description', description);
+    formData.append('category', categories); // Agregamos la categoría seleccionada
+    images.forEach((image) => {
+      formData.append('images', image);
+    });
+    ArtworkHandler.submitArtwork(formData);
+  };
 
   return (
-
     <form onSubmit={handleSubmit}>
-
+      <label>
+        nombre del artista:
+        <input type="text" name="artistName" onChange={(e) => setArtistName(e.target.value)} />
+      </label>
+      <label>
+        nombre de la obra:
+        <input type="text" name="artworkName" onChange={(e) => setArtworkName(e.target.value)} />
+      </label>
+      <label>
+        tipo de obra:
+        <input type="text" name="artworkType" onChange={(e) => setArtworkType(e.target.value)} />
+      </label>
+      <label>
+        precio:
+        <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} />
+      </label>
+      <label>
+        descripción de la obra:
+        <textarea name="description" onChange={(e) => setDescription(e.target.value)} />
+      </label>
+      <fieldset>
+        <legend>Categorías:</legend>
         <label>
-          nombre del artista:
-          <input type="text" name="artistName" value={artistName} onChange={handleChange} />
+          <input type="radio" name="category" value="arte abstracto" checked={categories === 'arte abstracto'} onChange={handleChange} />
+          Arte abstracto
         </label>
         <label>
-          nombre de la obra:
-          <input type="text" name="artworkName" value={artworkName} onChange={handleChange} />
+          <input type="radio" name="category" value="realismo contemporáneo" checked={categories === 'realismo contemporáneo'} onChange={handleChange} />
+          Realismo contemporáneo
         </label>
         <label>
-          tipo de obra:
-          <input type="text" name="artworkType" value={artworkType} onChange={handleChange} />
+          <input type="radio" name="category" value="expresionismo" checked={categories === 'expresionismo'} onChange={handleChange} />
+          Expresionismo
         </label>
         <label>
-          precio:
-          <input type="number" name="price" value={price} onChange={handleChange} />
+          <input type="radio" name="category" value="arte digital" checked={categories === 'arte digital'} onChange={handleChange} />
+          Arte digital
         </label>
         <label>
-          descripción de la obra:
-          <textarea name="description" value={description} onChange={handleChange} />
+          <input type="radio" name="category" value="neo-pop" checked={categories === 'neo-pop'} onChange={handleChange} />
+          Neo-pop
         </label>
-        <fieldset>
-          <legend>Categorías:</legend>
-          <label>
-            <input type="checkbox" name="category1" checked={categories.category1} onChange={handleChange} />
-            arte abstracto
-          </label>
-          <label>
-            <input type="checkbox" name="category2" checked={categories.category2} onChange={handleChange} />
-            realismo contemporáneo
-          </label>
-          <label>
-            <input type="checkbox" name="category3" checked={categories.category3} onChange={handleChange} />
-            expresionismo
-          </label>
-          <label>
-            <input type="checkbox" name="category4" checked={categories.category4} onChange={handleChange} />
-            arte digital
-          </label>
-          <label>
-            <input type="checkbox" name="category5" checked={categories.category5} onChange={handleChange} />
-            neo-pop
-          </label>
-        </fieldset>
-        <label>
-          subir imágenes::
-          <input type="file" multiple onChange={handleImages} />
-        </label>
-        <button type="submit">enviar</button>
+      </fieldset>
+      <label>
+        subir imágenes::
+        <input type="file" multiple onChange={handleImages} />
+      </label>
+      <button type="submit">enviar</button>
     </form>
   );
 }
 
-export default ArtistForm
+export default ArtistForm;
