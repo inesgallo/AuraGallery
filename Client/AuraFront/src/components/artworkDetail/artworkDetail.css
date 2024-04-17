@@ -1,0 +1,21 @@
+
+.artwork-detail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    
+}
+
+.artwork-detail-image {
+    height: auto;
+    max-width: 600px;
+    margin-right: 30px;
+}
+
+.artwork-detail-info {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}

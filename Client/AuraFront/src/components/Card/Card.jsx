@@ -23,26 +23,32 @@ function Card({ selectedCategory }) {
     setArtworks: PropTypes.func,
   };
 
-
   return (
     <div className="artwork-container">
       {artworks?.map((artwork, index) => (
         <div key={index} className="card">
-          <Link to={`/artdetail/${artwork.artworkName}`} state={{artwork}}>
+
+          <Link to={`/Artdetail/${artwork.artworkName}`} state={{artwork}}>
+
             <div className="artwork-image-container">
               <img src={artwork.artworkImage} alt={artwork.artworkName} />
             </div>
+            
           </Link>
+
           <div className="artwork-details">
+
             <h3 className="artwork-title">{artwork.artworkName}</h3>
+
             <div className="artwork-info">
+
               <p className="artist-name">{artwork.artistName}</p>
               <p className="artwork-description">{artwork.description}</p>
-              
+            
             </div>
           </div>
           <div className="shopping">
-            <button className="add-to-cart-button">AÑADIR AL CARRITO</button>
+            <button className="add-to-cart-button" onClick={() => addToCart(product)}>AÑADIR AL CARRITO</button>
             <button className="buy-now-button">COMPRAR</button>
           </div>
         </div>

@@ -15,7 +15,7 @@
 
     {
       "id": "1",
-      "artworkImage": "public/img-8/banana.png",
+      "artworkImage": "/img-8/banana.png",
       "artworkName": "Banana rama",
       "artistName": "Manuel Villegas",
       "description": "óleo sobre lienzo",
@@ -25,7 +25,7 @@
     },
     {
       "id": "2",
-      "artworkImage": "public/img-8/fantasy.png",
+      "artworkImage": "/img-8/fantasy.png",
       "artworkName": "Fantastic planet",
       "artistName": "Gemila",
       "description": "acuarela sobre papel",
@@ -35,7 +35,7 @@
     },
     {
       "id": "3",
-      "artworkImage": "public/img-8/dalmatas.png",
+      "artworkImage": "/img-8/dalmatas.png",
       "artworkName": "Woooohoo",
       "artistName": "Manuel Villegas",
       "description": "fdgds",
@@ -45,7 +45,7 @@
     },
     {
       "id": "4",
-      "artworkImage": "public/img-8/fruits.png",
+      "artworkImage": "/img-8/fruticas.png",
       "artworkName": "Fruticas",
       "artistName": "Manuel Villegas",
       "description": "óleo sobre lienzo",
@@ -54,7 +54,7 @@
       "stock": 1
     },    {
       "id": "5",
-      "artworkImage": "public/img-8/joungboy.png",
+      "artworkImage": "/img-8/joungboy.png",
       "artworkName": "Obra 789",
       "artistName": "Manuel Villegas",
       "description": "acuarela sobre papel",
@@ -64,7 +64,7 @@
     },
     {
       "id": "6",
-      "artworkImage": "public/img-8/mural.png",
+      "artworkImage": "/img-8/mural.png",
       "artworkName": "El mural",
       "artistName": "Manuel Villegas",
       "description": "gouache",
@@ -74,7 +74,7 @@
     },
     {
       "id": "7",
-      "artworkImage": "public/img-8/painting.png",
+      "artworkImage": "/img-8/painting.png",
       "artworkName": "Pintura",
       "artistName": "Manuel Villegas",
       "description": "óleo sobre lienzo",
@@ -83,7 +83,7 @@
       "stock": 1
     },    {
       "id": "8",
-      "artworkImage": "public/img-8/womanred.png",
+      "artworkImage": "/img-8/womanred.png",
       "artworkName": "Obra 1",
       "artistName": "Manuel Villegas",
       "description": "fotografía",
@@ -93,7 +93,7 @@
     },
     {
       "id": "9",
-      "artworkImage": "public/img-8/womenmagnolias.png",
+      "artworkImage": "/img-8/womenmagnolias.png",
       "artworkName": "Obra 1",
       "artistName": "Manuel Villegas",
       "description": "gouache",

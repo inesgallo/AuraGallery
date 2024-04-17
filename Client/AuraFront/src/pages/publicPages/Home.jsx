@@ -1,5 +1,6 @@
-import Hero from '../../components/hero/Hero';
-import Catalogue from '../../components/catalogue/Catalogue';
+import React from 'react';
+import Hero from '../../components/hero/Hero'
+import Catalogue from '../../components/Catalogue/Catalogue'
 
 const Home = () => {
 

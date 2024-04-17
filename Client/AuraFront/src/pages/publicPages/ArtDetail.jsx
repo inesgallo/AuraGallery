@@ -1,12 +1,11 @@
-// import { Outlet, useNavigation } from "react-router-dom";
-import ArtworkDetail from "../../components/artworkDetail/ArtworkDetail.jsx";
-
+import ArtworkDetail from "../../components/artworkDetail/ArtworkDetail";
 const ArtDetail = () => {
   
   return (
     <>
       <h1>Art Detail Page</h1>
       <ArtworkDetail />
+
     </>
   );
 };

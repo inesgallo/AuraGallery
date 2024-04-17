@@ -45,7 +45,7 @@ export const routerProvider = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/artdetail",
+        path: "/Artdetail/:id",
         element: <ArtDetail />,
       },
       {
