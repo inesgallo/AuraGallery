@@ -8,17 +8,18 @@ main = Blueprint('product_blueprint', __name__)
 def manage_user():
     if request.method == "GET":
         get_product = ProductService.get_product()
-        print(get_product)
-    # elif request.method == "POST":
-    #     name_user = request.json['name_user']
-    #     password_user = request.json['password_user']
-    #     user_typeFK = request.json['user_typeFK']
-        
-    #     user_table = User(0,name_user,
-    #                             password_user,
-    #                             user_typeFK)
-    #     post_user = UserService.post_user(user_table)
-    #     print(post_user)
+        return  jsonify(get_product)
+    elif request.method == "POST":
+        title_product = request.json['title_product']
+        image_product = request.json['image_product']
+        category_product = request.json['category_product']
+        description_product = request.json['description_product']
+        stock_product = request.json['stock_product']
+        price_product = request.json['price_product']
+        user_artistFK = request.json['id_user_artistFK']
+        product_table = Product(0,title_product,image_product,category_product, description_product, stock_product, price_product, user_artistFK)
+        post_product = ProductService.post_product(product_table)
+        print(post_product)
     # elif request.method == "PATCH":
     #     id_user = request.json['id_user']
     #     name_user = request.json['name_user']

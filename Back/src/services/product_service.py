@@ -13,34 +13,49 @@ class ProductService():
                 # cursor.execute('SELECT * FROM product')
                 cursor.callproc('sp_get_product')
                 result = cursor.fetchall()
+                # [Product.convert_desde_BD(fila) for fila in result]
+                products_json = [{"id_product": row[0], "title_product": row[1], "image_product": row[2], "category_product": row[3], "description_product": row[4], "size_product": row[5], "price_product": row[6], "id_user_artistFK": row[7]} for row in result]
                 print(result)
             connection.close()
-            return result
+            return products_json
         except Exception as ex:
             print(ex)
-    # @classmethod
-    # def post_user(cls, user_table:User):
-    #     try:
-    #         connection  = get_connection()
-    #         #print(connection)
-    #         # id_user = user_table.id_user
-    #         name_user = user_table.name_user
-    #         password_user = user_table.password_user
-    #         user_typeFK = user_table.user_typeFK
-            
-    #         encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
-            
-    #         with connection.cursor() as cursor:
-                
-    #             # cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
-    #                         #    .format(id_user,name_user,password_user,user_typeFK))
-    #             cursor.callproc('post_user', (name_user,encriped_password,user_typeFK))
-    #             connection.commit()
-    #             print('User added successfully')
-    #         connection.close()
-    #         return "Data base is close"
-    #     except Exception as ex:
-    #         print(ex)
+    @classmethod
+    def post_product(cls, product_table:Product):
+        try:
+            connection  = get_connection()
+            # id_product = product_table.id_product,
+            title_product = product_table.title_product,
+            image_product = product_table.image_product,
+            category_product = product_table.category_product,
+            description_product = product_table.description_product,
+            stock_product = product_table.stock_product,
+            price_product = product_table.price_product,
+            id_user_artistFK = product_table.user_artistFK
+            with connection.cursor() as cursor:
+            #     sql = "INSERT INTO product(id_product, title_product, image_product, category_product, description_product, stock_product, price_product, id_user_artistFK) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            #     cursor.execute(sql, (
+            #         product_table.id_product,
+            #         product_table.title_product,
+            #         product_table.image_product,
+            #         product_table.category_product,
+            #         product_table.description_product,
+            #         product_table.stock_product,
+            #         product_table.price_product,
+            #         product_table.user_artistFK
+            # ))  
+            # connection.commit()
+                    # cursor.execute("INSERT INTO product(id_product, title_product, image_product, category_product, description_product, stock_product, price_product, id_user_artistFK) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+                    #                (id_product,title_product,image_product,category_product,description_product,stock_product,price_product,user_artistFK))
+                cursor.callproc('	sp.post_product', (title_product,image_product,category_product,description_product,stock_product,price_product,id_user_artistFK))
+            connection.commit()        
+            print('Product added successfully')
+        except Exception as ex:
+                print(ex)
+        finally:
+            connection.close()
+            return "Data base is close"
+       
     # @classmethod
     # def patch_user(cls, user_table:User):
     #     try:
