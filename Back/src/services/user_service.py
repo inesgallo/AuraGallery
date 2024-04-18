@@ -29,6 +29,8 @@ class UserService():
             connection  = get_connection()
             #print(connection)
             # id_user = user_table.id_user
+            name_person_user = user_table.name_person_user
+            surname_person_user = user_table.surname_person_user
             name_user = user_table.name_user
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
@@ -39,7 +41,7 @@ class UserService():
                 
                 # cursor.execute("INSERT INTO user(id_user, name_user, password_user, id_user_typeFK) VALUES ({0}, '{1}', '{2}', {3})"
                             #    .format(id_user,name_user,password_user,user_typeFK))
-                cursor.callproc('post_user', (name_user,encriped_password,user_typeFK))
+                cursor.callproc('post_user', (name_person_user,surname_person_user,name_user,encriped_password,user_typeFK))
                 connection.commit()
                 print('User added successfully')
             connection.close()
@@ -51,6 +53,8 @@ class UserService():
         try:
             connection  = get_connection()
             id_user = user_table.id_user
+            name_person_user = user_table.name_person_user
+            surname_person_user = user_table.surname_person_user
             name_user = user_table.name_user
             password_user = user_table.password_user
             user_typeFK = user_table.user_typeFK
@@ -59,7 +63,7 @@ class UserService():
             
             with connection.cursor() as cursor:
                 # cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
-                cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
+                cursor.callproc('update_user', (id_user,name_person_user,surname_person_user,name_user,encriped_password,user_typeFK))
                 connection.commit()
                 print('User updated successfully')
             connection.close()
