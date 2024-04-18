@@ -25,29 +25,30 @@ class ProductService():
         try:
             connection  = get_connection()
             # id_product = product_table.id_product,
-            title_product = product_table.title_product,
-            image_product = product_table.image_product,
-            category_product = product_table.category_product,
-            description_product = product_table.description_product,
-            stock_product = product_table.stock_product,
-            price_product = product_table.price_product,
-            id_user_artistFK = product_table.user_artistFK
+            # title_product = product_table.title_product,
+            # image_product = product_table.image_product,
+            # category_product = product_table.category_product,
+            # description_product = product_table.description_product,
+            # stock_product = product_table.stock_product,
+            # price_product = product_table.price_product,
+            # id_user_artistFK = product_table.user_artistFK
             with connection.cursor() as cursor:
+                cursor.callproc('	sp_post_product', (
             #     sql = "INSERT INTO product(id_product, title_product, image_product, category_product, description_product, stock_product, price_product, id_user_artistFK) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
             #     cursor.execute(sql, (
-            #         product_table.id_product,
-            #         product_table.title_product,
-            #         product_table.image_product,
-            #         product_table.category_product,
-            #         product_table.description_product,
-            #         product_table.stock_product,
-            #         product_table.price_product,
-            #         product_table.user_artistFK
-            # ))  
+                    # product_table.id_product,
+                    product_table.title_product,
+                    product_table.image_product,
+                    product_table.category_product,
+                    product_table.description_product,
+                    product_table.stock_product,
+                    product_table.price_product,
+                    product_table.user_artistFK
+            ))  
             # connection.commit()
                     # cursor.execute("INSERT INTO product(id_product, title_product, image_product, category_product, description_product, stock_product, price_product, id_user_artistFK) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
                     #                (id_product,title_product,image_product,category_product,description_product,stock_product,price_product,user_artistFK))
-                cursor.callproc('	sp.post_product', (title_product,image_product,category_product,description_product,stock_product,price_product,id_user_artistFK))
+                # cursor.callproc('	sp.post_product', (title_product,image_product,category_product,description_product,stock_product,price_product,id_user_artistFK))
             connection.commit()        
             print('Product added successfully')
         except Exception as ex:
