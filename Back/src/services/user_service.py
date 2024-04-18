@@ -14,9 +14,13 @@ class UserService():
                 # cursor.execute('SELECT * FROM user')
                 cursor.callproc('select_user')
                 result = cursor.fetchall()
-                print(result)
+                # user_list = []
+                # user_list = [User.convert_desde_BD(fila) for fila in result]
+                # print(user_list)
+                #print(result)
+            users_json = [{"id_user": row[0], "name_user": row[1], "password_user": row[2], "user_typeFK": row[3]} for row in result]
             connection.close()
-            return result
+            return users_json
         except Exception as ex:
             print(ex)
     @classmethod

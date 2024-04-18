@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "user_name": "",
+      "user_password": "",
+      "id": "fc30"
+    },
+    {
+      "id": "09e8",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "5c2d",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "c4f2",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "6af2",
+      "name_user": "yuliaestoycansada@gmail.com",
+      "password_user": "1234"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "artistName": "Arista",
+      "artWork": "aoldf",
+      "artWorkType": "dsfg",
+      "description": "fdgds",
+      "categories": "fdggs",
+      "file": "dfgdfg"
+    },
+    {
+      "id": "d696",
+      "artistName": "Arista",
+      "artWork": "aoldf",
+      "artWorkType": "dsfg",
+      "description": "fdgds",
+      "categories": "fdggs",
+      "file": "dfgdfg"
+    }
+  ]
+}

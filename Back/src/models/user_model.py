@@ -4,3 +4,7 @@ class User():
         self.name_user = name_user
         self.password_user = password_user
         self.user_typeFK = user_typeFK
+        
+    # @classmethod
+    # def convert_desde_BD(cls, fila):
+    #     return cls(fila[0], fila[1], fila[2], fila[3])
