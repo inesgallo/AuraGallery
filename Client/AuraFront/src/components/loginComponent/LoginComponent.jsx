@@ -5,11 +5,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useUserHandler } from "../../handler/AuthHandler"
-
+//import { useCookies } from "react-cookie";
 import Swal from 'sweetalert2'
 
 
 const LoginComponent = () => {
+  //const [cookies] = useCookies(["id_user"]); 
   const [email, setEmail] = useState ('');
   const [password, setPassword] = useState ('');
   const { handleLogin } = useUserHandler();
@@ -34,6 +35,7 @@ const LoginComponent = () => {
       setEmail('');
       setPassword('');
     })
+
 
    };
 
