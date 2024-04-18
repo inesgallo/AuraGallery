@@ -18,7 +18,7 @@ class UserService():
                 # user_list = [User.convert_desde_BD(fila) for fila in result]
                 # print(user_list)
                 #print(result)
-            users_json = [{"id_user": row[0], "name_user": row[1], "password_user": row[2], "user_typeFK": row[3]} for row in result]
+            users_json = [{"id_user": row[0], "name_person_user": row[1], "surname_person_user": row[2], "name_user": row[3], "password_user": row[4], "user_typeFK": row[5]} for row in result]
             connection.close()
             return users_json
         except Exception as ex:

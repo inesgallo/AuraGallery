@@ -11,7 +11,7 @@ def login_user():
     password_user = request.json['password_user']
     print(name_user)
     print(password_user)
-    user_table = (User(0,name_user,password_user,None))
+    user_table = (User(0,None,None,name_user,password_user,None))
     auth_user = AuthService.verify_identity(user_table)
     if (auth_user != None):
         encode_token= Security.generate_token(auth_user)

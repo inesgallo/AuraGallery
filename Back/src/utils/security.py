@@ -19,6 +19,8 @@ class Security():
                 'nbf':current_time,
                 'exp':current_time + datetime.timedelta(minutes=30),
                 'id_user': user.id_user,
+                'name_person_user' : user.name_person_user,
+                'surname_person_user' : user.surname_person_user,
                 'name_user': user.name_user,
                 'password_user':  user.password_user,
                 'role': user.user_typeFK.rol_user_type
