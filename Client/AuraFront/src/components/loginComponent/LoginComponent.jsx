@@ -3,9 +3,9 @@ import "./loginComponent.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useUserHandler } from "../../handler/UserHandler";
+import { useUserHandler } from "../../handler/AuthHandler"
+
 import Swal from 'sweetalert2'
 
 
@@ -36,7 +36,7 @@ const LoginComponent = () => {
     })
 
    };
-   
+
   return (
     <>
       <section className="contentLogin  me-4 ms-4 mt-5 mb-5 ">
