@@ -29,7 +29,7 @@ export const loginUser = async (email, password, userRole) => {
 
       const token = response.data.token;
       const decodedToken = jwtDecode(token);
-
+      console.log(decodedToken)
       setCookie ("id_user",decodedToken.id_user);
       setCookie ("role",decodedToken.role);
       setCookie ("name_user",decodedToken.name_user);
