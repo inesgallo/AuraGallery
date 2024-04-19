@@ -8,8 +8,8 @@ const ArtistDashboard = () => {
   const { user } = useContext(UserContext);
   return (
     <>
-      <div>
-        {user && <p>Bienvenido, {user.namePerson}</p>}
+      <div className='d-flex justify-content-center fs-1'>
+        {user && <p>¡Bienvenid@ {user.namePerson}!</p>}
       </div>
     <MultiplesImagenes /> 
     <ArtistForm />
