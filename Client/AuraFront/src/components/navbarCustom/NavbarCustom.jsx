@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '/public/img-8/logo.svg';
 import search from '/public/icons/search.svg';
 import buy from '/public/icons/buy.svg';
 import './navbarCustom.css';
+import { UserContext } from '../../context/UserContext';
 
 function NavbarCustom() {
+  const {isLoggedIn , logout}  = useContext(UserContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoginPage, setIsLoginPage] = useState(false);
 
@@ -15,6 +17,9 @@ function NavbarCustom() {
     setMenuOpen(!menuOpen); "login link"
   };
 
+  const handleLogout = () =>{
+    logout();
+  }
 
 useEffect(() => {
   setIsLoginPage(location.pathname === '/login');
@@ -44,7 +49,9 @@ useEffect(() => {
           </div>
           </Link>
 
-          <h3 id='loginButton'>{isLoginPage ? <Link to="/" className={isLoginPage ? 'login closeactive' : 'closedesable'}>logout</Link> : <Link to="/login" className={isLoginPage ? 'login closeactive' : 'closedesable'}>login</Link>}</h3>
+          <h3 id='loginButton'>{isLoggedIn ? 
+          <Link to="/" onClick={handleLogout} className={isLoggedIn ? 'login closeactive' : 'closedesable'}>logout</Link> :
+          <Link to="/login" className={isLoggedIn ? 'login closeactive' : 'closedesable'}>login</Link>}</h3>
 
           <Link to="/buscar">
             <img className="link" id='search' src={search} />
