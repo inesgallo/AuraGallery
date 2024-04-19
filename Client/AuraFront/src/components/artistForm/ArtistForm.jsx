@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { ArtworkHandler } from '../../handler/ArtworkHandler'; // Cambia la importación
-
+import { ArtworkHandler } from '../../handler/ArtworkHandler';
+import './artistForm.css';
 
 const ArtistForm = () => {
-  const [artistName, setArtistName] = useState('');
-  const [artworkName, setArtworkName] = useState('');
-  const [artworkType, setArtworkType] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
+  const [id_user_artistFK, setId_user_artistFK] = useState('');
+  const [title_product, setTitle_product] = useState('');
+  const [category_product, setCategory_product] = useState('');
+  const [price_product, setPrice_product] = useState('');
+  const [description_product, setDescription_product] = useState('');
   const [categories, setCategories] = useState('');
-  const [images, setImages] = useState([]);
+  const [image_product, setImage_product] = useState([]);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -17,47 +17,71 @@ const ArtistForm = () => {
   };
 
   const handleImages = (e) => {
-    setImages([...e.target.files]);
+    setImage_product([...e.target.files]);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('artistName', artistName);
-    formData.append('artworkName', artworkName);
-    formData.append('artworkType', artworkType);
-    formData.append('price', price);
-    formData.append('description', description);
-    formData.append('category', categories); // Agregamos la categoría seleccionada
-    images.forEach((image) => {
-      formData.append('images', image);
+    formData.append('id_user_artistFK', id_user_artistFK);
+    formData.append('title_product', title_product);
+    formData.append('category_product', category_product);
+    formData.append('price_product', price_product);
+    formData.append('description_product', description_product);
+    formData.append('categories', categories);
+    images.forEach((image_product) => {
+      formData.append('image_product', image_product);
     });
     ArtworkHandler.submitArtwork(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        nombre del artista:
-        <input type="text" name="artistName" onChange={(e) => setArtistName(e.target.value)} />
+    <form className='artistform' onSubmit={handleSubmit}>
+      <section className='containerForm'>
+      <h2 className='dates_products'>Datos nueva obra</h2>
+      <label className='userLabel'>
+        <input className='userInput' type="text" name="id_user_artistFK" onChange={(e) => setId_user_artistFK(e.target.value)} />
       </label>
-      <label>
-        nombre de la obra:
-        <input type="text" name="artworkName" onChange={(e) => setArtworkName(e.target.value)} />
-      </label>
-      <label>
-        tipo de obra:
-        <input type="text" name="artworkType" onChange={(e) => setArtworkType(e.target.value)} />
-      </label>
-      <label>
-        precio:
-        <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} />
-      </label>
-      <label>
-        descripción de la obra:
-        <textarea name="description" onChange={(e) => setDescription(e.target.value)} />
-      </label>
-      <fieldset>
+
+      <div className='title_productGroup'>
+        <label className='titleLabel'>
+          nombre de la obra:
+          <input className='titleInput' type="text" name="title_product" onChange={(e) => setTitle_product(e.target.value)} />
+        </label>
+      </div>
+
+      <div className='productPriceGroup'>
+        <div className='category_productGroup'>
+          <label className='categoryLabel'>
+            tipo de obra:
+            <input className='categoryInput' type="text" name="category_product" onChange={(e) => setCategory_product(e.target.value)} />
+          </label>
+        </div>
+
+        <div className='price_productGroup'>
+          <label className='priceLabel'>
+            precio:
+            <input className='priceInput' type="number" name="price_product" onChange={(e) => setPrice_product(e.target.value)} />
+          </label>
+        </div>
+      </div>
+
+      <div className='description_productGroup'>
+        <label className='descriptionLabel'>
+          descripción de la obra:
+          <textarea className='descriptionInput' name="description_product" onChange={(e) => setDescription_product(e.target.value)} />
+        </label>
+      </div>
+
+      <div className='image_productGroup'>
+        <label className='imageLabel'>
+          subir imágenes:
+          <input className='chooseFile' type="file" multiple onChange={handleImages} />
+        </label>
+      </div>
+
+
+      <fieldset className='categoryFieldset'>
         <legend>Categorías:</legend>
         <label>
           <input type="radio" name="category" value="arte abstracto" checked={categories === 'arte abstracto'} onChange={handleChange} />
@@ -80,12 +104,11 @@ const ArtistForm = () => {
           Neo-pop
         </label>
       </fieldset>
-      <label>
-        subir imágenes::
-        <input type="file" multiple onChange={handleImages} />
-      </label>
-      <button type="submit">enviar</button>
+
+      <button type="submit" className='sendBotton'>enviar</button>
+      </section>
     </form>
+    
   );
 }
 

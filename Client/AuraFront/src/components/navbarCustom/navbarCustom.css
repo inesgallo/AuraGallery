@@ -4,8 +4,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
-    border: 1px solid var(--coralito);
     height: 140px;
     width: 100%;
 }

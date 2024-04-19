@@ -80,6 +80,16 @@
       "description": "chuli",
       "category": "expresionismo",
       "images": {}
+    },
+    {
+      "id": "5f34",
+      "artistName": "Gustav Klimt",
+      "artworkName": "el beso",
+      "artworkType": "cuadro",
+      "price": "530",
+      "description": "200x200",
+      "category": "realismo contemporáneo",
+      "images": {}
     }
   ]
 }
