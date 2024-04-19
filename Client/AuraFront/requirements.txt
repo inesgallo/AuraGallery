@@ -1,0 +1,2 @@
+#npm install --save reactstrap react react-dom
+#npm install —save react-drop zone

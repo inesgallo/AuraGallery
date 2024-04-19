@@ -8,6 +8,9 @@ const ArtistDashboard = () => {
   const { user } = useContext(UserContext);
   return (
     <>
+      <div>
+        {user && <p>Bienvenido, {user.namePerson}</p>}
+      </div>
     <MultiplesImagenes /> 
     <ArtistForm />
     </>
