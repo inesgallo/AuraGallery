@@ -76,11 +76,11 @@ class ProductService():
                 cursor.execute("""
                     UPDATE product 
                     SET title_product = %s, image_product = %s, category_product = %s, description_product = %s, stock_product = %s, price_product = %s, id_user_artistFK = %s 
-                    WHERE product.id_product = %s""", (title_product, image_product, category_product, description_product, stock_product, price_product, user_artistFK, id_product))
-    #             # cursor.execute("UPDATE user SET  name_user = '{0}', password_user = '{1}', id_user_typeFK = {2}  WHERE user.id_user = {3}".format(name_user,password_user,user_typeFK,id_user))
+                    WHERE id_product = %s""", (title_product, image_product, category_product, description_product, stock_product, price_product, user_artistFK, id_product))
+                print(f"Rows affected: {cursor.rowcount}")
     #             cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
                 connection.commit()
-                print('User updated successfully')
+                print('Product updated successfully')
             connection.close()
             return "Data base is close"
         except Exception as ex:
