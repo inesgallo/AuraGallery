@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:3000',
     withCredentials: false,
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
     }
 })
 
@@ -28,22 +28,22 @@ export const ArtworkService = {
             console.error("Error al obtener la obra:", error);
         }
     },
-    async submitArtwork(newArtwork){
+    async submitArtwork(newArtwork) {
         try {
             return await apiClient.post("/artworks", newArtwork);
         } catch (error) {
             console.error("Error al enviar la obra:", error);
         }
-    
+
     },
-    async deleteArtwork(id){
+    async deleteArtwork(id) {
         try {
             return await apiClient.delete("/artwork/" + id);
         } catch (error) {
             console.error("Error al eliminar la obra:", error);
         }
     },
-    async updateArtwork(id, updatedArtwork){
+    async updateArtwork(id, updatedArtwork) {
         try {
             return await apiClient.patch("/artworks/" + id, updatedArtwork);
         } catch (error) {

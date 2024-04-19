@@ -1,5 +1,6 @@
 import React , { useContext } from 'react';
-import { Outlet, useNavigation } from "react-router-dom";
+import ArtistForm from '../../components/artistForm/ArtistForm';
+import MultiplesImagenes from '../../components/MultiplesImagenes';
 import { UserContext } from "../../context/UserContext";
 
 const ArtistDashboard = () => {
@@ -7,12 +8,13 @@ const ArtistDashboard = () => {
   const { user } = useContext(UserContext);
   return (
     <>
-    <h1>Hola esto es Artist Dashboard PAge</h1>
-    <div>
-      {user && <p>Bienvenido, {user.namePerson}</p>}
-    </div>
+      <div>
+        {user && <p>Bienvenido, {user.namePerson}</p>}
+      </div>
+    <MultiplesImagenes /> 
+    <ArtistForm />
     </>
   )
 }
 
-export default ArtistDashboard
+export default ArtistDashboard;
