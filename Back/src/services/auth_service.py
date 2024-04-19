@@ -16,10 +16,10 @@ class AuthService():
                 cursor.execute("CALL sp_verify_identity(%s)", user.name_user)
                 row = cursor.fetchone()
                 
-            if(row != None and check_password_hash(row[2], user.password_user)):
+            if(row != None and check_password_hash(row[4], user.password_user)):
                     
-                    user_type = User_type(None, row[3])
-                    authenticated_user = User(row[0], row[1], row[2],  user_type)
+                    user_type = User_type(None, row[5])
+                    authenticated_user = User(row[0], row[1], row[2], row[3], row[4], user_type)
             else:
                     authenticated_user = None
             connection.close()
