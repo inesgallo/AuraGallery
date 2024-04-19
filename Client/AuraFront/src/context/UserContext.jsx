@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedInd] = useState(false);
   const [user, setUser] = useState(null);
   const [cookies] = useCookies([
     "id_user", 
@@ -22,11 +23,14 @@ export const UserProvider = ({ children }) => {
         namePerson: cookies.name_person_user,
         surnamePerson: cookies.surname_person_user,
       });
+      setIsLoggedInd(true);
+    }else{
+      setIsLoggedInd(false)
     }
   }, [cookies]);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, isLoggedIn }}>
       {children}
     </UserContext.Provider>
  );
