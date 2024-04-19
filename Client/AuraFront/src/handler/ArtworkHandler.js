@@ -1,5 +1,6 @@
 import ArtworkService from '../services/ArtworkService';
 
+
 export const ArtworkHandler = {
   async getAllArtworks() {
     let allArtworks = await ArtworkService.getAllArtworks();
@@ -11,6 +12,8 @@ export const ArtworkHandler = {
     return artwork;
   },
 
+
+  
   async submitArtwork(newArtwork) {
     return ArtworkService.submitArtwork(newArtwork).then((response) => {
       // Manejar la respuesta de forma específica al componente

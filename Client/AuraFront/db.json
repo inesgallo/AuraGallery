@@ -26,7 +26,7 @@
       "password_user": "1234"
     }
   ],
-  "products": [
+  "artworks": [
     {
       "id": "1",
       "artistName": "Arista",
@@ -44,6 +44,67 @@
       "description": "fdgds",
       "categories": "fdggs",
       "file": "dfgdfg"
+    },
+    {
+      "id": "cac5"
+    },
+    {
+      "id": "1",
+      "artistName": "Monet",
+      "artWork": "paseo al sol",
+      "artWorkType": "lienzo",
+      "description": "400x400",
+      "categories": "impresionismo",
+      "file": "dfgdfg"
+    },
+    {
+      "id": "1",
+      "artistName": "Monet",
+      "artWork": "paseo al sol",
+      "artWorkType": "lienzo",
+      "description": "400x400",
+      "categories": "impresionismo",
+      "file": "dfgdfg"
+    },
+    {
+      "id": "114c",
+      "artistName": "Gustav Klimt",
+      "artworkName": "el beso",
+      "artworkType": "cuadro",
+      "price": "53",
+      "description": "chuli",
+      "category": "expresionismo",
+      "images": {}
+    },
+    {
+      "id": "42fa",
+      "artistName": "Gustav Klimt",
+      "artworkName": "el beso",
+      "artworkType": "cuadro",
+      "price": "53",
+      "description": "chuli",
+      "category": "expresionismo",
+      "images": {}
+    },
+    {
+      "id": "1f42",
+      "artistName": "Gustav Klimt",
+      "artworkName": "el beso",
+      "artworkType": "cuadro",
+      "price": "53",
+      "description": "chuli",
+      "category": "expresionismo",
+      "images": {}
+    },
+    {
+      "id": "5f34",
+      "artistName": "Gustav Klimt",
+      "artworkName": "el beso",
+      "artworkType": "cuadro",
+      "price": "530",
+      "description": "200x200",
+      "category": "realismo contemporáneo",
+      "images": {}
     }
   ]
 }

@@ -5,6 +5,7 @@ import FooterCustom from '../components/footerCustom/FooterCustom';
 const LayoutPublic = () => {
   return (
     <>
+    <NavbarCustom />
     <Outlet />
 
     <FooterCustom />

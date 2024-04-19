@@ -1,0 +1,99 @@
+.artistform {
+  display: block;
+  position: relative;
+  background-color: var(--gris);
+  max-width: 992px;
+  
+  margin: 0 auto 30px;
+}
+
+.containerForm {
+  padding: 80px;
+}
+
+.productPriceGroup {
+  display: flex;
+  justify-content: space-between;
+} 
+
+.titleLabel, .descriptionLabel {
+  display:block;
+}
+
+.categoryLabel {
+  width: 680px;
+  margin-right: 50px;
+}
+
+input, textarea { border: none; }
+
+.categoryFieldset {
+  text-align: center; 
+  margin-bottom: 40px;
+}
+
+
+.title_productGroup, .dates_products, .image_productGroup, .description_productGroup,.imageLabel, .image_productGroup, .productPriceGroup{
+margin-bottom: 20px;
+}
+
+.userInput {
+  margin-bottom: 40px;
+}
+
+.sendBotton {
+  width:158px;
+  height: 26px;
+  background-color: var(--coralito);
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'Montserrat';
+  font-size: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 80px;
+}
+
+.sendBotton:hover { background-color: black;}
+
+.sendBotton:active {background-color: white;
+color: var(--coralito);
+transform: scale(1.2);
+font-weight: bolder;
+border: 1px solid var(--coralito);}
+
+
+
+
+@media screen and (max-width: 1145px) {
+  .artistform {
+    max-width: 675px;
+  }
+
+  .categoryLabel {
+    width: 400px;
+    margin-right: 30px;
+  }
+
+}
+
+
+
+
+@media screen and (max-width: 730px) {
+  .artistform {
+    max-width: 375px;
+  }
+
+  .productPriceGroup {
+    display: flex;
+    flex-direction: column;
+  } 
+
+  .categoryLabel {
+    width: 215px;
+    margin-right: 10px;
+  }
+  
+}

@@ -51,7 +51,7 @@ p {
     --blanco: #FFFFFF;
     --gris: #F4F4F2;
     --negro: #161412;
-    --coral: #FC4308;
+    --coralito: #FC4308;
 }
 
 
@@ -60,4 +60,13 @@ p {
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
+}
+
+.dropzone {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--gris);
+    border: 3px dashed var(--coralito);
+    color: grey;
+    margin-bottom: 20px;
 }
