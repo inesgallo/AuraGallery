@@ -5,13 +5,14 @@ from src.models.product_model import Product
 main = Blueprint('product_blueprint', __name__)
 
 @main.route('/', methods = ['GET','POST','PATCH','DELETE'])
-def manage_user():
+def manage_product():
     if request.method == "GET":
         products = ProductService.get_product()
-        if products is not None:
-            return  jsonify(products), 200
-        else: 
-            return jsonify({"message":"No product found"}),404
+        # if products is not None:
+        #     return  jsonify(products), 200
+        # else: 
+        return jsonify(products)
+        # return(products)
     elif request.method == "POST":
         title_product = request.json['title_product']
         image_product = request.json['image_product']
