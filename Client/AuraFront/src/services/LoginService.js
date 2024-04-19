@@ -33,6 +33,8 @@ export const loginUser = async (email, password, userRole) => {
       setCookie ("id_user",decodedToken.id_user);
       setCookie ("role",decodedToken.role);
       setCookie ("name_user",decodedToken.name_user);
+      setCookie ("name_person_user",decodedToken.name_person_user);
+      setCookie ("surname_person_user",decodedToken.surname_person_user);
       console.log("Token decodificado:", decodedToken);
 
       const userRole = decodedToken.role;
