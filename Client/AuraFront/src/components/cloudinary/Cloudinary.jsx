@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 import axios from "axios";
+import './cloudinary.css';
 
 
 const MultiplesImagenes = (props) => {
