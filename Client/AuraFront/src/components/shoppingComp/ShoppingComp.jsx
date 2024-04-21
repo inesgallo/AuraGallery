@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import useLocalStorage from '../../custom/useLocalStorage';
 
 function ShoppingComp() {

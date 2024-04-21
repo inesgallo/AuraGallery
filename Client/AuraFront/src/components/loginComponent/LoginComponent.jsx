@@ -3,9 +3,8 @@ import "./loginComponent.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useUserHandler } from "../../handler/UserHandler";
+import { useUserHandler } from "../../handler/AuthHandler"
 import Swal from 'sweetalert2'
 
 
@@ -35,8 +34,9 @@ const LoginComponent = () => {
       setPassword('');
     })
 
+
    };
-   
+
   return (
     <>
       <section className="contentLogin  me-4 ms-4 mt-5 mb-5 ">
@@ -78,7 +78,7 @@ const LoginComponent = () => {
                     <div className="d-flex ms-2">
                     <Form.Label sm={2}>nombre :</Form.Label>
                     </div>
-                    <Form.Control type="email"  value={email} 
+                    <Form.Control type="text"  value={email} 
                     onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="passwordAccess">

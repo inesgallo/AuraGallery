@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.user_service import UserService
 from src.models.user_model import User
 
@@ -8,23 +8,31 @@ main = Blueprint('aura_gallery_blueprint', __name__)
 def manage_user():
     if request.method == "GET":
         get_user = UserService.get_user()
-        print(get_user)
+        return jsonify(get_user)
     elif request.method == "POST":
+        name_person_user = request.json['name_person_user'] 
+        surname_person_user = request.json['surname_person_user']
         name_user = request.json['name_user']
         password_user = request.json['password_user']
         user_typeFK = request.json['user_typeFK']
         
         user_table = User(0,name_user,
-                                password_user,
-                                user_typeFK)
+                        name_person_user,
+                        surname_person_user,
+                        password_user,
+                        user_typeFK)
         post_user = UserService.post_user(user_table)
         print(post_user)
     elif request.method == "PATCH":
         id_user = request.json['id_user']
+        name_person_user = request.json['name_person_user'] 
+        surname_person_user = request.json['surname_person_user']
         name_user = request.json['name_user']
         password_user = request.json['password_user']
         user_typeFK = request.json['user_typeFK']
         user_table = User(id_user,
+                        name_person_user,
+                        surname_person_user,
                         name_user,
                         password_user,
                         user_typeFK)

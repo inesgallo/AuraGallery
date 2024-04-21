@@ -6,6 +6,7 @@ const ArtDetail = () => {
       <h1>Art Detail Page</h1>
       <ArtworkDetail />
 
+
     </>
   );
 };

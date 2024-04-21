@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticateUser } from '../services/UserService';
+import { loginUser } from '../services/LoginService';
 import Swal from 'sweetalert2'
 
 export const useUserHandler = () => {
- const [userType, setUserType] = useState(null);
+ const [userRol, setUserRol] = useState(null);
  const navigate = useNavigate(); 
 
- const handleLogin = async (username, password) => {
-    const response = await authenticateUser(username, password);
+ const handleLogin = async (username, password,userRol) => {
+    const response = await loginUser(username, password,userRol);
     if (response.success) {
-      setUserType(response.userType);
+      setUserRol(response.userRol);
       // Redirigir basado en el tipo de usuario
-      switch (response.userType) {
-        case 'admin':
+      switch (response.userRol) {
+        case 'admin' :
             navigate('/admin/dashboard');
           break;
-        case 'artist':
+        case  'artist' :
             navigate('/artist/dashboard');
           break;
-          case 'client':
+          case  'client':
             navigate('/'); 
           break;
         default:
@@ -37,5 +37,5 @@ export const useUserHandler = () => {
     }
  };
 
- return { userType, handleLogin };
+ return { userRol, handleLogin };
 };
