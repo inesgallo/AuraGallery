@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import './Catalogue.css';
-import Card from '../Card/Card'
+import { useState } from 'react'
+import './Catalogue.css'
+import Card from '../card/Card'
 function Catalogue() {
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [category_product, setCategory_product] = useState('');
 
     const handleCategoryClick = (category) => {
-        if (selectedCategory === category) {
-            setSelectedCategory(''); 
+        if (category_product === category) {
+            setCategory_product(''); 
         } else {
-            setSelectedCategory(category); 
+            setCategory_product(category); 
         }
     };
 
@@ -18,16 +18,15 @@ function Catalogue() {
                 <section className='filters-container'>
                     <h2 id="filters-title" className="filters-title">GALERÍA</h2>
                     <div className='categories-buttons-container'>
-                        <button className={`categories-buttons ${selectedCategory === 'ArteAbstracto' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteAbstracto')}>Arte<br></br>Abstracto</button>
-                        <button className={`categories-buttons ${selectedCategory === 'RealismoContemporaneo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('RealismoContemporaneo')}>Realismo<br></br>Contemporáneo</button>
-                        <button className={`categories-buttons ${selectedCategory === 'expresionismo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('expresionismo')}>Expresionismo</button>
-                        <button className={`categories-buttons ${selectedCategory === 'ArteDigital' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteDigital')}>Arte<br></br>Digital</button>
-                        <button className={`categories-buttons ${selectedCategory === 'NeoPop' ? 'selected' : ''}`} onClick={() => handleCategoryClick('NeoPop')}>Neo-Pop</button>
-                        <button className={`categories-buttons ${selectedCategory === 'Todas' ? 'selected' : ''}`} onClick={() => handleCategoryClick('Todas')}>Todas</button>
+                        <button className={`categories-buttons ${category_product === 'ArteAbstracto' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteAbstracto')}>Arte<br></br>Abstracto</button>
+                        <button className={`categories-buttons ${category_product === 'RealismoContemporaneo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('RealismoContemporaneo')}>Realismo<br></br>Contemporáneo</button>
+                        <button className={`categories-buttons ${category_product === 'expresionismo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('expresionismo')}>Expresionismo</button>
+                        <button className={`categories-buttons ${category_product === 'ArteDigital' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteDigital')}>Arte<br></br>Digital</button>
+                        <button className={`categories-buttons ${category_product === 'NeoPop' ? 'selected' : ''}`} onClick={() => handleCategoryClick('NeoPop')}>Neo-Pop</button>
                     </div>
                 </section>
                 <section className="artwork-container">
-                    <Card selectedCategory={selectedCategory} /> 
+                    <Card category_product={category_product} /> 
                 </section>
             </div>
         </div>

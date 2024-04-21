@@ -9,47 +9,47 @@ const apiClient = axios.create({
     }
 })
 
-export const ArtworkService = {
-    async getArtworks() {
+export const ProductService = {
+    async getProducts() {
         try {
-            let response = await apiClient.get("/artworks");
-            let allArtworks = response.data;
-            return allArtworks;
+            let response = await apiClient.get("/products");
+            let allProducts = response.data;
+            return allProducts;
         } catch (error) {
-            console.error("Error al obtener los productos:", error);
+            console.error("Error al obtener las obras:", error);
         }
     },
-    async getArtwork(id) {
+    async getProduct(id) {
         try {
-            let response = await apiClient.get("/artworks/" + id);
-            let artwork = response.data;
-            return artwork;
+            let response = await apiClient.get("/products/" + id);
+            let product = response.data;
+            return product;
         } catch (error) {
             console.error("Error al obtener la obra:", error);
         }
     },
-    async submitArtwork(newArtwork){
+    async submitProduct(newProduct){
         try {
-            return await apiClient.post("/artworks", newArtwork);
+            return await apiClient.post("/products", newProduct);
         } catch (error) {
             console.error("Error al enviar la obra:", error);
         }
     
     },
-    async deleteArtwork(id){
+    async deleteProduct(id){
         try {
-            return await apiClient.delete("/artwork/" + id);
+            return await apiClient.delete("/product/" + id);
         } catch (error) {
             console.error("Error al eliminar la obra:", error);
         }
     },
-    async updateArtwork(id, updatedArtwork){
+    async updateProduct(id, updatedProduct) {
         try {
-            return await apiClient.patch("/artworks/" + id, updatedArtwork);
+            return await apiClient.patch("/products/" + id, updatedProduct);
         } catch (error) {
             console.error("Error al actualizar la obra:", error);
         }
     }
 }
 
-export default ArtworkService;
+export default ProductService;

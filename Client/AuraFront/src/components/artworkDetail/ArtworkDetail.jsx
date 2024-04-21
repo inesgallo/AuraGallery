@@ -5,8 +5,8 @@ import "./artworkDetail.css";
 function ArtworkDetail() {
 
   const location = useLocation();
-  const artwork = location.state.artwork;
-  console.log(artwork);
+  const product = location.state.product;
+  console.log(product);
 
   return (
     
@@ -16,15 +16,15 @@ function ArtworkDetail() {
 
 
           <section className="artwork-detail-image">
-            <img src={artwork.artworkImage} alt={artwork.artworkName} />
+            <img src={product.image_product} alt={product.title_product} />
           </section>
 
           <section className="artwork-detail-info">
 
-            <h2>{artwork.artworkName}</h2>
-            <p>{artwork.artistName}</p>
-            <p>{artwork.description}</p>
-            <p>{artwork.artworkPrice} €</p>
+            <h2>{product.title_product}</h2>
+            <p>{product.name_artist}</p>
+            <p>{product.description_product}</p>
+            <p>{product.price_product} €</p>
 
             <hr></hr>
 

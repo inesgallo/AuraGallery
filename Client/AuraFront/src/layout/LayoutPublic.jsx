@@ -1,11 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import FooterCustom from '../components/footerCustom/FooterCustom';
-
+import FooterCustom from '../components/footerCustom/FooterCustom'
 const LayoutPublic = () => {
   return (
     <>
     <Outlet />
-    
+
     <FooterCustom />
     </>
   )

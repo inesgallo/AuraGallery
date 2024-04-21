@@ -1,49 +1,56 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ArtworkHandler from "../../handler/ArtworkHandler";
+import ProductHandler from "../../handler/ProductHandler";
 import PropTypes from "prop-types";
 import "./Card.css";
 
-function Card({ selectedCategory }) {
-  const [artworks, setArtworks] = useState([]);
+function Card({ category_product }) {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    ArtworkHandler.getFilteredArtworks(selectedCategory).then(
-      (filteredArtworks) => {
-        setArtworks(filteredArtworks);
-        console.log(filteredArtworks);
+    ProductHandler.getFilteredProducts(category_product).then(
+      (filteredProducts) => {
+        setProducts(filteredProducts);
+        console.log(filteredProducts);
       }
       
     );
-  }, [selectedCategory]);
+  }, [category_product]);
+
+  const addToCart = (product) => {
+    setCart([...cart, product])
+    setTotal(total + product.price_product)
+   }
 
   Card.propTypes = {
-    selectedCategory: PropTypes.string,
-    artwork: PropTypes.object,
-    setArtworks: PropTypes.func,
+    category_product: PropTypes.string,
+    product: PropTypes.object,
+    setProducts: PropTypes.func,
   };
 
   return (
     <div className="artwork-container">
-      {artworks?.map((artwork, index) => (
+      {products?.map((product, index) => (
         <div key={index} className="card">
 
-          <Link to={`/Artdetail/${artwork.artworkName}`} state={{artwork}}>
+          <Link to={`/Artdetail/${product.title_product}`} state={{product}}>
 
             <div className="artwork-image-container">
-              <img src={artwork.artworkImage} alt={artwork.artworkName} />
+              <img src={product.image_product} alt={product.title_product} />
             </div>
             
           </Link>
 
           <div className="artwork-details">
 
-            <h3 className="artwork-title">{artwork.artworkName}</h3>
+            <h3 className="artwork-title">{product.title_product}</h3>
 
             <div className="artwork-info">
 
-              <p className="artist-name">{artwork.artistName}</p>
-              <p className="artwork-description">{artwork.description}</p>
+              <p className="artist-name">{product.name_artist}</p>
+              <p className="artwork-description">{product.description_product}</p>
             
             </div>
           </div>
