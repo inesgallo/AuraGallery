@@ -3,6 +3,7 @@ import { ArtworkHandler } from '../../handler/ArtworkHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 import axios from "axios";
+import Swal from 'sweetalert2';
 import './artistForm.css';
 
 const ArtistForm = () => {
@@ -61,27 +62,67 @@ const ArtistForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    try {
-      const formData = new FormData();
-      formData.append('id_user_artistFK', id_user_artistFK);
-      formData.append('title_product', title_product);
-      formData.append('category_product', category_product);
-      formData.append('price_product', price_product);
-      formData.append('description_product', description_product);
-      formData.append('categories', categories);
-      image_product.forEach((image) => {
-        formData.append('image_product', image);
+  
+    // Validar si todos los campos están rellenos
+    if (
+      id_user_artistFK &&
+      title_product &&
+      category_product &&
+      price_product &&
+      description_product &&
+      categories &&
+      image_product.length > 0
+    ) {
+      try {
+        const formData = new FormData();
+        formData.append('id_user_artistFK', id_user_artistFK);
+        formData.append('title_product', title_product);
+        formData.append('category_product', category_product);
+        formData.append('price_product', price_product);
+        formData.append('description_product', description_product);
+        formData.append('categories', categories);
+        image_product.forEach((image) => {
+          formData.append('image_product', image);
+        });
+  
+        await ArtworkHandler.submitArtwork(formData);
+        setLoading(false);
+        // Limpiar los campos del formulario
+        setId_user_artistFK('');
+        setTitle_product('');
+        setCategory_product('');
+        setPrice_product('');
+        setDescription_product('');
+        setCategories('');
+        setImage_product([]);
+        setImagePreviewArray([]);
+        // Mostrar SweetAlert de éxito
+        Swal.fire({
+          icon: 'success',
+          title: '¡Éxito!',
+          text: 'La obra ha sido enviada correctamente.',
+        });
+      } catch (error) {
+        console.error('Error al enviar la obra:', error);
+        setLoading(false);
+        // Mostrar SweetAlert de error
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Ha ocurrido un error al enviar la obra.',
+        });
+      }
+    } else {
+      // Mostrar alerta de que todos los campos deben estar llenos
+      Swal.fire({
+        icon: 'warning',
+        title: '¡Advertencia!',
+        text: 'Por favor, rellena todos los campos del formulario.',
       });
-
-      await ArtworkHandler.submitArtwork(formData);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error al enviar la obra:', error);
       setLoading(false);
     }
   };
-
+  
   return (
     <Container>
       <form className='artistform' onSubmit={handleSubmit}>

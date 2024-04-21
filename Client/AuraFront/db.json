@@ -220,6 +220,94 @@
       "description_product": "lienzo",
       "categories": "realismo contemporáneo",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713711872/WorkArtist/lliqvbnhhst5gppachlk.jpg"
+    },
+    {
+      "id": "89a3",
+      "id_user_artistFK": "Myriam",
+      "title_product": "mosaiko",
+      "category_product": "lienzo",
+      "price_product": "456",
+      "description_product": "acuarelas",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713713092/WorkArtist/zee1lrzxaty0gfymaylm.jpg"
+    },
+    {
+      "id": "287a",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "42e2",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "1f83",
+      "id_user_artistFK": "Inés Gallo",
+      "title_product": "Circulos",
+      "category_product": "400x300",
+      "price_product": "678",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
+    },
+    {
+      "id": "07aa",
+      "id_user_artistFK": "Inés Gallo",
+      "title_product": "Circulos",
+      "category_product": "400x300",
+      "price_product": "678",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
+    },
+    {
+      "id": "d754",
+      "id_user_artistFK": "Gabriela Ramos",
+      "title_product": "noche estrellada",
+      "category_product": "paisajismo",
+      "price_product": "76",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714616/WorkArtist/jtpkp6yoyvrizzkyyxmx.jpg"
+    },
+    {
+      "id": "8aaf",
+      "id_user_artistFK": "Myri Mira",
+      "title_product": "oleaje",
+      "category_product": "400x300",
+      "price_product": "90",
+      "description_product": "cositas",
+      "categories": "neo-pop",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715429/WorkArtist/hurnclodra9z9ludyyuv.jpg"
+    },
+    {
+      "id": "be53",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "paisajismo",
+      "price_product": "2",
+      "description_product": "dhsrhwr",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715841/WorkArtist/e2s1dmt0liilm05l22qt.jpg"
+    },
+    {
+      "id": "79de",
+      "id_user_artistFK": "Anita Dinamita",
+      "title_product": "mujeres klimt",
+      "category_product": "400x300",
+      "price_product": "530",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713716148/WorkArtist/c2sxwlfkhb8pn9eij36k.jpg"
     }
   ]
 }
