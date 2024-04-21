@@ -105,6 +105,121 @@
       "description": "200x200",
       "category": "realismo contemporáneo",
       "images": {}
+    },
+    {
+      "id": "edfd",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "300",
+      "description_product": "acuarela",
+      "categories": "neo-pop",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "a326",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "53",
+      "description_product": "lienzo",
+      "categories": "neo-pop",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "bd47",
+      "id_user_artistFK": "Pedro Reyes",
+      "title_product": "oleaje",
+      "category_product": "paisajismo",
+      "price_product": "45",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "Courbet_laOla2.jpg"
+      }
+    },
+    {
+      "id": "6a71",
+      "id_user_artistFK": "Pedro Reyes",
+      "title_product": "oleaje",
+      "category_product": "paisajismo",
+      "price_product": "45",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "Courbet_laOla2.jpg"
+      }
+    },
+    {
+      "id": "6759",
+      "id_user_artistFK": "Yamila Soledad",
+      "title_product": "libertad",
+      "category_product": "400x300",
+      "price_product": "50",
+      "description_product": "geometría acuarela",
+      "categories": "arte abstracto",
+      "image_product": {
+        "path": "Delaunay_tambor.jpg"
+      }
+    },
+    {
+      "id": "b30c",
+      "id_user_artistFK": "ana",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "53",
+      "description_product": "ertasgs",
+      "categories": "arte digital",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "891c",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "308a",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": "",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "4b0d",
+      "id_user_artistFK": "yulia bila",
+      "title_product": "arte",
+      "category_product": "autoretrato",
+      "price_product": "56",
+      "description_product": "fwgaq",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "mujeres_Klimt.jpg"
+      }
+    },
+    {
+      "id": "3c5c",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "23",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713711872/WorkArtist/lliqvbnhhst5gppachlk.jpg"
     }
   ]
 }
