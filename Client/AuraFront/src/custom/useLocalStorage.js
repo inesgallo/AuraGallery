@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useLocalStorage(key, initialValue) {
- // Obtener el valor inicial del almacenamiento local o usar el valor inicial proporcionado
+ // Obtiene el valor inicial del almacenamiento local o utiliza el valor inicial proporcionado
  const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -12,18 +12,17 @@ function useLocalStorage(key, initialValue) {
     }
  });
 
- // Función para actualizar el valor en el almacenamiento local y en el estado local
- const setValue = (value) => {
+ // Actualiza el valor en el almacenamiento local cuando el valor en el estado cambia
+ useEffect(() => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      const serializedValue = JSON.stringify(storedValue);
+      window.localStorage.setItem(key, serializedValue);
     } catch (error) {
       console.log(error);
     }
- };
+ }, [key, storedValue]);
 
- return [storedValue, setValue];
+ return [storedValue, setStoredValue];
 }
 
 export default useLocalStorage;

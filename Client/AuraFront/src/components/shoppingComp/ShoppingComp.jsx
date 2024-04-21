@@ -1,34 +1,31 @@
-
-import  useLocalStorage  from '../../custom/useLocalStorage'
+import React, { useState, useEffect } from 'react';
+import useLocalStorage from '../../custom/useLocalStorage';
 
 function ShoppingComp() {
- // Utilizar el hook useLocalStorage para manejar el carrito
  const [cart, setCart] = useLocalStorage('shoppingCart', []);
- const [total, setTotal] = useLocalStorage('total', 0);
 
  // Función para eliminar un producto del carrito
  const removeFromCart = (product) => {
-    const newCart = cart.filter(item => item.id !== product.id);
-    setCart(newCart);
-    setTotal(newCart.reduce((acc, item) => acc + item.price, 0));
+    setCart(cart.filter(item => item.title_product !== product.title_product));
  };
 
  return (
     <div className="shopping-comp">
-      <h2>Carrito de la Compra</h2>
+      <h2>Carrito de Compras</h2>
       {cart.length === 0 ? (
         <p>Tu carrito está vacío.</p>
       ) : (
-        cart.map((product, index) => (
-          <div key={index} className="cart-item">
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            <p>Precio: ${product.price}</p>
-            <button onClick={() => removeFromCart(product)}>Eliminar</button>
-          </div>
-        ))
+        <div>
+          {cart.map((product, index) => (
+            <div key={index} className="cart-item">
+              <img src={product.image_product} alt={product.title_product} />
+              <h3>{product.title_product}</h3>
+              <p>{product.name_artist}</p>
+              <button onClick={() => removeFromCart(product)}>Eliminar</button>
+            </div>
+          ))}
+        </div>
       )}
-      <p>Total: ${total}</p>
     </div>
  );
 }
