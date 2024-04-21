@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import ProductHandler from "../../handler/ProductHandler";
 import PropTypes from "prop-types";
 import "./Card.css";
+import  useLocalStorage from "../../custom/useLocalStorage";
 
 function Card({ category_product }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useLocalStorage('shoppingCart', []);
 
   useEffect(() => {
     ProductHandler.getFilteredProducts(category_product).then(
@@ -21,7 +21,6 @@ function Card({ category_product }) {
 
   const addToCart = (product) => {
     setCart([...cart, product])
-    setTotal(total + product.price_product)
    }
 
   Card.propTypes = {
