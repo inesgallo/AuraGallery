@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from "../../context/UserContext";
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
@@ -7,7 +9,7 @@ import Swal from 'sweetalert2';
 import './artistForm.css';
 
 const ArtistForm = () => {
-  const [id_user_artistFK, setId_user_artistFK] = useState('');
+  const { user } = useContext(UserContext);
   const [title_product, setTitle_product] = useState('');
   const [category_product, setCategory_product] = useState('');
   const [price_product, setPrice_product] = useState('');
@@ -22,10 +24,6 @@ const ArtistForm = () => {
     setCategories(value);
   };
 
-  // const handleImages = (files) => {
-  //   setImage_product([...files]);
-  //   setImagePreviewArray(files.map(file => URL.createObjectURL(file)));
-  // };
 
   const handleDrop = async (files) => {
     const uploaders = files.map((file) => {
@@ -128,10 +126,8 @@ const ArtistForm = () => {
       <form className='artistform' onSubmit={handleSubmit}>
         <section className='containerForm'>
           <h2 className='dates_products'>Datos nueva obra</h2>
-          <label className='userLabel'>
-            <input className='userInput' type="text" name="id_user_artistFK" onChange={(e) => setId_user_artistFK(e.target.value)} />
-          </label>
-
+          <h3 className='name_Person'>{user && <p>{user.namePerson}!</p>}</h3>
+          
           <div className='title_productGroup'>
             <label className='titleLabel'>
               nombre de la obra:

@@ -3,7 +3,9 @@
   position: relative;
   background-color: var(--gris);
   max-width: 992px;
-  
+  background-image:  url('../../../public/img-8/marcaAguaLogin.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
   margin: 0 auto 30px;
 }
 

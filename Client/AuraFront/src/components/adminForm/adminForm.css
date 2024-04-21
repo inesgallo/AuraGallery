@@ -1,0 +1,85 @@
+.adminform {
+    display: block;
+    position: relative;
+    background-color: var(--gris);
+    max-width: 992px;
+    margin: 0 auto 30px;
+    background-image: url('../../../public/img-8/marcaAguaLogin.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.sectionForm {
+    padding: 80px;
+}
+
+.nameSurnameGroup,
+.emailPasswordGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nameGroup,
+.surnameGroup {
+    margin-bottom: 20px;
+}
+
+.nameLabel,
+.surnameLabel,
+.emailLabel,
+.passwordLabel {
+    margin-bottom: 30px;
+}
+
+.nameInput,
+.surnameInput,
+.emailInput,
+.passwordInput {
+    margin-top: 10px;
+}
+
+.selectUserFieldset {
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+.sendBotton {
+    width: 158px;
+    height: 26px;
+    background-color: var(--coralito);
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 80px;
+}
+
+.sendBotton:hover {
+    background-color: black;
+}
+
+.sendBotton:active {
+    background-color: white;
+    color: var(--coralito);
+    transform: scale(1.2);
+    font-weight: bolder;
+    border: 1px solid var(--coralito);
+}
+
+
+
+
+@media screen and (max-width: 780px) {
+
+    .nameSurnameGroup,
+    .emailPasswordGroup {
+        flex-direction: column;
+    }
+}
+
+
+
