@@ -1,12 +1,14 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
+
 
 export const UserContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedInd] = useState(false);
   const [user, setUser] = useState(null);
-  const [cookies, setCookie, removeCookie] = useCookies([
+  const [cookies, removeCookie] = useCookies([
     "id_user", 
     "role",
     "name_user",

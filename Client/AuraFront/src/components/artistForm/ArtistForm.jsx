@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArtworkHandler } from '../../handler/ArtworkHandler';
+import { useState } from 'react';
+import ProductHandler from '../../handler/ProductHandler';
 import './artistForm.css';
 
 const ArtistForm = () => {
@@ -9,16 +9,16 @@ const ArtistForm = () => {
   const [price_product, setPrice_product] = useState('');
   const [description_product, setDescription_product] = useState('');
   const [categories, setCategories] = useState('');
-  const [image_product, setImage_product] = useState([]);
+  // const [image_product, setImage_product] = useState([]);
 
   const handleChange = (e) => {
     const { value } = e.target;
     setCategories(value);
   };
 
-  const handleImages = (e) => {
-    setImage_product([...e.target.files]);
-  };
+  // const handleImages = (e) => {
+  //   setImage_product([...e.target.files]);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +29,10 @@ const ArtistForm = () => {
     formData.append('price_product', price_product);
     formData.append('description_product', description_product);
     formData.append('categories', categories);
-    images.forEach((image_product) => {
-      formData.append('image_product', image_product);
-    });
-    ArtworkHandler.submitArtwork(formData);
+    // images.forEach((image_product) => {
+    //   formData.append('image_product', image_product);
+    // });
+    ProductHandler.submitArtwork(formData);
   };
 
   return (
@@ -73,12 +73,12 @@ const ArtistForm = () => {
         </label>
       </div>
 
-      <div className='image_productGroup'>
+      {/* <div className='image_productGroup'>
         <label className='imageLabel'>
           subir imágenes:
           <input className='chooseFile' type="file" multiple onChange={handleImages} />
         </label>
-      </div>
+      </div> */}
 
 
       <fieldset className='categoryFieldset'>

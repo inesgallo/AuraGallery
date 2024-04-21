@@ -2,7 +2,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 
-function setCookie(name, value, days) {
+function setCookie(name, value, days, minutes) {
   let expires = "";
   if (days) {
     let date = new Date();
