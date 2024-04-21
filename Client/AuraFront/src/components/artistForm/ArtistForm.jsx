@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArtworkHandler } from '../../handler/ArtworkHandler';
+import { useState } from 'react';
+import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 import axios from "axios";
@@ -22,10 +22,10 @@ const ArtistForm = () => {
     setCategories(value);
   };
 
-  const handleImages = (files) => {
-    setImage_product([...files]);
-    setImagePreviewArray(files.map(file => URL.createObjectURL(file)));
-  };
+  // const handleImages = (files) => {
+  //   setImage_product([...files]);
+  //   setImagePreviewArray(files.map(file => URL.createObjectURL(file)));
+  // };
 
   const handleDrop = async (files) => {
     const uploaders = files.map((file) => {
@@ -85,7 +85,7 @@ const ArtistForm = () => {
           formData.append('image_product', image);
         });
   
-        await ArtworkHandler.submitArtwork(formData);
+        await ProductHandler.submitProduct(formData);
         setLoading(false);
         // Limpiar los campos del formulario
         setId_user_artistFK('');

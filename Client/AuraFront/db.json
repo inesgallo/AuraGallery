@@ -27,7 +27,6 @@
     }
   ],
   "products": [
-
     {
       "id_product": "1",
       "image_product": "/img-8/banana.png",
@@ -36,7 +35,8 @@
       "description_product": "óleo sobre lienzo",
       "category_product": "ArteAbstracto",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "472a"
     },
     {
       "id_product": "2",
@@ -46,7 +46,8 @@
       "description_product": "acuarela sobre papel",
       "category_product": "RealismoContemporaneo",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "b1dc"
     },
     {
       "id_product": "3",
@@ -56,7 +57,8 @@
       "description_product": "fdgds",
       "category_product": "expresionismo",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "35b8"
     },
     {
       "id_product": "4",
@@ -66,8 +68,10 @@
       "description_product": "óleo sobre lienzo",
       "category_product": "RealismoContemporaneo",
       "price_product": 2000,
-      "stock_product": 1
-    },    {
+      "stock_product": 1,
+      "id": "2e46"
+    },
+    {
       "id_product": "5",
       "image_product": "/img-8/joungboy.png",
       "title_product": "Obra 789",
@@ -75,7 +79,8 @@
       "description_product": "acuarela sobre papel",
       "category_product": "expresionismo",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "6f89"
     },
     {
       "id_product": "6",
@@ -85,7 +90,8 @@
       "description_product": "gouache",
       "category_product": "ArteAbstracto",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "8015"
     },
     {
       "id_product": "7",
@@ -95,8 +101,10 @@
       "description_product": "óleo sobre lienzo",
       "category_product": "ArteDigital",
       "price_product": 2000,
-      "stock_product": 1
-    },    {
+      "stock_product": 1,
+      "id": "6c01"
+    },
+    {
       "id_product": "8",
       "image_product": "/img-8/womanred.png",
       "title_product": "Obra 1",
@@ -104,7 +112,8 @@
       "description_product": "fotografía",
       "category_product": "ArteAbstracto",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "9cd4"
     },
     {
       "id_product": "9",
@@ -114,7 +123,8 @@
       "description_product": "gouache",
       "category_product": "NeoPop",
       "price_product": 2000,
-      "stock_product": 1
+      "stock_product": 1,
+      "id": "c244"
     },
     {
       "id": "edfd",
@@ -318,7 +328,16 @@
       "description_product": "lienzo",
       "categories": "realismo contemporáneo",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713716148/WorkArtist/c2sxwlfkhb8pn9eij36k.jpg"
+    },
+    {
+      "id": "a5d5",
+      "id_user_artistFK": "esto que es",
+      "title_product": "Manuela la peliculera",
+      "category_product": "Óleo sobre lienzo",
+      "price_product": "1500",
+      "description_product": "Una obra preciosa ",
+      "categories": "expresionismo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713719359/WorkArtist/pbxsuvrx0pgmvb5xwwd4.jpg"
     }
-
   ]
 }
