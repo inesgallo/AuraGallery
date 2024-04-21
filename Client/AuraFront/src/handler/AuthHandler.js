@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/LoginService';
-import { authenticateUser } from '../services/AuthService';
 import Swal from 'sweetalert2'
 
 export const useUserHandler = () => {
