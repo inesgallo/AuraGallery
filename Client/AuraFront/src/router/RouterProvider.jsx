@@ -8,6 +8,7 @@ import Login from "../pages/publicPages/Login";
 import ArtDetail from "../pages/publicPages/ArtDetail";
 import ShoppingCart from "../pages/publicPages/ShoppingCart";
 import Home from "../pages/publicPages/Home";
+import ExitPayment from "../pages/privatePages/ExitPayment";
 
 
 
@@ -31,6 +32,11 @@ export const routerProvider = createBrowserRouter([
         element: <AdminDashboard />,
       },
     ],
+  },
+
+  {
+    path: "/exitpayment",
+    element: <ExitPayment />,
   },
   
   {
