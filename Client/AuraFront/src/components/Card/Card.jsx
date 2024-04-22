@@ -47,9 +47,11 @@ function Card({ category_product }) {
             <h3 className="artwork-title">{product.title_product}</h3>
 
             <div className="artwork-info">
-
+              <hr></hr>
               <p className="artist-name">{product.name_artist}</p>
               <p className="artwork-description">{product.description_product}</p>
+              <hr></hr>
+              <p className="artwork-price">{product.price_product} €</p>
             
             </div>
           </div>
