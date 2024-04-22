@@ -1,5 +1,5 @@
 import Hero from '../../components/hero/Hero'
-import Catalogue from '../../components/catalogue/Catalogue'
+import Catalogue from '../../components/Catalogue/Catalogue'
 const Home = () => {
 
     return (
