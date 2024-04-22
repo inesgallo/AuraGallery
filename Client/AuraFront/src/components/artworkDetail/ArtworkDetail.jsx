@@ -11,7 +11,6 @@ function ArtworkDetail() {
   return (
     
     <>
-
       <div className="artwork-detail-container">
 
 

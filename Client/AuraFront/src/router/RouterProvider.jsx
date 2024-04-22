@@ -32,6 +32,7 @@ export const routerProvider = createBrowserRouter([
       },
     ],
   },
+  
   {
     path: "/",
     element: <LayoutPublic />,
