@@ -1,7 +1,6 @@
 import Catalogue from '../../components/Catalogue/Catalogue';
 import Hero from '../../components/hero/Hero'
-
-import ShoppingComp from '../../components/shoppingComp/ShoppingComp'
+import Catalogue from '../../components/Catalogue/Catalogue'
 const Home = () => {
 
     return (
