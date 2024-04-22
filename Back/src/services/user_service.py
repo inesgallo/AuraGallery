@@ -27,8 +27,8 @@ class UserService():
     def post_user(cls, user_table:User):
         try:
             connection  = get_connection()
-            #print(connection)
-            # id_user = user_table.id_user
+            print(connection)
+            #id_user = user_table.id_user
             name_person_user = user_table.name_person_user
             surname_person_user = user_table.surname_person_user
             name_user = user_table.name_user
