@@ -52,6 +52,14 @@
       "name_user": "sayami@gmail.com",
       "password_user": "123",
       "user_typeFK": "artista"
+    },
+    {
+      "id": "365f",
+      "name_person_user": "Ines",
+      "surname_person_user": "Gallo",
+      "name_user": "inesota@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
     }
   ],
   "products": [
