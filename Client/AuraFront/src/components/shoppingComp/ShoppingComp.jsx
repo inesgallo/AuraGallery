@@ -1,8 +1,11 @@
 import useLocalStorage from '../../custom/useLocalStorage';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import './shoppingComp.css';
 
 function ShoppingComp() {
  const [cart, setCart] = useLocalStorage('shoppingCart', []);
+ const { isLoggedIn } = useContext(UserContext); 
 
  // Función para eliminar un producto del carrito
  const removeFromCart = (product) => {
@@ -10,13 +13,25 @@ function ShoppingComp() {
  };
 
  const sumTotal = () => {
-  let total = 0;
-  cart.forEach((product) => {
+ let total = 0;
+ cart.forEach((product) => {
       total += parseFloat(product.price_product); // Convierte el precio a número antes de sumar
-  });
-  total += 45; // Suma los gastos de envío al total
-  return total;
-};
+ });
+ total += 45; // Suma los gastos de envío al total
+ return total;
+ };
+
+ // Función para manejar la compra
+ const buyNow = () => {
+    const handleClick = () => {
+      if (isLoggedIn) {
+        window.location.href = `/payment/`;
+      } else {
+        window.location.href = `/login`;
+      }
+    }
+    handleClick(); 
+ }
 
  return (
     <div className="shopping-comp">
@@ -41,7 +56,7 @@ function ShoppingComp() {
             <div className="total">
                 <p>Total: <b>{sumTotal()} €</b></p>
             </div>
-            <button className="buy-now-button">COMPRAR</button>
+            <button className="buy-now-button" onClick={buyNow}>COMPRAR</button>
           </section>
           
         </div>
@@ -49,7 +64,6 @@ function ShoppingComp() {
       )}
       
     </div>
-    
  );
 }
 
