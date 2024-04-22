@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <Hero />
             <Catalogue/>
-            <ShoppingComp />
+
         </>
     );
 };
