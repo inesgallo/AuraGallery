@@ -1,9 +1,13 @@
 {
   "users": [
     {
-      "user_name": "",
-      "user_password": "",
-      "id": "fc30"
+      "id_user": "",
+      "name_person_user": "",
+      "surname_person_user": "",
+      "name_user": "",
+      "password_user": "",
+      "user_typeFK": "",
+      "id": "40c4"
     },
     {
       "id": "09e8",
@@ -24,6 +28,30 @@
       "id": "6af2",
       "name_user": "yuliaestoycansada@gmail.com",
       "password_user": "1234"
+    },
+    {
+      "id": "291f",
+      "name_person_user": "Ana",
+      "surname_person_user": "Lucena Puertas",
+      "name_user": "lucenapuertasana53@gmail.com",
+      "password_user": "erwet",
+      "user_typeFK": "artista"
+    },
+    {
+      "id": "92dc",
+      "name_person_user": "Mario",
+      "surname_person_user": "Díaz",
+      "name_user": "mariete@hotmail.com",
+      "password_user": "123",
+      "user_typeFK": "cliente"
+    },
+    {
+      "id": "8b46",
+      "name_person_user": "Yamila",
+      "surname_person_user": "Robles",
+      "name_user": "sayami@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
     }
   ],
   "products": [

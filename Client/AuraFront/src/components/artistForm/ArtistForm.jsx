@@ -218,6 +218,7 @@ const ArtistForm = () => {
       </form>
       {Loading && <p>Cargando...</p>}
     </Container>
+
   );
 }
 
