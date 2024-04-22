@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:5000',
     withCredentials: false,
     headers: {
       Accept: 'application/json',
@@ -30,7 +30,7 @@ export const ProductService = {
     },
     async submitProduct(newProduct){
         try {
-            return await apiClient.post("/products", newProduct);
+            return await apiClient.post("/product/post_product", newProduct);
         } catch (error) {
             console.error("Error al enviar la obra:", error);
         }

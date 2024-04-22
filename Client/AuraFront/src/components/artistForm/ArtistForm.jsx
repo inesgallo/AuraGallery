@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState , useContext} from 'react';
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import './artistForm.css';
+import { UserContext } from './../../context/UserContext';
+
 
 const ArtistForm = () => {
-  const [id_user_artistFK, setId_user_artistFK] = useState('');
+
+  const {user} = useContext(UserContext);
+
   const [title_product, setTitle_product] = useState('');
   const [category_product, setCategory_product] = useState('');
   const [price_product, setPrice_product] = useState('');
@@ -16,7 +20,8 @@ const ArtistForm = () => {
   const [image_product, setImage_product] = useState([]);
   const [imagePreviewArray, setImagePreviewArray] = useState([]);
   const [Loading, setLoading] = useState("");
-
+  const [stock_product, setStock_product] = useState (true)
+  const [id_user_artistFK, setId_user_artistFK] = useState();
   const handleChange = (e) => {
     const { value } = e.target;
     setCategories(value);
@@ -64,6 +69,9 @@ const ArtistForm = () => {
     setLoading(true);
   
     // Validar si todos los campos están rellenos
+    const id_user_artistFK = user ? user.id : null;
+    console.log(id_user_artistFK);
+    
     if (
       id_user_artistFK &&
       title_product &&
@@ -80,6 +88,7 @@ const ArtistForm = () => {
         formData.append('category_product', category_product);
         formData.append('price_product', price_product);
         formData.append('description_product', description_product);
+        formData.append('stock_product', stock_product);
         formData.append('categories', categories);
         image_product.forEach((image) => {
           formData.append('image_product', image);
@@ -95,6 +104,7 @@ const ArtistForm = () => {
         setDescription_product('');
         setCategories('');
         setImage_product([]);
+        setStock_product(false);
         setImagePreviewArray([]);
         // Mostrar SweetAlert de éxito
         Swal.fire({
