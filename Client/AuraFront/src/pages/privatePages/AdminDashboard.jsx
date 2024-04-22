@@ -1,6 +1,8 @@
 import React , { useContext } from 'react';
 import { Outlet, useNavigation } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+//import AdminFormTry from '../../components/adminForm/AdminRormTry';
+import AdminForm from '../../components/adminForm/AdminForm';
 
 const AdminDashboard = () => {
 
@@ -11,6 +13,8 @@ const AdminDashboard = () => {
         {user && <p>Bienvenid@ {user.namePerson}</p>}
       </div>
     <h1>Admin dashboard </h1>
+    <AdminForm/>
+    {/* <AdminFormTry/> */}
     </>
   )
 }

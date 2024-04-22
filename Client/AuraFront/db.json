@@ -339,5 +339,49 @@
       "categories": "expresionismo",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713719359/WorkArtist/pbxsuvrx0pgmvb5xwwd4.jpg"
     }
+  ],
+  "user": [
+    {
+      "id_user": "1",
+      "name_person_user": "Alicia Client",
+      "surname_person_user": "Negra",
+      "name_user": "alicia_Client@gmail.com",
+      "password_user": "12345678911",
+      "user_typeFK": 3
+    },
+    {
+      "id_user": "2",
+      "name_person_user": "Alicia Client New",
+      "surname_person_user": "Negra",
+      "name_user": "alicia_Client@gmail.com",
+      "password_user": "12345678911",
+      "user_typeFK": 3
+    },
+    {
+      "id": "39ab",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": "{\"name_person_user\":\"uuuuu\",\"surname_person_user\":\"lllll\",\"name_user\":\"sldlh\",\"password_user\":\"235\",\"user_typeFK\":2}"
+    },
+    {
+      "id": "c8cf",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": "{\"name_person_user\":\"uuuuu\",\"surname_person_user\":\"lllll\",\"name_user\":\"sldlh\",\"password_user\":\"235\",\"user_typeFK\":2}"
+    },
+    {
+      "id": "fbf1",
+      "name_person_user": "uuuuu",
+      "surname_person_user": "lllll",
+      "name_user": "sldlh",
+      "password_user": "235",
+      "user_typeFK": 2
+    }
   ]
 }

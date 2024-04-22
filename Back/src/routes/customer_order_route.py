@@ -5,7 +5,7 @@ from src.models.customer_order_model import Customer_order
 main = Blueprint('customer_order_blueprint', __name__)
 
 @main.route('/', methods = ['POST'])
-def manage_customer_order():
+def post_customer_order():
   
     status_customer = request.json['status_customer'] 
     date_customer = request.json['date_customer']
@@ -18,4 +18,4 @@ def manage_customer_order():
     print(post_customer_order)
   
     print('Esto se imprime en consola')
-    return 'Esto se ve en la pagina'
+    return 'Esto se ve POST ORDER'
