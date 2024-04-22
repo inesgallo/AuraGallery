@@ -2,12 +2,16 @@
     
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     justify-content: center;
+    align-items: baseline;
     margin-top: 50px;
+
 }
 
-
+.card {
+    width: 200px;
+    text-align: center;
+}
 
 .card img {
     width: 100%;
@@ -45,6 +49,7 @@
     color: #0c0c0c;
     border: none;
     height: 25px;
+    width: 200px;
     cursor: pointer;
     transition: color 0.3s;
 }
@@ -58,9 +63,9 @@
     background-color: #FC4308;
     color: #Ffffff;
     border: none;
-    padding: 0;
     cursor: pointer;
     height: 25px;
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
