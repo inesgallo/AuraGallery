@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Catalogue.css'
-import Card from '../Card/Card';
+import Card from '../card/Card';
 function Catalogue() {
     const [category_product, setCategory_product] = useState('');
 

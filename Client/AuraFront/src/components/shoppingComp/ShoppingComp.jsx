@@ -25,7 +25,7 @@ function ShoppingComp() {
  const buyNow = () => {
     const handleClick = () => {
       if (isLoggedIn) {
-        window.location.href = `/payment/`;
+        window.location.href = `/exitpayment`;
       } else {
         window.location.href = `/login`;
       }

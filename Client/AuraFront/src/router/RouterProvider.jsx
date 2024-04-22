@@ -33,11 +33,6 @@ export const routerProvider = createBrowserRouter([
       },
     ],
   },
-
-  {
-    path: "/exitpayment",
-    element: <ExitPayment />,
-  },
   
   {
     path: "/",
@@ -59,6 +54,10 @@ export const routerProvider = createBrowserRouter([
         // path: "/shopping/:id",
         path: "/shopping",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/exitpayment",
+        element: <ExitPayment />,
       },
     ],
   },
