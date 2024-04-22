@@ -1,23 +1,34 @@
-// import axios from 'axios';
+import axios from "axios";
 
-// const UserAdminService = {
-//   fetchUsers: async () => {
-//     try {
-//       const response = await axios.get('http://localhost:3000/admin_user'); 
-//       return response.data;
-//     } catch (error) {
-//       console.error('Error fetching users:', error);
-//       return [];
-//     }
-//   },
+const apiClient = axios.create({
+    baseURL: 'http://localhost:5000/',
+    withCredentials: false,
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    }
+})
 
-//   addUser: async (newUser) => {
-//     try {
-//       await axios.post('http://localhost:3000/admin_user', newUser); 
-//     } catch (error) {
-//       console.error('Error adding user:', error);
-//     }
-//   }
-// };
+export const UserAdminService = {
 
-// export default UserAdminService;
+    async getAllUsers() {
+        try {
+            let response = await apiClient.get("/user_admin");
+            let allUsers = response.data;
+            return allUsers;
+        } catch (error) {
+            console.error("Error fetching all users:", error);
+            throw error; 
+        }
+    },
+
+    async submitUser(newUser) {
+        try {
+            let response = await apiClient.post("/user_admin", { ...newUser });
+            let submitNewUser = response.data;
+            return submitNewUser;
+        } catch (error) {
+            console.error("Error submitting user:", error);
+            throw error;
+        }
+    },}
