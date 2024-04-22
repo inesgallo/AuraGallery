@@ -10,12 +10,7 @@ const AdminDashboard = () => {
       <div className='d-flex justify-content-center fs-1'>
         {user && <p>¡Bienvenid@ {user.namePerson}!</p>}
       </div>
-<<<<<<< HEAD
-    <h1>Admin dashboard </h1>
-    <AdminForm/>
-=======
       <AdminForm />
->>>>>>> develop
     </>
   )
 }

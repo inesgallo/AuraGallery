@@ -14,14 +14,13 @@ const ArtistForm = () => {
   const [category_product, setCategory_product] = useState('');
   const [price_product, setPrice_product] = useState('');
   const [description_product, setDescription_product] = useState('');
-  const [categories, setCategories] = useState('');
   const [image_product, setImage_product] = useState([]);
   const [imagePreviewArray, setImagePreviewArray] = useState([]);
   const [Loading, setLoading] = useState("");
 
   const handleChange = (e) => {
     const { value } = e.target;
-    setCategories(value);
+    setCategory_product(value);
   };
 
 
@@ -61,14 +60,14 @@ const ArtistForm = () => {
     e.preventDefault();
     setLoading(true);
   
-    // Validar si todos los campos están rellenos
+    const id_user_artistFK = user && user.id_user_artistFK;
+
     if (
       id_user_artistFK &&
       title_product &&
       category_product &&
       price_product &&
       description_product &&
-      categories &&
       image_product.length > 0
     ) {
       try {
@@ -78,7 +77,6 @@ const ArtistForm = () => {
         formData.append('category_product', category_product);
         formData.append('price_product', price_product);
         formData.append('description_product', description_product);
-        formData.append('categories', categories);
         image_product.forEach((image) => {
           formData.append('image_product', image);
         });
@@ -91,7 +89,6 @@ const ArtistForm = () => {
         setCategory_product('');
         setPrice_product('');
         setDescription_product('');
-        setCategories('');
         setImage_product([]);
         setImagePreviewArray([]);
         // Mostrar SweetAlert de éxito
@@ -136,13 +133,6 @@ const ArtistForm = () => {
           </div>
 
           <div className='productPriceGroup'>
-            <div className='category_productGroup'>
-              <label className='categoryLabel'>
-                tipo de obra:
-                <input className='categoryInput' type="text" name="category_product" onChange={(e) => setCategory_product(e.target.value)} />
-              </label>
-            </div>
-
             <div className='price_productGroup'>
               <label className='priceLabel'>
                 precio:
@@ -192,23 +182,23 @@ const ArtistForm = () => {
           <fieldset className='categoryFieldset'>
             <legend>Categorías:</legend>
             <label>
-              <input type="radio" name="category" value="arte abstracto" checked={categories === 'arte abstracto'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="arte abstracto" checked={category_product === 'arte abstracto'} onChange={handleChange} />
               Arte abstracto
             </label>
             <label>
-              <input type="radio" name="category" value="realismo contemporáneo" checked={categories === 'realismo contemporáneo'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="realismo contemporáneo" checked={category_product === 'realismo contemporáneo'} onChange={handleChange} />
               Realismo contemporáneo
             </label>
             <label>
-              <input type="radio" name="category" value="expresionismo" checked={categories === 'expresionismo'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="expresionismo" checked={category_product === 'expresionismo'} onChange={handleChange} />
               Expresionismo
             </label>
             <label>
-              <input type="radio" name="category" value="arte digital" checked={categories === 'arte digital'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="arte digital" checked={category_product === 'arte digital'} onChange={handleChange} />
               Arte digital
             </label>
             <label>
-              <input type="radio" name="category" value="neo-pop" checked={categories === 'neo-pop'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="neo-pop" checked={category_product === 'neo-pop'} onChange={handleChange} />
               Neo-pop
             </label>
           </fieldset>
