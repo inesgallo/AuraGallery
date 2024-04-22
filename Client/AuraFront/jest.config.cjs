@@ -1,5 +1,5 @@
-import { transform } from "@babel/core";
-import { TestEnvironment } from "jest-environment-jsdom";
+const { transform } = require("@babel/core");
+const { testEnvironment } = require("jest-environment-jsdom");
 
 module.exports = {
     transform: {
