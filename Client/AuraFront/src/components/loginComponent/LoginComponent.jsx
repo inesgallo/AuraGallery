@@ -7,11 +7,14 @@ import Form from "react-bootstrap/Form";
 import { useUserHandler } from "../../handler/AuthHandler"
 import Swal from 'sweetalert2'
 
-
 const LoginComponent = ({ handleLogin }) => {
-  const [email, setEmail] = useState ('');
-  const [password, setPassword] = useState ('');
-  const { handleLogin } = useUserHandler();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const { handleLogin } = useUserHandler(); 
+// const LoginComponent = ({ handleLogin }) => {
+//   const [email, setEmail] = useState ('');
+//   const [password, setPassword] = useState ('');
+//   const { handleLogin } = useUserHandler();
 
   const handleSubmit = (event) => {
     event.preventDefault();

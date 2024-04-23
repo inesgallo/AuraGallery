@@ -6,5 +6,5 @@ module.exports = {
         '\\.(jpg|jpeg|png|gif|webp|svg)$': 'jest-transform-stub',
         '\\.css$':'identity-obj-proxy',
     },
-    testEnviroment: 'jsdom',
+    testEnvironment: 'jsdom',
 };
