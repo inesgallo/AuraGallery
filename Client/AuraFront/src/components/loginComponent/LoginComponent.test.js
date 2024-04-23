@@ -1,23 +1,32 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-// import '@testing-library/jest-dom';
 import LoginComponent from "./LoginComponent";
-import { useUserHandler } from "../../handler/AuthHandler";
+// import '@testing-library/jest-dom';
+// import { useUserHandler } from "../../handler/AuthHandler";
 // import { useUserHandler } from "../../handler/AuthHandler";
 
-jest.mock("../../handler/AuthHandler", () => ({
-    useUserHandler:  jest.fn(() => ({
-       handleLogin:  jest.fn(),
-    })),
-}));
-describe("<LoginComponent />", ()=>{
-    test('El botón de enviar llama a handleLogin al enviar el formulario', () => {
-    const { getByText } = render (<LoginComponent />);
-    const submitButton = getByText(/ACCEDER/i);
-    fireEvent.submit(submitButton.closest("form"));
-    expect(jest.mocked(useUserHandler, 'useUserHandler').mock.results[0].value.handleLogin).toHaveBeenCalled(1);
-    });
+test('debería llamar a handleLogin cuando se hace clic en el botón ACCEDER', () => {
+    const handleLogin = jest.fn();
+    const { getByText } = render(<LoginComponent handleLogin={handleLogin} />);
+
+    const button = getByText('ACCEDER');
+    fireEvent.click(button);
+    expect(handleLogin).toHaveBeenCalled();
 });
+
+// jest.mock("../../handler/AuthHandler", () => ({
+//     useUserHandler:  jest.fn(() => ({
+//        handleLogin:  jest.fn(),
+//     })),
+// }));
+// describe("<LoginComponent />", ()=>{
+//     test('El botón de enviar llama a handleLogin al enviar el formulario', () => {
+//     const { getByText } = render (<LoginComponent />);
+//     const submitButton = getByText(/ACCEDER/i);
+//     fireEvent.submit(submitButton.closest("form"));
+//     expect(jest.mocked(useUserHandler, 'useUserHandler').mock.results[0].value.handleLogin).toHaveBeenCalled(1);
+//     });
+// });
 // }));
 
 // describe("<LoginComponent />",()=>{

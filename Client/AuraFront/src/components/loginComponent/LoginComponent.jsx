@@ -8,10 +8,10 @@ import { useUserHandler } from "../../handler/AuthHandler"
 import Swal from 'sweetalert2'
 
 
-const LoginComponent = () => {
+const LoginComponent = ({ handleLogin }) => {
   const [email, setEmail] = useState ('');
   const [password, setPassword] = useState ('');
-  const { handleLogin } = useUserHandler();
+  // const { handleLogin } = useUserHandler();
 
   const handleSubmit = (event) => {
     event.preventDefault();
