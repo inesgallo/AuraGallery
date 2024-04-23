@@ -1,20 +1,26 @@
 import ProductService from '../services/ProductService';
+import { ProductServiceDB } from '../services/ProductService';
 
 export const ProductHandler = {
   async getAllProducts() {
-    let allProducts = await ProductService.getAllProducts();
+    let allProducts = await ProductServiceDB.getProducts();
     return allProducts;
   },
 
-  async getProduct(id) {
-    let product = await ProductService.getProduct(id);
-    return product;
+  async handlerGetProductById(id) {
+    try {
+      let product = await ProductService.getProductById(id);
+      return product;
+    } catch (error) {
+      console.log(' error al obtener productos')
+      throw error;
+    }
   },
 
   async submitProduct(newProduct) {
     return ProductService.submitProduct(newProduct).then((response) => {
       // Manejar la respuesta de forma específica al componente
-      if (response.status === 201) {
+      if (response.status === 200) {
         console.log(response.data);
       } else {
         // Error al crear la obra

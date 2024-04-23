@@ -1,15 +1,18 @@
-import { useState } from 'react';
-import { useContext } from 'react';
-import { UserContext } from "../../context/UserContext";
+import { useState , useContext, useEffect} from 'react';
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import './artistForm.css';
+import { UserContext } from './../../context/UserContext';
+import UsersCard from '../usersCard/UsersCard';
+
 
 const ArtistForm = () => {
-  const { user } = useContext(UserContext);
+
+  const {user} = useContext(UserContext);
+
   const [title_product, setTitle_product] = useState('');
   const [category_product, setCategory_product] = useState('');
   const [price_product, setPrice_product] = useState('');
@@ -17,11 +20,32 @@ const ArtistForm = () => {
   const [image_product, setImage_product] = useState([]);
   const [imagePreviewArray, setImagePreviewArray] = useState([]);
   const [Loading, setLoading] = useState("");
+  const [stock_product, setStock_product] = useState (true)
+  const [id_user_artistFK, setId_user_artistFK] = useState();
+
+  const [products ,setProducts] = useState([]);
 
   const handleChange = (e) => {
     const { value } = e.target;
-    setCategory_product(value);
+    setCategories(value);
   };
+
+
+  useEffect(() => {
+    const fetchAndFilterProducts = async () => {
+      try {
+        // console.log(user)
+        if (user) {
+          console.log("ID de usuario:", user.id);
+          const userProducts = await ProductHandler.handlerGetProductById(user.id_user)
+          setProducts(userProducts);
+        }
+      } catch (error) {
+        console.error('Error al recuperar y filtrar productos:', error);
+      }
+    };
+    fetchAndFilterProducts();
+  }, [user]);
 
 
   const handleDrop = async (files) => {
@@ -60,8 +84,10 @@ const ArtistForm = () => {
     e.preventDefault();
     setLoading(true);
   
-    const id_user_artistFK = user && user.id_user_artistFK;
-
+    // Validar si todos los campos están rellenos
+    const id_user_artistFK = user ? user.id : null;
+    console.log(id_user_artistFK);
+    
     if (
       id_user_artistFK &&
       title_product &&
@@ -77,6 +103,8 @@ const ArtistForm = () => {
         formData.append('category_product', category_product);
         formData.append('price_product', price_product);
         formData.append('description_product', description_product);
+        formData.append('stock_product', stock_product);
+        formData.append('categories', categories);
         image_product.forEach((image) => {
           formData.append('image_product', image);
         });
@@ -90,6 +118,7 @@ const ArtistForm = () => {
         setPrice_product('');
         setDescription_product('');
         setImage_product([]);
+        setStock_product(true);
         setImagePreviewArray([]);
         // Mostrar SweetAlert de éxito
         Swal.fire({
@@ -119,6 +148,7 @@ const ArtistForm = () => {
   };
   
   return (
+    <>
     <Container>
       <form className='artistform' onSubmit={handleSubmit}>
         <section className='containerForm'>
@@ -208,7 +238,10 @@ const ArtistForm = () => {
       </form>
       {Loading && <p>Cargando...</p>}
     </Container>
-
+    {products?.map((product, index) => (
+    <UsersCard key={index} product={product} />
+  ))}
+    </>
   );
 }
 

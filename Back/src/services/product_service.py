@@ -2,7 +2,6 @@ from src.database.db_phpMySql import get_connection
 # from werkzeug.security import generate_password_hash
 from src.models.product_model import  Product
 # from werkzeug.security import generate_password_hash
-
 class ProductService():
     @classmethod
     def get_product(cls):
@@ -18,6 +17,38 @@ class ProductService():
                 print(result)
             connection.close()
             # return "Data Base is close"
+            return products_json
+        except Exception as ex:
+            print(ex)
+            
+    @classmethod
+    def get_product_filtr(cls, user_artistFK):
+        try:
+            connection  = get_connection()
+            print(connection)
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT id_product, title_product, image_product, category_product, description_product, price_product, id_user_artistFK, user.name_person_user, user.surname_person_user FROM `product` INNER JOIN user ON product.id_user_artistFK = user.id_user WHERE product.stock_product = 1 AND product.id_user_artistFK = %s', (user_artistFK))
+                # cursor.callproc('sp_get_product')
+                result = cursor.fetchall()
+                products_json = [{"id_product": row[0], "title_product": row[1], "image_product": row[2], "category_product": row[3], "description_product": row[4], "price_product": row[5], "id_user_artistFK": row[6], "name_person_user": row[7], "surname_person_user": row[8]} for row in result]
+                print(result)
+            connection.close()
+            return products_json
+        except Exception as ex:
+            print(ex)
+            
+    @classmethod
+    def get_product_filtr(cls, user_artistFK):
+        try:
+            connection  = get_connection()
+            print(connection)
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT id_product, title_product, image_product, category_product, description_product, price_product, id_user_artistFK, user.name_person_user, user.surname_person_user FROM `product` INNER JOIN user ON product.id_user_artistFK = user.id_user WHERE product.stock_product = 1 AND product.id_user_artistFK = %s', (user_artistFK))
+                # cursor.callproc('sp_get_product')
+                result = cursor.fetchall()
+                products_json = [{"id_product": row[0], "title_product": row[1], "image_product": row[2], "category_product": row[3], "description_product": row[4], "price_product": row[5], "id_user_artistFK": row[6], "name_person_user": row[7], "surname_person_user": row[8]} for row in result]
+                print(result)
+            connection.close()
             return products_json
         except Exception as ex:
             print(ex)
@@ -45,19 +76,18 @@ class ProductService():
                     product_table.stock_product,
                     product_table.price_product,
                     product_table.user_artistFK
-            ))  
+            ))
             # connection.commit()
                     # cursor.execute("INSERT INTO product(id_product, title_product, image_product, category_product, description_product, stock_product, price_product, id_user_artistFK) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
                     #                (id_product,title_product,image_product,category_product,description_product,stock_product,price_product,user_artistFK))
-                # cursor.callproc('	sp.post_product', (title_product,image_product,category_product,description_product,stock_product,price_product,id_user_artistFK))
-            connection.commit()        
+                # cursor.callproc(' sp.post_product', (title_product,image_product,category_product,description_product,stock_product,price_product,id_user_artistFK))
+            connection.commit()
             print('Product added successfully')
         except Exception as ex:
                 print(ex)
         finally:
             connection.close()
             return "Data base is close"
-       
     @classmethod
     def patch_product(cls, product_table:Product):
         try:
@@ -70,13 +100,11 @@ class ProductService():
             stock_product = product_table.stock_product
             price_product = product_table.price_product
             user_artistFK = product_table.user_artistFK
-            
     #         encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
-            
             with connection.cursor() as cursor:
                 cursor.execute("""
-                    UPDATE product 
-                    SET title_product = %s, image_product = %s, category_product = %s, description_product = %s, stock_product = %s, price_product = %s, id_user_artistFK = %s 
+                    UPDATE product
+                    SET title_product = %s, image_product = %s, category_product = %s, description_product = %s, stock_product = %s, price_product = %s, id_user_artistFK = %s
                     WHERE id_product = %s""", (title_product, image_product, category_product, description_product, stock_product, price_product, user_artistFK, id_product))
                 print(f"Rows affected: {cursor.rowcount}")
     #             cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
@@ -92,7 +120,7 @@ class ProductService():
             connection  = get_connection()
             print(connection)
             with connection.cursor() as cursor:
-                # cursor.execute('DELETE FROM product WHERE product.id_product = %s', (id_product)) 
+                # cursor.execute('DELETE FROM product WHERE product.id_product = %s', (id_product))
                 cursor.callproc('sp_delete_product', (id_product,)) # Aqui uso otro metodo callproc para trabajar con procedimientos
                 connection.commit()
             connection.close()

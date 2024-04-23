@@ -1,32 +1,25 @@
 // import React, { useState, useEffect } from 'react';
-// import UserAdminService from '../services/UserAdminService';
-// import AdminForm from '../components/adminForm/AdminForm';
-// import AdminUserList from '../components/adminList/AdminUserList';
+// import { UserAdminService } from '../services/UserAdminService';
 
-// const UserAdminHandler = () => {
-//   const [users, setUsers] = useState([]);
+// const UserHandle = ({ children }) => {
+//     const [users, setUsers] = useState([]);
 
-//   useEffect(() => {
-//     fetchUsers();
-//   }, []);
+//     useEffect(() => {
+//         UserAdminService.getAllUsers().then(setUsers).catch(console.error);
+//     }, []);
 
-//   const fetchUsers = async () => {
-//     const fetchedUsers = await UserAdminService.fetchUsers();
-//     setUsers(fetchedUsers);
-//   };
+//     const handleAddUser = async (newUser) => {
+//         try {
+//             await UserAdminService.submitUser(newUser);
+//             UserAdminService.getAllUsers().then(setUsers).catch(console.error);
+//         } catch (error) {
+//             console.error('Error adding user:', error);
+//         }
+//     };
 
-//   const addUser = async (newUser) => {
-//     await UserAdminService.addUser(newUser);
-//     fetchUsers();
-//   };
-
-//   return (
-//     <div>
-//       <h1>User Management</h1>
-//       <AdminForm onSubmit={addUser} />
-//       <AdminUserList users={users} />
-//     </div>
-//   );
+//     return React.Children.map(children, child => {
+//         return React.cloneElement(child, { users, handleAddUser });
+//     });
 // };
 
-// export default UserAdminHandler;
+// export default UserHandle;
