@@ -1,6 +1,5 @@
-import React , { useContext } from 'react';
+import { useContext } from 'react';
 import ArtistForm from '../../components/artistForm/ArtistForm';
-import MultiplesImagenes from '../../components/MultiplesImagenes';
 import { UserContext } from "../../context/UserContext";
 
 const ArtistDashboard = () => {
@@ -11,7 +10,6 @@ const ArtistDashboard = () => {
       <div className='d-flex justify-content-center fs-1'>
         {user && <p>¡Bienvenid@ {user.namePerson}!</p>}
       </div>
-    <MultiplesImagenes /> 
     <ArtistForm />
     </>
   )

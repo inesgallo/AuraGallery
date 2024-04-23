@@ -7,7 +7,6 @@ const LayoutAdmin = () => {
   return (
     <>
     <NavbarCustom />
-    <h1>Hola estas en Layout Admin</h1>
     <Outlet />
     <FooterCustom />
     </>

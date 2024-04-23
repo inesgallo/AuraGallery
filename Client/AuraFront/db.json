@@ -1,9 +1,13 @@
 {
   "users": [
     {
-      "user_name": "",
-      "user_password": "",
-      "id": "fc30"
+      "id_user": "",
+      "name_person_user": "",
+      "surname_person_user": "",
+      "name_user": "",
+      "password_user": "",
+      "user_typeFK": "",
+      "id": "40c4"
     },
     {
       "id": "09e8",
@@ -24,87 +28,352 @@
       "id": "6af2",
       "name_user": "yuliaestoycansada@gmail.com",
       "password_user": "1234"
+    },
+    {
+      "id": "291f",
+      "name_person_user": "Ana",
+      "surname_person_user": "Lucena Puertas",
+      "name_user": "lucenapuertasana53@gmail.com",
+      "password_user": "erwet",
+      "user_typeFK": "artista"
+    },
+    {
+      "id": "92dc",
+      "name_person_user": "Mario",
+      "surname_person_user": "Díaz",
+      "name_user": "mariete@hotmail.com",
+      "password_user": "123",
+      "user_typeFK": "cliente"
+    },
+    {
+      "id": "8b46",
+      "name_person_user": "Yamila",
+      "surname_person_user": "Robles",
+      "name_user": "sayami@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
+    },
+    {
+      "id": "365f",
+      "name_person_user": "Ines",
+      "surname_person_user": "Gallo",
+      "name_user": "inesota@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
     }
   ],
-  "artworks": [
+  "products": [
     {
-      "id": "1",
-      "artistName": "Arista",
-      "artWork": "aoldf",
-      "artWorkType": "dsfg",
-      "description": "fdgds",
-      "categories": "fdggs",
-      "file": "dfgdfg"
+      "id_product": "1",
+      "image_product": "/img-8/banana.png",
+      "title_product": "Banana rama",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "472a"
     },
     {
-      "id": "d696",
-      "artistName": "Arista",
-      "artWork": "aoldf",
-      "artWorkType": "dsfg",
-      "description": "fdgds",
-      "categories": "fdggs",
-      "file": "dfgdfg"
+      "id_product": "2",
+      "image_product": "/img-8/fantasy.png",
+      "title_product": "Fantastic planet",
+      "name_artist": "Gemila",
+      "description_product": "acuarela sobre papel",
+      "category_product": "RealismoContemporaneo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "b1dc"
     },
     {
-      "id": "cac5"
+      "id_product": "3",
+      "image_product": "/img-8/dalmatas.png",
+      "title_product": "Woooohoo",
+      "name_artist": "Manuel Villegas",
+      "description_product": "fdgds",
+      "category_product": "expresionismo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "35b8"
     },
     {
-      "id": "1",
-      "artistName": "Monet",
-      "artWork": "paseo al sol",
-      "artWorkType": "lienzo",
-      "description": "400x400",
-      "categories": "impresionismo",
-      "file": "dfgdfg"
+      "id_product": "4",
+      "image_product": "/img-8/fruticas.png",
+      "title_product": "Fruticas",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "RealismoContemporaneo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "2e46"
     },
     {
-      "id": "1",
-      "artistName": "Monet",
-      "artWork": "paseo al sol",
-      "artWorkType": "lienzo",
-      "description": "400x400",
-      "categories": "impresionismo",
-      "file": "dfgdfg"
+      "id_product": "5",
+      "image_product": "/img-8/joungboy.png",
+      "title_product": "Obra 789",
+      "name_artist": "Manuel Villegas",
+      "description_product": "acuarela sobre papel",
+      "category_product": "expresionismo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "6f89"
     },
     {
-      "id": "114c",
-      "artistName": "Gustav Klimt",
-      "artworkName": "el beso",
-      "artworkType": "cuadro",
-      "price": "53",
-      "description": "chuli",
-      "category": "expresionismo",
-      "images": {}
+      "id_product": "6",
+      "image_product": "/img-8/mural.png",
+      "title_product": "El mural",
+      "name_artist": "Manuel Villegas",
+      "description_product": "gouache",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "8015"
     },
     {
-      "id": "42fa",
-      "artistName": "Gustav Klimt",
-      "artworkName": "el beso",
-      "artworkType": "cuadro",
-      "price": "53",
-      "description": "chuli",
-      "category": "expresionismo",
-      "images": {}
+      "id_product": "7",
+      "image_product": "/img-8/painting.png",
+      "title_product": "Pintura",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "ArteDigital",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "6c01"
     },
     {
-      "id": "1f42",
-      "artistName": "Gustav Klimt",
-      "artworkName": "el beso",
-      "artworkType": "cuadro",
-      "price": "53",
-      "description": "chuli",
-      "category": "expresionismo",
-      "images": {}
+      "id_product": "8",
+      "image_product": "/img-8/womanred.png",
+      "title_product": "Obra 1",
+      "name_artist": "Manuel Villegas",
+      "description_product": "fotografía",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "9cd4"
     },
     {
-      "id": "5f34",
-      "artistName": "Gustav Klimt",
-      "artworkName": "el beso",
-      "artworkType": "cuadro",
-      "price": "530",
-      "description": "200x200",
-      "category": "realismo contemporáneo",
-      "images": {}
+      "id_product": "9",
+      "image_product": "/img-8/womenmagnolias.png",
+      "title_product": "Obra 1",
+      "name_artist": "Manuel Villegas",
+      "description_product": "gouache",
+      "category_product": "NeoPop",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "c244"
+    },
+    {
+      "id": "edfd",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "300",
+      "description_product": "acuarela",
+      "categories": "neo-pop",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "a326",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "53",
+      "description_product": "lienzo",
+      "categories": "neo-pop",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "bd47",
+      "id_user_artistFK": "Pedro Reyes",
+      "title_product": "oleaje",
+      "category_product": "paisajismo",
+      "price_product": "45",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "Courbet_laOla2.jpg"
+      }
+    },
+    {
+      "id": "6a71",
+      "id_user_artistFK": "Pedro Reyes",
+      "title_product": "oleaje",
+      "category_product": "paisajismo",
+      "price_product": "45",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "Courbet_laOla2.jpg"
+      }
+    },
+    {
+      "id": "6759",
+      "id_user_artistFK": "Yamila Soledad",
+      "title_product": "libertad",
+      "category_product": "400x300",
+      "price_product": "50",
+      "description_product": "geometría acuarela",
+      "categories": "arte abstracto",
+      "image_product": {
+        "path": "Delaunay_tambor.jpg"
+      }
+    },
+    {
+      "id": "b30c",
+      "id_user_artistFK": "ana",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "53",
+      "description_product": "ertasgs",
+      "categories": "arte digital",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "891c",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "308a",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": "",
+      "image_product": {
+        "path": "frida_LorenaSanz.jpg"
+      }
+    },
+    {
+      "id": "4b0d",
+      "id_user_artistFK": "yulia bila",
+      "title_product": "arte",
+      "category_product": "autoretrato",
+      "price_product": "56",
+      "description_product": "fwgaq",
+      "categories": "realismo contemporáneo",
+      "image_product": {
+        "path": "mujeres_Klimt.jpg"
+      }
+    },
+    {
+      "id": "3c5c",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "autoretrato",
+      "price_product": "23",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713711872/WorkArtist/lliqvbnhhst5gppachlk.jpg"
+    },
+    {
+      "id": "89a3",
+      "id_user_artistFK": "Myriam",
+      "title_product": "mosaiko",
+      "category_product": "lienzo",
+      "price_product": "456",
+      "description_product": "acuarelas",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713713092/WorkArtist/zee1lrzxaty0gfymaylm.jpg"
+    },
+    {
+      "id": "287a",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "42e2",
+      "id_user_artistFK": "",
+      "title_product": "",
+      "category_product": "",
+      "price_product": "",
+      "description_product": "",
+      "categories": ""
+    },
+    {
+      "id": "1f83",
+      "id_user_artistFK": "Inés Gallo",
+      "title_product": "Circulos",
+      "category_product": "400x300",
+      "price_product": "678",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
+    },
+    {
+      "id": "07aa",
+      "id_user_artistFK": "Inés Gallo",
+      "title_product": "Circulos",
+      "category_product": "400x300",
+      "price_product": "678",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
+    },
+    {
+      "id": "d754",
+      "id_user_artistFK": "Gabriela Ramos",
+      "title_product": "noche estrellada",
+      "category_product": "paisajismo",
+      "price_product": "76",
+      "description_product": "lienzo",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714616/WorkArtist/jtpkp6yoyvrizzkyyxmx.jpg"
+    },
+    {
+      "id": "8aaf",
+      "id_user_artistFK": "Myri Mira",
+      "title_product": "oleaje",
+      "category_product": "400x300",
+      "price_product": "90",
+      "description_product": "cositas",
+      "categories": "neo-pop",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715429/WorkArtist/hurnclodra9z9ludyyuv.jpg"
+    },
+    {
+      "id": "be53",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "paisajismo",
+      "price_product": "2",
+      "description_product": "dhsrhwr",
+      "categories": "arte abstracto",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715841/WorkArtist/e2s1dmt0liilm05l22qt.jpg"
+    },
+    {
+      "id": "79de",
+      "id_user_artistFK": "Anita Dinamita",
+      "title_product": "mujeres klimt",
+      "category_product": "400x300",
+      "price_product": "530",
+      "description_product": "lienzo",
+      "categories": "realismo contemporáneo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713716148/WorkArtist/c2sxwlfkhb8pn9eij36k.jpg"
+    },
+    {
+      "id": "a5d5",
+      "id_user_artistFK": "esto que es",
+      "title_product": "Manuela la peliculera",
+      "category_product": "Óleo sobre lienzo",
+      "price_product": "1500",
+      "description_product": "Una obra preciosa ",
+      "categories": "expresionismo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713719359/WorkArtist/pbxsuvrx0pgmvb5xwwd4.jpg"
     }
   ],
   "user": [

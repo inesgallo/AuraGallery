@@ -1,62 +1,73 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import ArtworkHandler from '../../handler/ArtworkHandler';
-import PropTypes from 'prop-types';
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import ProductHandler from "../../handler/ProductHandler";
+import PropTypes from "prop-types";
+import useLocalStorage from "../../custom/useLocalStorage";
+import { UserContext } from "../../context/UserContext"; 
+import './Card.css';
 
-import './Card.css'
+function Card({ category_product }) {
+ const [products, setProducts] = useState([]);
+ const [cart, setCart] = useLocalStorage('shoppingCart', []);
+ const { isLoggedIn } = useContext(UserContext); 
 
-function Card({ selectedCategory, artwork }) {
-   
-    const [artworks, setArtworks] = useState([]);
-    
-    useEffect(() => {
-        ArtworkHandler.getFilteredArtworks(selectedCategory).then(filteredArtworks => {
-          setArtworks(filteredArtworks);
-        });
-     }, [selectedCategory]); 
+ useEffect(() => {
+    ProductHandler.getFilteredProducts(category_product).then(
+      (filteredProducts) => {
+        setProducts(filteredProducts);
+        console.log(filteredProducts);
+      }
+    );
+ }, [category_product]);
 
-     Card.propTypes = {
-        selectedCategory: PropTypes.string,
-        artwork: PropTypes.object,
-        // Añade aquí las propiedades restantes y sus tipos
-       };
+ const addToCart = (product) => {
+    setCart([...cart, product])
+ }
 
-    return (
-        
-<div className="artwork-container">
-      {artworks.map((artwork, index) => (
+ const buyNow = () => {
+    const handleClick = () => {
+      if (isLoggedIn) {
+        window.location.href = `/payment/`;
+      } else {
+        window.location.href = `/login`;
+      }
+    }
+    handleClick(); 
+ }
+
+ Card.propTypes = {
+    category_product: PropTypes.string,
+    product: PropTypes.object,
+    setProducts: PropTypes.func,
+ };
+
+ return (
+    <div className="artwork-container">
+      {products?.map((product, index) => (
         <div key={index} className="card">
-          <Link to={`/artwork/${artwork.id}`} state={{ artwork }}>            
-            <div className='artwork-image-container'>
-              <img
-                src={artwork.artworkImage}
-                alt={artwork.artworkName}
-              />
-              <div className="overlay">
-                Ver más
-              </div>
+          <Link to={`/Artdetail/${product.title_product}`} state={{product}}>
+            <div className="artwork-image-container">
+              <img src={product.image_product} alt={product.title_product} />
             </div>
           </Link>
-              <div className="artwork-details">
-                <h3 className="artwork-title">{artwork.artworkName}</h3>
-                <div className="price-details">
-                  <p className="price">{artwork.price}€</p>
-                </div>
-              </div>
-              <div className="add-to-cart">
-                <button className="add-to-cart-button">
-                 añadir al carrito
-                </button>
-                <button className="buy-now">
-                 comprar
-                </button>
-              </div>
+          <div className="artwork-details">
+            <h3 className="artwork-title">{product.title_product}</h3>
+            <div className="artwork-info">
+              <hr></hr>
+              <p className="artist-name">{product.name_artist}</p>
+              <p className="artwork-description">{product.description_product}</p>
+              <hr></hr>
+              <p className="artwork-price">{product.price_product} €</p>
+            </div>
+          </div>
+          <div className="shopping">
+            <button className="add-to-cart-button" onClick={() => addToCart(product)}>AÑADIR AL CARRITO</button>
+            <button className="buy-now-button" onClick={() => buyNow(product)}>COMPRAR</button>
+          </div>
         </div>
       ))}
     </div>
  );
-
 }
 
 export default Card;
-
