@@ -1,65 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './adminForm.css';
-import { useState, useEffect } from 'react';
 import { UserHandler } from '../../handler/UserHandler';
 import { Container } from 'reactstrap';
 import Swal from 'sweetalert2';
 
 const AdminForm = () => {
-
   const [namePersonUser, setNamePersonUser] = useState('');
   const [surnamePersonUser, setSurnamePersonUser] = useState('');
   const [nameUser, setNameUser] = useState('');
   const [passwordUser, setPasswordUser] = useState('');
   const [userTypeFK, setUserTypeFK] = useState('');
-
-
   const [users, setUsers] = useState([]);
 
+  
+  const fetchData = async () => {
+    const userData = await UserHandler.getUser();
+    setUsers(userData);
+  };
+
   useEffect(() => {
-    async function fetchData() {
-      const userData = await UserHandler.getUser();
-      setUsers(userData);
-    }
     fetchData();
   }, []);
 
-  
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!namePersonUser || !surnamePersonUser || !nameUser || !passwordUser || !userTypeFK) {
+    if (!namePersonUser || !surnamePersonUser || !nameUser || !passwordUser || !userTypeFK) {
+      Swal.fire({
+        icon: 'warning',
+        title: '¡Advertencia!',
+        text: 'Por favor, completa todos los campos del formulario.',
+      });
+      return;
+    }
+
+    const newUser = {
+      name_person_user: namePersonUser,
+      surname_person_user: surnamePersonUser,
+      name_user: nameUser,
+      password_user: passwordUser,
+      user_typeFK: userTypeFK
+    };
+
+    await UserHandler.submitUser(newUser);
+    fetchData();
+
+    setNamePersonUser('');
+    setSurnamePersonUser('');
+    setNameUser('');
+    setPasswordUser('');
+    setUserTypeFK('');
+    
     Swal.fire({
-      icon: 'warning',
-      title: '¡Advertencia!',
-      text: 'Por favor, completa todos los campos del formulario.',
+      icon: 'success',
+      title: '¡Éxito!',
+      text: 'El formulario ha sido enviado correctamente.',
     });
-    return;
-  }
-
-  const newUser = {
-    name_person_user: namePersonUser,
-    surname_person_user: surnamePersonUser,
-    name_user: nameUser,
-    password_user: passwordUser,
-    user_typeFK: userTypeFK
   };
 
-  await UserHandler.submitUser(newUser);
+  const handleDelete = async (id) => {
+    await UserHandler.handleDelete(id);
+    fetchData();
+  };
 
-      setNamePersonUser('');
-      setSurnamePersonUser('');
-      setNameUser('');
-      setPasswordUser('');
-      setUserTypeFK('');
-      
-      Swal.fire({
-                icon: 'success',
-                title: '¡Éxito!',
-                text: 'El formulario ha sido enviado correctamente.',
-              });
-};
-  
   return (
     <>
       <Container>
@@ -155,9 +158,9 @@ const AdminForm = () => {
             <td>{user.name_user}</td>
             <td>{user.user_typeFK}</td>
             <td>
-              <button onClick={() => handleDelete(user.id_user)} >Delete</button> 
+              <button className='modifBotton' onClick={() => handleDelete(user.id_user)} >Delete</button> 
               
-              <button onClick={() => handlePatch(user.id_user)}>Patch</button> 
+              <button className='modifBotton' onClick={() => handlePatch(user.id_user)}>Patch</button> 
               
             </td>
           </tr>
@@ -341,5 +344,145 @@ export default AdminForm;
 //     </div>
 //   );
 // };
+
+// export default AdminForm;
+
+
+
+//Codigo de Ana 
+
+// import React from 'react';
+// import './adminForm.css';
+// import { useState } from 'react';
+// import { UserHandler } from '../../handler/UserHandler';
+// import { Container } from 'reactstrap';
+// import axios from "axios";
+// import Swal from 'sweetalert2';
+
+// const AdminForm = () => {
+
+//   const [name_person_user, setName_person_user] = useState('');
+//   const [surname_person_user, setSurname_person_user] = useState('');
+//   const [name_user, setName_user] = useState('');
+//   const [password_user, setPassword_user] = useState('');
+//   const [user_typeFK, setUser_typeFK] = useState('');
+//   const [Loading, setLoading] = useState("");
+
+//   const handleChange = (e) => {
+//     const { value } = e.target;
+//     setUser_typeFK(value);
+//   };
+
+
+  
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     if (
+//       name_person_user &&
+//       surname_person_user &&
+//       name_user &&
+//       password_user &&
+//       user_typeFK
+//     ) {
+//       try {
+//         const formData = new FormData();
+//         formData.append('name_person_user', name_person_user);
+//         formData.append('surname_person_user', surname_person_user);
+//         formData.append('name_user', name_user);
+//         formData.append('password_user', password_user);
+//         formData.append('user_typeFK', user_typeFK);
+  
+//         await UserHandler.submitUser(formData);
+//         setLoading(false);
+
+//         // Limpiar los campos del formulario
+//         setName_person_user('');
+//         setSurname_person_user('');
+//         setName_user('');
+//         setPassword_user('');
+//         setUser_typeFK('');
+        
+//         // Mostrar SweetAlert de éxito
+//         Swal.fire({
+//           icon: 'success',
+//           title: '¡Éxito!',
+//           text: 'El formulario ha sido enviado correctamente.',
+//         });
+//       } catch (error) {
+//         console.error('Error al enviar el formulario:', error);
+//         setLoading(false);
+//       }
+//     } else {
+
+//       Swal.fire({
+//         icon: 'warning',
+//         title: '¡Advertencia!',
+//         text: 'Por favor, completa todos los campos del formulario.',
+//       });
+//     }
+
+
+//   };
+
+//   return (
+//     <>
+//       <Container>
+//         <form className='adminform' onSubmit={handleSubmit}>
+//           <section className='sectionForm'>
+
+//             <div className='nameSurnameGroup'>
+//               <div className='nameGroup'>
+//                 <label className='nameLabel'>
+//                   nombre:
+//                   <input className='nameInput' type="text" name="name_person_user" onChange={(e) => setName_person_user(e.target.value)} />
+//                 </label>
+//               </div>
+
+//               <div className='surnameGroup'>
+//                 <label className='surnameLabel'>
+//                   apellido:
+//                   <input className='surnameInput' type="text" name="surname_person_user" onChange={(e) => setSurname_person_user(e.target.value)} />
+//                 </label>
+//               </div>
+//             </div>
+
+//             <div className='emailPasswordGroup'>
+//               <div className='emailGroup'>
+//                 <label className='emailLabel'>
+//                   email:
+//                   <input className='emailInput' type="text" name="name_user" onChange={(e) => setName_user(e.target.value)} />
+//                 </label>
+//               </div>
+
+//               <div className='passwordGroup'>
+//                 <label className='passwordLabel'>
+//                   contraseña:
+//                   <input className='passwordInput' type="text" name="password_user" onChange={(e) => setPassword_user(e.target.value)} />
+//                 </label>
+//               </div>
+//             </div>
+
+
+//             <fieldset className='selectUserFieldset'>
+
+//               <label>
+//                 <input type="radio" name="user_typeFK" value="artista" checked={user_typeFK === 'artista'} onChange={handleChange} />
+//                 artista
+//               </label>
+//               <label>
+//                 <input type="radio" name="user_typeFK" value="cliente" checked={user_typeFK === 'cliente'} onChange={handleChange} />
+//                 cliente
+//               </label>
+//             </fieldset>
+
+//             <button type="submit" className='sendBotton'>enviar</button>
+//           </section>
+//         </form>
+//       </Container>
+//     </>
+//   )
+// }
 
 // export default AdminForm;

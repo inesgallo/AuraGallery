@@ -45,6 +45,13 @@ export const UserHandler = {
         return allUsers;
     },
 
+    async handleDelete(id) {
+        const userToDelete = {
+            id_user: id
+        };
+        await UserService.deleteUser(userToDelete);
+    }
+    
 }
 
 export default UserHandler;
