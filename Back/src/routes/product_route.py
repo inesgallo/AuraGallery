@@ -2,8 +2,9 @@ from flask import Blueprint, request, jsonify
 from src.services.product_service import ProductService
 from src.models.product_model import Product
 
-main = Blueprint('product_blueprint', __name__)
 
+
+main = Blueprint('product_blueprint', __name__)
 @main.route('/get_product', methods = ['GET'])
 def get_product():
     print("Hola get, product_router")
@@ -18,8 +19,8 @@ def get_product_by_id_user():
     return jsonify(products)
 
 @main.route('/post_product', methods = ['POST'])
-def post_product(): 
-    print("Hola post, product_router")   
+def post_product():
+    print("Hola post, product_router")
     title_product = request.json['title_product']
     image_product = request.json['image_product']
     category_product = request.json['category_product']
@@ -31,10 +32,10 @@ def post_product():
     post_product = ProductService.post_product(product_table)
     print(post_product)
     return 'Esto se ve en la pagina post'
-    
+
 @main.route('/update_product', methods = ['PATCH'])
-def update_product(): 
-    print("Hola update, product_router")  
+def update_product():
+    print("Hola update, product_router")
     id_product = request.json['id_product']
     title_product = request.json['title_product']
     image_product = request.json['image_product']
@@ -47,10 +48,10 @@ def update_product():
     patch_product = ProductService.patch_product(product_table)
     print(patch_product)
     return 'Esto se ve en la pagina update'
-    
+
 @main.route('/delete_product', methods = ['DELETE'])
 def manage_product():
-    print("Hola post, product_router")      
+    print("Hola post, product_router")
     id_product = request.json['id_product']
     delete_product = ProductService.delete_product(id_product)
     print(delete_product)
