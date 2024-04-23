@@ -1,8 +1,9 @@
 import ProductService from '../services/ProductService';
+import { ProductServiceDB } from '../services/ProductService';
 
 export const ProductHandler = {
   async getAllProducts() {
-    let allProducts = await ProductService.getAllProducts();
+    let allProducts = await ProductServiceDB.getProducts();
     return allProducts;
   },
 
