@@ -31,23 +31,22 @@ const ArtistForm = () => {
     setCategories(value);
   };
 
-  const fetchAndFilterProducts = async () => {
-    try {
-      const allProducts = await ProductHandler.getAllProducts();
-      console.log(user.id)
-      // const userProducts = allProducts.filter(product => product.id_user_artistFK === user.id);
-      // console.log(allProducts)
-      console.log(allProducts)
-      // setProducts(userProducts);
-    } catch (error) {
-      console.error('Error al recuperar y filtrar productos:', error);
-    }
- }
- useEffect(() => {
-  if (user) {
+
+  useEffect(() => {
+    const fetchAndFilterProducts = async () => {
+      try {
+        // console.log(user)
+        if (user) {
+          console.log("ID de usuario:", user.id);
+          const userProducts = await ProductHandler.handlerGetProductById(user.id_user)
+          setProducts(userProducts);
+        }
+      } catch (error) {
+        console.error('Error al recuperar y filtrar productos:', error);
+      }
+    };
     fetchAndFilterProducts();
-  }
-}, [user]);
+  }, [user]);
 
 
   const handleDrop = async (files) => {

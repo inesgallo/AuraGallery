@@ -6,9 +6,14 @@ export const ProductHandler = {
     return allProducts;
   },
 
-  async getProduct(id) {
-    let product = await ProductService.getProduct(id);
-    return product;
+  async handlerGetProductById(id) {
+    try {
+      let product = await ProductService.getProductById(id);
+      return product;
+    } catch (error) {
+      console.log(' error al obtener productos')
+      throw error;
+    }
   },
 
   async submitProduct(newProduct) {

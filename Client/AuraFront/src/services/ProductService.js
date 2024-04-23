@@ -20,13 +20,13 @@ export const ProductService = {
             console.error("Error al obtener las obras:", error);
         }
     },
-    async getProduct(id) {
+    async getProductById(id) {
         try {
-            let response = await apiClient.get("/products/" + id);
-            let product = response.data;
-            return product;
+            let response = await apiClient.get(`/product/get_product_by_id/${id}`);
+            return response.data;
         } catch (error) {
-            console.error("Error al obtener la obra:", error);
+            console.error("Error al obtener la obra por ID:", error);
+            throw error;
         }
     },
     async submitProduct(newProduct){
