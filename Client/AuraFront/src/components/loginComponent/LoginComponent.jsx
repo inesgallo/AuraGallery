@@ -7,39 +7,30 @@ import Form from "react-bootstrap/Form";
 import { useUserHandler } from "../../handler/AuthHandler"
 import Swal from 'sweetalert2'
 
-const LoginComponent = ({ handleLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // const { handleLogin } = useUserHandler(); 
-// const LoginComponent = ({ handleLogin }) => {
-//   const [email, setEmail] = useState ('');
-//   const [password, setPassword] = useState ('');
-//   const { handleLogin } = useUserHandler();
 
+const LoginComponent = () => {
+  const [email, setEmail] = useState ('');
+  const [password, setPassword] = useState ('');
+  const { handleLogin } = useUserHandler();
   const handleSubmit = (event) => {
     event.preventDefault();
     const username = event.target.email.value;
     const password = event.target.password.value;
     handleLogin(username, password);
   };
-
   const handlerSubmitNewAcces = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     const userName = event.target.emailAccess.value;
     const password = event.target.passwordAccess.value;
     Swal.fire({
        icon: 'success',
        title: 'OK',
        text: 'Tu solicitud ha sido procesada.',
-
     }).then(() =>{
       setEmail('');
       setPassword('');
     })
-
-
    };
-
   return (
     <>
       <section className="contentLogin  me-4 ms-4 mt-5 mb-5 ">
@@ -56,7 +47,6 @@ const LoginComponent = ({ handleLogin }) => {
                     </div>
                     <Form.Control type="email"/>
                   </Form.Group>
-
                   <Form.Group className="mb-3" controlId="password">
                   <div className="d-flex ms-2">
                     <Form.Label className="m-0">contraseña :</Form.Label>
@@ -64,7 +54,6 @@ const LoginComponent = ({ handleLogin }) => {
                     <Form.Control type="password"/>
                   </Form.Group>
                   <Container>
-                    
                   </Container>
                   <button className ="center btnLogin mt-5 " type="submit">
                     ACCEDER
@@ -81,21 +70,19 @@ const LoginComponent = ({ handleLogin }) => {
                     <div className="d-flex ms-2">
                     <Form.Label sm={2}>nombre :</Form.Label>
                     </div>
-                    <Form.Control type="text"  value={email} 
+                    <Form.Control type="text"  value={email}
                     onChange={(e) => setEmail(e.target.value)} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="passwordAccess">
                   <div className="d-flex ms-2">
                     <Form.Label sm={2}>mensaje :</Form.Label>
                     </div>
-                    <Form.Control type="text" value={password} 
+                    <Form.Control type="text" value={password}
                     onChange={(e) => setPassword(e.target.value)} />
                   </Form.Group>
-
                   <button className ="center btnLogin mt-5" type="submit">
                     ENVIAR
                   </button>
-
                 </Form>
               </div>
             </Col>
@@ -105,5 +92,4 @@ const LoginComponent = ({ handleLogin }) => {
     </>
   );
 };
-
 export default LoginComponent;

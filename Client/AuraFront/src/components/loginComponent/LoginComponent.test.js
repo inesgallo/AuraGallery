@@ -1,13 +1,15 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import LoginComponent from '../LoginComponent'; // Asegúrate de importar correctamente tu componente LoginComponent
+import { useUserHandler } from '../../handler/AuthHandler';
+import{AuthHandler}  from '../../handler/AuthHandler'
+import LoginComponent from './LoginComponent'; // Asegúrate de importar correctamente tu componente LoginComponent
 
 describe('LoginComponent', () => {
     test('should call handleLogin when "ACCEDER" button is clicked', () => {
       const mockHandleLogin = jest.fn(); // Crea una función simulada para el handleLogin
   
       // Sobrescribe el hook useUserHandler para devolver la función simulada mockHandleLogin
-      jest.spyOn(useUserHandler, 'useUserHandler').mockReturnValue({
+      jest.spyOn(AuthHandler, 'useUserHandler').mockReturnValue({
         handleLogin: mockHandleLogin
       });
   
