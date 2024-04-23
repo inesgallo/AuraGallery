@@ -21,6 +21,23 @@ class ProductService():
             return products_json
         except Exception as ex:
             print(ex)
+            
+    @classmethod
+    def get_product_filtr(cls, user_artistFK):
+        try:
+            connection  = get_connection()
+            print(connection)
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT id_product, title_product, image_product, category_product, description_product, price_product, id_user_artistFK, user.name_person_user, user.surname_person_user FROM `product` INNER JOIN user ON product.id_user_artistFK = user.id_user WHERE product.stock_product = 1 AND product.id_user_artistFK = %s', (user_artistFK))
+                # cursor.callproc('sp_get_product')
+                result = cursor.fetchall()
+                products_json = [{"id_product": row[0], "title_product": row[1], "image_product": row[2], "category_product": row[3], "description_product": row[4], "price_product": row[5], "id_user_artistFK": row[6], "name_person_user": row[7], "surname_person_user": row[8]} for row in result]
+                print(result)
+            connection.close()
+            return products_json
+        except Exception as ex:
+            print(ex)
+            
     @classmethod
     def post_product(cls, product_table:Product):
         try:

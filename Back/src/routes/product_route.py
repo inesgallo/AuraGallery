@@ -10,6 +10,13 @@ def get_product():
     products = ProductService.get_product()
     return jsonify(products)
 
+@main.route('/get_product_by_id/', methods=['GET'])
+def get_product_by_id_user():
+    user_artistFK = request.args.get('user_artistFK')
+    print(user_artistFK)
+    products = ProductService.get_product_filtr(user_artistFK)
+    return jsonify(products)
+
 @main.route('/post_product', methods = ['POST'])
 def post_product(): 
     print("Hola post, product_router")   
