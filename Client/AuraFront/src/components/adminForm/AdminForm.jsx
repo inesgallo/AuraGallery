@@ -59,8 +59,31 @@ const AdminForm = () => {
   };
 
   const handleDelete = async (id) => {
-    await UserHandler.handleDelete(id);
-    fetchData();
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminarlo',
+      cancelButtonText: 'No, cancelar',
+      reverseButtons: true
+    });
+  
+    if (result.isConfirmed) {
+      await UserHandler.handleDelete(id);
+      fetchData();
+      Swal.fire(
+        'Deleted!',
+        'El usuario ha sido eliminado.',
+        'éxito'
+      );
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire(
+        'Cancelled',
+        'La eliminación de usuario ha sido cancelada :)',
+        'error'
+      );
+    }
   };
 
   return (
