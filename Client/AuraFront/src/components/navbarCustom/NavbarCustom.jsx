@@ -7,7 +7,7 @@ import './navbarCustom.css';
 import { UserContext } from '../../context/UserContext';
 
 function NavbarCustom() {
-  const {isLoggedIn , logout}  = useContext(UserContext);
+  const {isLoggedIn , logout, user}  = useContext(UserContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoginPage, setIsLoginPage] = useState(false);
 
