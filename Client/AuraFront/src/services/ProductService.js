@@ -12,8 +12,9 @@ const apiClient = axios.create({
 export const ProductService = {
     async getProducts() {
         try {
-            let response = await apiClient.get("/products");
+            let response = await apiClient.get("/product/get_product");
             let allProducts = response.data;
+            console.log(allProducts)
             return allProducts;
         } catch (error) {
             console.error("Error al obtener las obras:", error);

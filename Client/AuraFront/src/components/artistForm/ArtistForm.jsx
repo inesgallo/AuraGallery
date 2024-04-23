@@ -1,4 +1,4 @@
-import { useState , useContext} from 'react';
+import { useState , useContext, useEffect} from 'react';
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
@@ -6,6 +6,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import './artistForm.css';
 import { UserContext } from './../../context/UserContext';
+import UsersCard from '../usersCard/UsersCard';
 
 
 const ArtistForm = () => {
@@ -22,10 +23,31 @@ const ArtistForm = () => {
   const [Loading, setLoading] = useState("");
   const [stock_product, setStock_product] = useState (true)
   const [id_user_artistFK, setId_user_artistFK] = useState();
+
+  const [products ,setProducts] = useState([]);
+
   const handleChange = (e) => {
     const { value } = e.target;
     setCategories(value);
   };
+
+  const fetchAndFilterProducts = async () => {
+    try {
+      const allProducts = await ProductHandler.getAllProducts();
+      console.log(user.id)
+      // const userProducts = allProducts.filter(product => product.id_user_artistFK === user.id);
+      // console.log(allProducts)
+      console.log(allProducts)
+      // setProducts(userProducts);
+    } catch (error) {
+      console.error('Error al recuperar y filtrar productos:', error);
+    }
+ }
+ useEffect(() => {
+  if (user) {
+    fetchAndFilterProducts();
+  }
+}, [user]);
 
 
   const handleDrop = async (files) => {
@@ -100,7 +122,7 @@ const ArtistForm = () => {
         setDescription_product('');
         setCategories('');
         setImage_product([]);
-        setStock_product(false);
+        setStock_product(true);
         setImagePreviewArray([]);
         // Mostrar SweetAlert de éxito
         Swal.fire({
@@ -130,6 +152,7 @@ const ArtistForm = () => {
   };
   
   return (
+    <>
     <Container>
       <form className='artistform' onSubmit={handleSubmit}>
         <section className='containerForm'>
@@ -226,7 +249,10 @@ const ArtistForm = () => {
       </form>
       {Loading && <p>Cargando...</p>}
     </Container>
-
+    {products?.map((product, index) => (
+    <UsersCard key={index} product={product} />
+  ))}
+    </>
   );
 }
 
