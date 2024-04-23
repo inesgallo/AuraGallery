@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import ProductHandler from "../../handler/ProductHandler";
 import PropTypes from "prop-types";
 import useLocalStorage from "../../custom/useLocalStorage";
-import { UserContext } from "../../context/UserContext"; 
-import './Card.css';
+import { UserContext } from "../../context/UserContext";
+import Swal from 'sweetalert2';
+import './card.css';
 
 function Card({ category_product }) {
  const [products, setProducts] = useState([]);
@@ -22,6 +23,13 @@ function Card({ category_product }) {
 
  const addToCart = (product) => {
     setCart([...cart, product])
+    Swal.fire({
+      icon: 'success',
+      title: '¡Producto añadido al carrito!',
+      text: `${product.title_product} ha sido añadido a tu carrito.`,
+      showConfirmButton: false,
+      timer: 1500
+  });
  }
 
  const buyNow = () => {
