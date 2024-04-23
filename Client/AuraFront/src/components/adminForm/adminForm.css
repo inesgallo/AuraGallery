@@ -83,3 +83,50 @@
 
 
 
+/*Table*/
+td,
+th {
+    text-align: center;
+    padding: 15px;
+    border: none;
+    color: #393838;
+}
+
+th {
+    background-color: #eeecec;
+}
+
+tr:nth-child(even) {
+    background-color: #f3cb8e94;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.modifBotton {
+    width: 60px;
+    height: 26px;
+    background-color: var(--coralito);
+    color: white;
+    border: none;
+    font-family: 'Montserrat';
+    margin: 2px;   
+}
+
+.modifBotton:hover {
+    background-color: black;
+}
+
+.modifBotton:active {
+    background-color: white;
+    color: var(--coralito);
+    transform: scale(1.2);
+    font-weight: bolder;
+    border: 1px solid var(--coralito);
+}
