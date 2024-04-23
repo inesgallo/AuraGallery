@@ -83,3 +83,28 @@
 
 
 
+/*Table*/
+td,
+th {
+    text-align: center;
+    padding: 15px;
+    border: none;
+    color: #393838;
+}
+
+th {
+    background-color: #eeecec;
+}
+
+tr:nth-child(even) {
+    background-color: #f3cb8e94;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}

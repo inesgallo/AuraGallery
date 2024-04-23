@@ -6,14 +6,14 @@ export const UserHandler = {
         return allUsers;
     },
 
-    async getUser(id) {
-        let user = await UserService.getUser(id);
+    async getUser() {
+        let user = await UserService.getUser();
         return user;
     },
 
     async submitUser(newUser) {
         return UserService.submitUser(newUser).then((response) => {
-            if (response.status === 201) {
+            if (response.status === 200) {
                 console.log(response.data);
             } else {
                 // Error al crear usuario
