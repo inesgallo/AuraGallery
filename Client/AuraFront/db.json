@@ -98,7 +98,7 @@
     },
     {
       "id_product": "4",
-      "image_product": "/img-8/fruticas.png",
+      "image_product": "/img-8/fruta.jpg",
       "title_product": "Fruticas",
       "name_artist": "Manuel Villegas",
       "description_product": "óleo sobre lienzo",
@@ -162,217 +162,71 @@
       "stock_product": 1,
       "id": "c244"
     },
-    {
-      "id": "edfd",
-      "id_user_artistFK": "Antonio Gala",
-      "title_product": "Frida Khalo",
-      "category_product": "autoretrato",
-      "price_product": "300",
-      "description_product": "acuarela",
-      "categories": "neo-pop",
-      "image_product": {
-        "path": "frida_LorenaSanz.jpg"
-      }
-    },
-    {
-      "id": "a326",
-      "id_user_artistFK": "Antonio Gala",
-      "title_product": "Frida Khalo",
-      "category_product": "autoretrato",
-      "price_product": "53",
-      "description_product": "lienzo",
-      "categories": "neo-pop",
-      "image_product": {
-        "path": "frida_LorenaSanz.jpg"
-      }
-    },
-    {
-      "id": "bd47",
-      "id_user_artistFK": "Pedro Reyes",
-      "title_product": "oleaje",
-      "category_product": "paisajismo",
-      "price_product": "45",
-      "description_product": "lienzo",
-      "categories": "realismo contemporáneo",
-      "image_product": {
-        "path": "Courbet_laOla2.jpg"
-      }
-    },
-    {
-      "id": "6a71",
-      "id_user_artistFK": "Pedro Reyes",
-      "title_product": "oleaje",
-      "category_product": "paisajismo",
-      "price_product": "45",
-      "description_product": "lienzo",
-      "categories": "realismo contemporáneo",
-      "image_product": {
-        "path": "Courbet_laOla2.jpg"
-      }
-    },
-    {
-      "id": "6759",
-      "id_user_artistFK": "Yamila Soledad",
-      "title_product": "libertad",
-      "category_product": "400x300",
-      "price_product": "50",
-      "description_product": "geometría acuarela",
-      "categories": "arte abstracto",
-      "image_product": {
-        "path": "Delaunay_tambor.jpg"
-      }
-    },
-    {
-      "id": "b30c",
-      "id_user_artistFK": "ana",
-      "title_product": "Frida Khalo",
-      "category_product": "autoretrato",
-      "price_product": "53",
-      "description_product": "ertasgs",
-      "categories": "arte digital",
-      "image_product": {
-        "path": "frida_LorenaSanz.jpg"
-      }
-    },
-    {
-      "id": "891c",
-      "id_user_artistFK": "",
-      "title_product": "",
-      "category_product": "",
-      "price_product": "",
-      "description_product": "",
-      "categories": ""
-    },
-    {
-      "id": "308a",
-      "id_user_artistFK": "",
-      "title_product": "",
-      "category_product": "",
-      "price_product": "",
-      "description_product": "",
-      "categories": "",
-      "image_product": {
-        "path": "frida_LorenaSanz.jpg"
-      }
-    },
-    {
-      "id": "4b0d",
-      "id_user_artistFK": "yulia bila",
-      "title_product": "arte",
-      "category_product": "autoretrato",
-      "price_product": "56",
-      "description_product": "fwgaq",
-      "categories": "realismo contemporáneo",
-      "image_product": {
-        "path": "mujeres_Klimt.jpg"
-      }
-    },
+
     {
       "id": "3c5c",
       "id_user_artistFK": "Antonio Gala",
       "title_product": "Frida Khalo",
-      "category_product": "autoretrato",
+      "category_product": "ArteDigital",
       "price_product": "23",
       "description_product": "lienzo",
-      "categories": "realismo contemporáneo",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713711872/WorkArtist/lliqvbnhhst5gppachlk.jpg"
     },
     {
       "id": "89a3",
       "id_user_artistFK": "Myriam",
       "title_product": "mosaiko",
-      "category_product": "lienzo",
       "price_product": "456",
       "description_product": "acuarelas",
-      "categories": "realismo contemporáneo",
+      "category_product": "NeoPop",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713713092/WorkArtist/zee1lrzxaty0gfymaylm.jpg"
     },
-    {
-      "id": "287a",
-      "id_user_artistFK": "",
-      "title_product": "",
-      "category_product": "",
-      "price_product": "",
-      "description_product": "",
-      "categories": ""
-    },
-    {
-      "id": "42e2",
-      "id_user_artistFK": "",
-      "title_product": "",
-      "category_product": "",
-      "price_product": "",
-      "description_product": "",
-      "categories": ""
-    },
+    
     {
       "id": "1f83",
       "id_user_artistFK": "Inés Gallo",
       "title_product": "Circulos",
-      "category_product": "400x300",
+      "category_product": "ArteAbstracto",
       "price_product": "678",
       "description_product": "lienzo",
-      "categories": "arte abstracto",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
     },
-    {
-      "id": "07aa",
-      "id_user_artistFK": "Inés Gallo",
-      "title_product": "Circulos",
-      "category_product": "400x300",
-      "price_product": "678",
-      "description_product": "lienzo",
-      "categories": "arte abstracto",
-      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
-    },
+   
     {
       "id": "d754",
       "id_user_artistFK": "Gabriela Ramos",
       "title_product": "noche estrellada",
-      "category_product": "paisajismo",
+      "category_product": "expresionismo",
       "price_product": "76",
       "description_product": "lienzo",
-      "categories": "arte abstracto",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714616/WorkArtist/jtpkp6yoyvrizzkyyxmx.jpg"
     },
     {
       "id": "8aaf",
       "id_user_artistFK": "Myri Mira",
       "title_product": "oleaje",
-      "category_product": "400x300",
+      "category_product": "RealismoContemporaneo",
       "price_product": "90",
       "description_product": "cositas",
-      "categories": "neo-pop",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715429/WorkArtist/hurnclodra9z9ludyyuv.jpg"
     },
-    {
-      "id": "be53",
-      "id_user_artistFK": "Antonio Gala",
-      "title_product": "Frida Khalo",
-      "category_product": "paisajismo",
-      "price_product": "2",
-      "description_product": "dhsrhwr",
-      "categories": "arte abstracto",
-      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715841/WorkArtist/e2s1dmt0liilm05l22qt.jpg"
-    },
+
     {
       "id": "79de",
       "id_user_artistFK": "Anita Dinamita",
       "title_product": "mujeres klimt",
-      "category_product": "400x300",
+      "category_product": "expresionismo",
       "price_product": "530",
       "description_product": "lienzo",
-      "categories": "realismo contemporáneo",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713716148/WorkArtist/c2sxwlfkhb8pn9eij36k.jpg"
     },
     {
       "id": "a5d5",
       "id_user_artistFK": "esto que es",
       "title_product": "Manuela la peliculera",
-      "category_product": "Óleo sobre lienzo",
       "price_product": "1500",
       "description_product": "Una obra preciosa ",
-      "categories": "expresionismo",
+      "category_product": "NeoPop",
       "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713719359/WorkArtist/pbxsuvrx0pgmvb5xwwd4.jpg"
     }
   ],

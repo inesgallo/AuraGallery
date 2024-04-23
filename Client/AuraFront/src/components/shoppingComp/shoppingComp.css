@@ -4,12 +4,23 @@
     margin: 0 auto;
 }
 
+.empty-cart {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 150;
+    display: flex;
+    justify-content: center;
+    margin: 300px;
+    color: #000;
+    font-size: 48px;
+}
+
 .shopping-comp h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     color: #f4f4f2;
-    font-size: 80px;
-    margin-bottom: -20px;
+    font-size: 58px;
+    margin-bottom: -15px;
+    margin-left: 380px;
 }
 
 .cart-items {
@@ -69,4 +80,14 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.empty-cart-button {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    display: flex;
+    justify-content: center;
+margin-left: 40px;
+    color: #000;
+    font-size: 15px;
 }
