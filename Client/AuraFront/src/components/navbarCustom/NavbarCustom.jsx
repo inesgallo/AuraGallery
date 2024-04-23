@@ -45,13 +45,21 @@ useEffect(() => {
         <div className="iconHolder">
           <Link to="/">
           <div className="catalogLink">
-            <h3 className='links'>catálogo</h3>
+            <h3 className='links closeactive'>catálogo</h3>
           </div>
           </Link>
 
-          <h3 id='loginButton'>{isLoggedIn ? 
-          <Link to="/" onClick={handleLogout} className={isLoggedIn ? 'login closeactive' : 'closedesable'}>logout</Link> :
-          <Link to="/login" className={isLoggedIn ? 'login closeactive' : 'closedesable'}>login</Link>}</h3>
+          <h3 id='loginButton'>
+    {isLoggedIn ? 
+    <React.Fragment>
+      <div className='d-flex flex-grow-2'>
+        <Link to="/artist/dashboard" className="add-obra me-4 closeactive">Añadir obra</Link>
+        <Link to="/" onClick={handleLogout} className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Logout</Link>
+      </div>
+    </React.Fragment>
+    :
+    <Link to="/login" className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Login</Link>}</h3>
+
 
           <Link to="/buscar">
             <img className="link" id='search' src={search} />
