@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 
-const UsersCard = ({ product,onDelete }) => {
+const UsersCard = ({ product, }) => {
     const { title_product, image_product,id_product } = product || {};
 
     UsersCard.propTypes = {
@@ -14,9 +14,6 @@ const UsersCard = ({ product,onDelete }) => {
         }),
        };
     
-    const handleDelete = () =>{
-      onDelete(id_product);
-    }
  return (
     <div className="artwork-container">
       <div className="card">
@@ -30,7 +27,7 @@ const UsersCard = ({ product,onDelete }) => {
         </div>
         <div className="shopping">
           <button className="add-to-cart-button" >ACTUALIZAR</button>
-          <button className="buy-now-button"onClick={handleDelete} >ELIMINAR</button>
+          <button className="buy-now-button" >ELIMINAR</button>
         </div>
       </div>
     </div>

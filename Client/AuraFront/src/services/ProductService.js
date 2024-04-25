@@ -8,24 +8,46 @@ const apiClient = axios.create({
       'Content-Type': 'application/json'
     }
 })
+const apiClientDB = axios.create({
+    baseURL: 'http://localhost:3000',
+    withCredentials: false,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+})
 
-export const ProductService = {
+export const ProductServiceDB = {
     async getProducts() {
         try {
-            let response = await apiClient.get("/products");
+            let response = await apiClientDB.get("/products");
             let allProducts = response.data;
+            console.log(allProducts)
             return allProducts;
         } catch (error) {
             console.error("Error al obtener las obras:", error);
         }
     },
-    async getProduct(id) {
+}
+
+export const ProductService = {
+    async getProducts() {
         try {
-            let response = await apiClient.get("/products/" + id);
-            let product = response.data;
-            return product;
+            let response = await apiClient.get("/product/get_product");
+            let allProducts = response.data;
+            console.log(allProducts)
+            return allProducts;
         } catch (error) {
-            console.error("Error al obtener la obra:", error);
+            console.error("Error al obtener las obras:", error);
+        }
+    },
+    async getProductById(id) {
+        try {
+            let response = await apiClient.get(`/product/get_product_by_id/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error al obtener la obra por ID:", error);
+            throw error;
         }
     },
     async submitProduct(newProduct){

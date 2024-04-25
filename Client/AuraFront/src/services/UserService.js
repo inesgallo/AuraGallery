@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:5000',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -10,9 +10,9 @@ const apiClient = axios.create({
 })
 
 export const UserService = {
-    async getUsers() {
+    async getUser() {
         try {
-            let response = await apiClient.get("/users");
+            let response = await apiClient.get("/user_admin/get_user");
             let allUsers = response.data;
             return allUsers;
         } catch (error) {
@@ -30,7 +30,7 @@ export const UserService = {
     },
     async submitUser(newUser) {
         try {
-            return await apiClient.post("/users", newUser);
+            return await apiClient.post("/user_admin/post_user", newUser);
         } catch (error) {
             console.error("Error al enviar el usuario:", error);
         }
@@ -38,7 +38,7 @@ export const UserService = {
     },
     async deleteUser(id) {
         try {
-            return await apiClient.delete("/user/" + id);
+            return await apiClient.delete("/user_admin/delete_user" , {data: id,}); 
         } catch (error) {
             console.error("Error al eliminar el usuario:", error);
         }

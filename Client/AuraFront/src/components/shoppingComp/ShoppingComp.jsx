@@ -12,6 +12,11 @@ function ShoppingComp() {
     setCart(cart.filter(item => item.title_product !== product.title_product));
  };
 
+ // Función para vaciar el carrito
+ const emptyCart = () => {
+    setCart([]);
+ };
+
  const sumTotal = () => {
  let total = 0;
  cart.forEach((product) => {
@@ -36,7 +41,7 @@ function ShoppingComp() {
  return (
     <div className="shopping-comp">
       {cart.length === 0 ? (
-        <p>Tu carrito está vacío.</p>
+        <p className="empty-cart">Tu carrito está vacío.</p>
       ) : (
         <div className="cart-items">
           <h2>CARRITO</h2>
@@ -57,6 +62,7 @@ function ShoppingComp() {
                 <p>Total: <b>{sumTotal()} €</b></p>
             </div>
             <button className="buy-now-button" onClick={buyNow}>COMPRAR</button>
+            <button className="empty-cart-button" onClick={emptyCart}>VACIAR CARRITO</button>
           </section>
           
         </div>

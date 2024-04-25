@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import ProductHandler from "../../handler/ProductHandler";
 import PropTypes from "prop-types";
 import useLocalStorage from "../../custom/useLocalStorage";
-import { UserContext } from "../../context/UserContext"; 
+import { UserContext } from "../../context/UserContext";
+import Swal from 'sweetalert2';
 import './Card.css';
 
 function Card({ category_product }) {
@@ -12,22 +13,35 @@ function Card({ category_product }) {
  const { isLoggedIn } = useContext(UserContext); 
 
  useEffect(() => {
-    ProductHandler.getFilteredProducts(category_product).then(
-      (filteredProducts) => {
-        setProducts(filteredProducts);
-        console.log(filteredProducts);
-      }
-    );
- }, [category_product]);
+  ProductHandler.getFilteredProducts(category_product).then(
+    (localProducts) => {
+      ProductHandler.getAllProducts().then(remoteProducts => {
+        const allProducts = [...localProducts, ...remoteProducts];
+        setProducts(allProducts);
+      }).catch(error => {
+        console.error('Error al obtener productos del backend remoto:', error);
+      });
+    }
+  ).catch(error => {
+    console.error('Error al obtener productos del backend local:', error);
+  });
+}, [category_product]);
 
  const addToCart = (product) => {
     setCart([...cart, product])
+    Swal.fire({
+      icon: 'success',
+      title: '¡Producto añadido al carrito!',
+      text: `${product.title_product} ha sido añadido a tu carrito.`,
+      showConfirmButton: false,
+      timer: 1500
+  });
  }
 
  const buyNow = () => {
     const handleClick = () => {
       if (isLoggedIn) {
-        window.location.href = `/payment/`;
+        window.location.href = `/exitpayment/`;
       } else {
         window.location.href = `/login`;
       }

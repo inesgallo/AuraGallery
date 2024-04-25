@@ -1,0 +1,54 @@
+
+.artist-list-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: #f4f4f2;
+    font-size: 58px;
+    margin-bottom: -38px;
+    text-transform: uppercase;
+    margin-left: 90px;
+}
+
+.artist-list-container {
+    background-color: #f4f4f2;
+    margin: 23px;
+    padding-top:40px;
+    padding-bottom:40px;
+
+}
+
+.artist-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Crea 3 columnas de igual ancho */
+    width: 70%;
+    margin:  auto;
+    gap: 20px;
+    justify-content: center;}
+
+.artist-card {
+    border: 1px solid #ccc;
+    width: 325px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 20px;
+    
+}
+
+.artist-info {
+    text-align: left;
+    align-content: center;
+}
+
+.artist-name {
+    font-size: 14px;
+    font-weight: semi;
+}
+
+.artist-origin {
+    font-size: 11px;
+    font-style: italic;
+    font-weight: normal;
+}

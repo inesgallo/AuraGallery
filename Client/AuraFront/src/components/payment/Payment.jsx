@@ -1,4 +1,5 @@
 import pasarela from '/public/img-8/pasarela.png';
+
 import './payment.css';
 
 const Payment = () => {
