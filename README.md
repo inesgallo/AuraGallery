@@ -34,7 +34,7 @@ La navegación atraves de la aplicación será intuitiva y fluida, facilitando a
 ***
 :octocat:[`GITHUB`](https://github.com/inesgallo/AuraGallery)
 ***
-📱[`CANVA`]()
+📱[`CANVA`](https://www.canva.com/design/DAGDPJ7eLAI/iSQm2fDGT27yTeMowy8oXQ/edit)
 ***
 🔧 `STACKS:` 
 > FRONTEND:
