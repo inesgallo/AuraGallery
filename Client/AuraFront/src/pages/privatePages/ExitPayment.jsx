@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Payment from '../../components/payment/Payment';
 import { UserContext } from "../../context/UserContext";
-import Catalogue from '../../components/catalogue/Catalogue';
+import Catalogue from '../../components/Catalogue/Catalogue';
 import ArtistList from '../../components/artistList/ArtistList';
 
 const ExitPayment = () => {
