@@ -61,5 +61,6 @@ def delete_user():
     id_user = request.json['id_user']
     delete_user = UserService.delete_user(id_user)
     print(delete_user)
-    print('Esto se imprime en consola')
+    print(id_user)
+    # print('Esto se imprime en consola')
     return 'Esto se ve en la pagina'
