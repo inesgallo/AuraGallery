@@ -11,6 +11,7 @@ const AdminForm = () => {
   const [passwordUser, setPasswordUser] = useState('');
   const [userTypeFK, setUserTypeFK] = useState('');
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   
   const fetchData = async () => {
@@ -22,9 +23,27 @@ const AdminForm = () => {
     fetchData();
   }, []);
 
+
+  const handleUpdate = async (id) => {
+
+    const userToUpdate = users.find(user => user.id_user === id);
+    if (userToUpdate) {
+      setNamePersonUser(userToUpdate.name_person_user);
+      setSurnamePersonUser(userToUpdate.surname_person_user);
+      setNameUser(userToUpdate.name_user);
+      setPasswordUser(userToUpdate.password_user);
+      // const userType = userToUpdate.user_typeFK.toLowerCase();
+      // const userTypeFK = userType === 'artist' ? '2' : userType === 'client' ? '3' : '';
+      // setUserTypeFK(userTypeFK);
+      setUserTypeFK(userToUpdate.user_typeFK)
+      setSelectedUser(userToUpdate); // Save user
+    }
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!namePersonUser || !surnamePersonUser || !nameUser || !passwordUser || !userTypeFK) {
       Swal.fire({
         icon: 'warning',
@@ -33,24 +52,32 @@ const AdminForm = () => {
       });
       return;
     }
-
-    const newUser = {
+  
+    let newUser = {
       name_person_user: namePersonUser,
       surname_person_user: surnamePersonUser,
       name_user: nameUser,
       password_user: passwordUser,
       user_typeFK: userTypeFK
     };
-
-    await UserHandler.submitUser(newUser);
+  
+    if (selectedUser) {
+      // Оновлення користувача
+      await UserHandler.updateUser(selectedUser.id_user, newUser);
+      setSelectedUser(null); // Очистити вибраного користувача після оновлення
+    } else {
+      // Створення нового користувача
+      await UserHandler.submitUser(newUser);
+    }
+  
     fetchData();
-
+  
     setNamePersonUser('');
     setSurnamePersonUser('');
     setNameUser('');
     setPasswordUser('');
     setUserTypeFK('');
-    
+  
     Swal.fire({
       icon: 'success',
       title: '¡Éxito!',
@@ -58,6 +85,7 @@ const AdminForm = () => {
     });
   };
 
+// DELETE
   const handleDelete = async (id) => {
     const result = await Swal.fire({
       title: '¿Estás seguro?',
@@ -85,6 +113,7 @@ const AdminForm = () => {
       );
     }
   };
+
 
   return (
     <>
@@ -147,11 +176,11 @@ const AdminForm = () => {
             <fieldset className='selectUserFieldset'>
            
               <label>
-                <input type="radio" name="user_typeFK" value={2} onChange={(e) => setUserTypeFK(e.target.value)} />
+                <input type="radio" name="user_typeFK" value={2} checked={userTypeFK === 2 }onChange={(e) => setUserTypeFK(parseInt(e.target.value))} />
                 artista
               </label>
               <label>
-                <input type="radio" name="user_typeFK" value={3} onChange={(e) => setUserTypeFK(e.target.value)} />
+                <input type="radio" name="user_typeFK" value={3} checked={userTypeFK === 3 } onChange={(e) => setUserTypeFK(parseInt(e.target.value))} />
                 cliente
               </label>
             </fieldset>
@@ -183,7 +212,7 @@ const AdminForm = () => {
             <td>
               <button className='modifBotton' onClick={() => handleDelete(user.id_user)} >Delete</button> 
               
-              <button className='modifBotton' onClick={() => handlePatch(user.id_user)}>Patch</button> 
+              <button className='modifBotton' onClick={() => handleUpdate(user.id_user)}>Patch</button> 
               
             </td>
           </tr>
