@@ -1,32 +1,27 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import ProductHandler from "../../handler/ProductHandler";
 import PropTypes from "prop-types";
 import useLocalStorage from "../../custom/useLocalStorage";
 import { UserContext } from "../../context/UserContext";
 import Swal from 'sweetalert2';
 import './Card.css';
+import ProductHandler from "../../handler/ProductHandler";
+
 
 function Card({ category_product }) {
  const [products, setProducts] = useState([]);
  const [cart, setCart] = useLocalStorage('shoppingCart', []);
  const { isLoggedIn } = useContext(UserContext); 
 
- useEffect(() => {
-  ProductHandler.getFilteredProducts(category_product).then(
-    (localProducts) => {
-      ProductHandler.getAllProducts().then(remoteProducts => {
-        const allProducts = [...localProducts, ...remoteProducts];
-        setProducts(allProducts);
-      }).catch(error => {
-        console.error('Error al obtener productos del backend remoto:', error);
-      });
-    }
-  ).catch(error => {
-    console.error('Error al obtener productos del backend local:', error);
-  });
-}, [category_product]);
 
+useEffect(() => {
+  ProductHandler.getFilteredProducts(category_product).then(
+    (filteredProducts) => {
+      setProducts(filteredProducts);
+      console.log(filteredProducts);
+    }
+  );
+}, [category_product]);
  const addToCart = (product) => {
     setCart([...cart, product])
     Swal.fire({
@@ -85,3 +80,4 @@ function Card({ category_product }) {
 }
 
 export default Card;
+

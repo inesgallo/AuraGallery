@@ -19,11 +19,11 @@ function Catalogue() {
                 <section className='filters-container'>
                     <h2 id="filters-title" className="filters-title">GALERÍA</h2>
                     <div className='categories-buttons-container'>
-                        <button className={`categories-buttons ${category_product === 'ArteAbstracto' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteAbstracto')}>Arte<br></br>Abstracto</button>
-                        <button className={`categories-buttons ${category_product === 'RealismoContemporaneo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('RealismoContemporaneo')}>Realismo<br></br>Contemporáneo</button>
+                        <button className={`categories-buttons ${category_product === 'arte abstracto' ? 'selected' : ''}`} onClick={() => handleCategoryClick('arte abstracto')}>Arte<br></br>Abstracto</button>
+                        <button className={`categories-buttons ${category_product === 'realismo contemporáneo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('realismo contemporáneo')}>Realismo<br></br>Contemporáneo</button>
                         <button className={`categories-buttons ${category_product === 'expresionismo' ? 'selected' : ''}`} onClick={() => handleCategoryClick('expresionismo')}>Expresionismo</button>
-                        <button className={`categories-buttons ${category_product === 'ArteDigital' ? 'selected' : ''}`} onClick={() => handleCategoryClick('ArteDigital')}>Arte<br></br>Digital</button>
-                        <button className={`categories-buttons ${category_product === 'NeoPop' ? 'selected' : ''}`} onClick={() => handleCategoryClick('NeoPop')}>Neo-Pop</button>
+                        <button className={`categories-buttons ${category_product === 'arte digital' ? 'selected' : ''}`} onClick={() => handleCategoryClick('arte digital')}>Arte<br></br>Digital</button>
+                        <button className={`categories-buttons ${category_product === 'neo-pop' ? 'selected' : ''}`} onClick={() => handleCategoryClick('neo-pop')}>Neo-Pop</button>
                     </div>
                 </section>
                 <section className="artwork-container">
