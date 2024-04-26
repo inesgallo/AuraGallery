@@ -3,7 +3,7 @@ def get_connection():
     try:
         return pymysql.connect (
             host = 'localhost',
-            database = 'aura_gallery',
+            database = 'AuraGallery',
             user = 'root',
             passwd = ''
         )
