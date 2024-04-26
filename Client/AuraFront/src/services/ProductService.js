@@ -1,13 +1,15 @@
+// import axios, { all } from "axios";
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'http://localhost:5001',
     withCredentials: false,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-})
+});
+
 const apiClientDB = axios.create({
     baseURL: 'http://localhost:3000',
     withCredentials: false,
@@ -21,6 +23,7 @@ export const ProductServiceDB = {
     async getProducts() {
         try {
             let response = await apiClientDB.get("/products");
+            console.log(response)
             let allProducts = response.data;
             console.log(allProducts)
             return allProducts;
@@ -28,17 +31,20 @@ export const ProductServiceDB = {
             console.error("Error al obtener las obras:", error);
         }
     },
-}
+};
 
 export const ProductService = {
     async getProducts() {
         try {
+         
             let response = await apiClient.get("/product/get_product");
             let allProducts = response.data;
             console.log(allProducts)
-            return allProducts;
+            console.log('Hola soy el get')
+            return allProducts; 
         } catch (error) {
             console.error("Error al obtener las obras:", error);
+
         }
     },
     async getProductById(id) {
