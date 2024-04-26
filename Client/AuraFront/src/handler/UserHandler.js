@@ -23,6 +23,15 @@ export const UserHandler = {
         });
     },
 
+    async updateUser(id, updatedUser) {
+        try {
+            return await UserService.updateUser(id, updatedUser);
+        } catch (error) {
+            console.error("Error updating user:", error);
+            throw error;
+        }
+    },
+
     async searchUsers(searchTerm) {
         let allUsers = await UserService.getAllUsers();
 
