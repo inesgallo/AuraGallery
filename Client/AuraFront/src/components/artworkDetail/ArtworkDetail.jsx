@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import useLocalStorage from "../../custom/useLocalStorage";
-import { UserContext } from "../../context/UserContext"; 
+import { UserContext } from "../../context/UserContext";
+import Swal from 'sweetalert2';
 import { useContext } from "react";
 import './artworkDetail.css';
 
@@ -13,9 +14,30 @@ function ArtworkDetail() {
   const [cart, setCart] = useLocalStorage('shoppingCart', []);
   const { isLoggedIn } = useContext(UserContext); 
 
+
   const addToCart = (product) => {
-    setCart([...cart, product])
- }
+    // Busca el índice del producto en el carrito
+    const index = cart.findIndex(item => item.title_product === product.title_product);
+   
+    if (index === -1) {
+       // Si el producto no está en el carrito, añádelo con una cantidad de 1
+       setCart([...cart, { ...product, quantity: 1 }]);
+    } else {
+       // Si el producto ya está en el carrito, incrementa su cantidad
+       const updatedCart = [...cart];
+       updatedCart[index].quantity += 1;
+       setCart(updatedCart);
+    }
+   
+    Swal.fire({
+       icon: 'success',
+       title: '¡Producto añadido al carrito!',
+       text: `${product.title_product} ha sido añadido a tu carrito.`,
+       showConfirmButton: false,
+       timer: 1500
+    });
+   };
+   
 
  const buyNow = () => {
     const handleClick = () => {
