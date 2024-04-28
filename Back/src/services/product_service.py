@@ -100,14 +100,14 @@ class ProductService():
             stock_product = product_table.stock_product
             price_product = product_table.price_product
             user_artistFK = product_table.user_artistFK
-    #         encriped_password = generate_password_hash(password_user, 'pbkdf2', 30)
+   
             with connection.cursor() as cursor:
                 cursor.execute("""
                     UPDATE product
                     SET title_product = %s, image_product = %s, category_product = %s, description_product = %s, stock_product = %s, price_product = %s, id_user_artistFK = %s
                     WHERE id_product = %s""", (title_product, image_product, category_product, description_product, stock_product, price_product, user_artistFK, id_product))
                 print(f"Rows affected: {cursor.rowcount}")
-    #             cursor.callproc('update_user', (id_user,name_user,encriped_password,user_typeFK))
+                #cursor.callproc('sp_update_product', (title_product, image_product, category_product, description_product, stock_product, price_product, user_artistFK, id_product))
                 connection.commit()
                 print('Product updated successfully')
             connection.close()

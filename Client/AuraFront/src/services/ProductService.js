@@ -8,27 +8,6 @@ const apiClient = axios.create({
       'Content-Type': 'application/json'
     }
 })
-const apiClientDB = axios.create({
-    baseURL: 'http://localhost:3000',
-    withCredentials: false,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
-})
-
-export const ProductServiceDB = {
-    async getProducts() {
-        try {
-            let response = await apiClientDB.get("/products");
-            let allProducts = response.data;
-            console.log(allProducts)
-            return allProducts;
-        } catch (error) {
-            console.error("Error al obtener las obras:", error);
-        }
-    },
-}
 
 export const ProductService = {
     async getProducts() {
@@ -58,9 +37,9 @@ export const ProductService = {
         }
     
     },
-    async deleteProduct(id){
+    async deleteProductById(id){
         try {
-            return await apiClient.delete("/product/" + id);
+            return await apiClient.delete(`/product/delete_product/${id}`);
         } catch (error) {
             console.error("Error al eliminar la obra:", error);
         }

@@ -32,10 +32,10 @@ def post_product():
     print(post_product)
     return 'Esto se ve en la pagina post'
 
-@main.route('/update_product', methods = ['PATCH'])
-def update_product():
+@main.route('/update_product/<id>', methods = ['PATCH'])
+def update_product(id):
     print("Hola update, product_router")
-    id_product = request.json['id_product']
+    id_product = id
     title_product = request.json['title_product']
     image_product = request.json['image_product']
     category_product = request.json['category_product']
@@ -48,10 +48,10 @@ def update_product():
     print(patch_product)
     return 'Esto se ve en la pagina update'
 
-@main.route('/delete_product', methods = ['DELETE'])
-def manage_product():
+@main.route('/delete_product/<id>', methods = ['DELETE'])
+def manage_product(id):
     print("Hola post, product_router")
-    id_product = request.json['id_product']
+    id_product = id
     delete_product = ProductService.delete_product(id_product)
     print(delete_product)
     return 'Esto se ve en la pagina delete'

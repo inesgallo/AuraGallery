@@ -1,4 +1,4 @@
-import { useState , useContext, useEffect} from 'react';
+import { useState , useContext} from 'react';
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
@@ -6,8 +6,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import './artistForm.css';
 import { UserContext } from './../../context/UserContext';
-import UsersCard from '../usersCard/UsersCard';
-
+import ProductCard from '../productCard/ProductCard'
 
 const ArtistForm = () => {
 
@@ -17,37 +16,17 @@ const ArtistForm = () => {
   const [category_product, setCategory_product] = useState('');
   const [price_product, setPrice_product] = useState('');
   const [description_product, setDescription_product] = useState('');
-  const [categories, setCategories] = useState('');
   const [image_product, setImage_product] = useState([]);
   const [imagePreviewArray, setImagePreviewArray] = useState([]);
   const [Loading, setLoading] = useState("");
   const [stock_product, setStock_product] = useState (true)
-  const [id_user_artistFK, setId_user_artistFK] = useState();
-
+  // const [id_user_artistFK, setId_user_artistFK] = useState();
   const [products ,setProducts] = useState([]);
 
   const handleChange = (e) => {
     const { value } = e.target;
-    setCategories(value);
+    setCategory_product(value);
   };
-
-
-  useEffect(() => {
-    const fetchAndFilterProducts = async () => {
-      try {
-        // console.log(user)
-        if (user) {
-          console.log("ID de usuario:", user.id);
-          const userProducts = await ProductHandler.handlerGetProductById(user.id_user)
-          setProducts(userProducts);
-        }
-      } catch (error) {
-        console.error('Error al recuperar y filtrar productos:', error);
-      }
-    };
-    fetchAndFilterProducts();
-  }, [user]);
-
 
   const handleDrop = async (files) => {
     const uploaders = files.map((file) => {
@@ -84,8 +63,8 @@ const ArtistForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
-    // Validar si todos los campos están rellenos
+
+
     const id_user_artistFK = user ? user.id : null;
     console.log(id_user_artistFK);
     
@@ -95,9 +74,7 @@ const ArtistForm = () => {
       category_product &&
       price_product &&
       description_product &&
-      categories &&
-      image_product.length > 0
-    ) {
+      image_product.length > 0) {
       try {
         const formData = new FormData();
         formData.append('id_user_artistFK', id_user_artistFK);
@@ -106,24 +83,21 @@ const ArtistForm = () => {
         formData.append('price_product', price_product);
         formData.append('description_product', description_product);
         formData.append('stock_product', stock_product);
-        formData.append('categories', categories);
         image_product.forEach((image) => {
           formData.append('image_product', image);
         });
   
         await ProductHandler.submitProduct(formData);
         setLoading(false);
-        // Limpiar los campos del formulario
-        setId_user_artistFK('');
+
         setTitle_product('');
         setCategory_product('');
         setPrice_product('');
         setDescription_product('');
-        setCategories('');
         setImage_product([]);
         setStock_product(true);
         setImagePreviewArray([]);
-        // Mostrar SweetAlert de éxito
+
         Swal.fire({
           icon: 'success',
           title: '¡Éxito!',
@@ -132,7 +106,7 @@ const ArtistForm = () => {
       } catch (error) {
         console.error('Error al enviar la obra:', error);
         setLoading(false);
-        // Mostrar SweetAlert de error
+
         Swal.fire({
           icon: 'error',
           title: '¡Error!',
@@ -149,7 +123,7 @@ const ArtistForm = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <>
     <Container>
@@ -166,12 +140,12 @@ const ArtistForm = () => {
           </div>
 
           <div className='productPriceGroup'>
-            <div className='category_productGroup'>
+            {/* <div className='category_productGroup'>
               <label className='categoryLabel'>
                 tipo de obra:
-                <input className='categoryInput' type="text" name="category_product" onChange={(e) => setCategory_product(e.target.value)} />
+                <input className='categoryInput'  type="text" name="category_product" onChange={(e) => setCategory_product(e.target.value)} />
               </label>
-            </div>
+            </div> */}
 
             <div className='price_productGroup'>
               <label className='priceLabel'>
@@ -222,23 +196,23 @@ const ArtistForm = () => {
           <fieldset className='categoryFieldset'>
             <legend>Categorías:</legend>
             <label>
-              <input type="radio" name="category" value="arte abstracto" checked={categories === 'arte abstracto'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="arte abstracto" checked={category_product === 'arte abstracto'} onChange={handleChange} />
               Arte abstracto
             </label>
             <label>
-              <input type="radio" name="category" value="realismo contemporáneo" checked={categories === 'realismo contemporáneo'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="realismo contemporáneo" checked={category_product === 'realismo contemporáneo'} onChange={handleChange} />
               Realismo contemporáneo
             </label>
             <label>
-              <input type="radio" name="category" value="expresionismo" checked={categories === 'expresionismo'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="expresionismo" checked={category_product === 'expresionismo'} onChange={handleChange} />
               Expresionismo
             </label>
             <label>
-              <input type="radio" name="category" value="arte digital" checked={categories === 'arte digital'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="arte digital" checked={category_product === 'arte digital'} onChange={handleChange} />
               Arte digital
             </label>
             <label>
-              <input type="radio" name="category" value="neo-pop" checked={categories === 'neo-pop'} onChange={handleChange} />
+              <input type="radio" name="category_product" value="neo-pop" checked={category_product === 'neo-pop'} onChange={handleChange} />
               Neo-pop
             </label>
           </fieldset>
@@ -248,9 +222,7 @@ const ArtistForm = () => {
       </form>
       {Loading && <p>Cargando...</p>}
     </Container>
-    {products?.map((product, index) => (
-    <UsersCard key={index} product={product} />
-  ))}
+    <ProductCard products={products} />
     </>
   );
 }

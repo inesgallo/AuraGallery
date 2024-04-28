@@ -36,10 +36,10 @@ def post_user():
     print(post_user)
     return 'Resgistro exitoso'
 
-@main.route('/update_user', methods = ['PATCH'])
-def updade_user():
+@main.route('/update_user/<id>', methods = ['PATCH'])
+def updade_user(id):
     print("Hola patch, user_router")
-    id_user = request.json['id_user']
+    id_user = id
     name_person_user = request.json['name_person_user'] 
     surname_person_user = request.json['surname_person_user']
     name_user = request.json['name_user']

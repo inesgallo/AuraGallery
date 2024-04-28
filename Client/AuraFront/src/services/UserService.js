@@ -19,15 +19,15 @@ export const UserService = {
             console.error("Error al obtener los usuarios:", error);
         }
     },
-    async getUsers(id) {
-        try {
-            let response = await apiClient.get("/users/" + id);
-            let user = response.data;
-            return user;
-        } catch (error) {
-            console.error("Error al obtener el usuario:", error);
-        }
-    },
+    // async getUsers(id) {
+    //     try {
+    //         let response = await apiClient.get("/users/" + id);
+    //         let user = response.data;
+    //         return user;
+    //     } catch (error) {
+    //         console.error("Error al obtener el usuario:", error);
+    //     }
+    // },
     async submitUser(newUser) {
         try {
             return await apiClient.post("/user_admin/post_user", newUser);
@@ -36,6 +36,15 @@ export const UserService = {
         }
 
     },
+
+    async updateUser(id, updatedUser) {
+        try {
+            return await apiClient.patch(`/user_admin/update_user/${id}`, updatedUser);
+        } catch (error) {
+            console.error("Error updating user:", error);
+            throw error;
+        }
+    },
     async deleteUser(id) {
         try {
             return await apiClient.delete("/user_admin/delete_user" , {data: id,}); 
@@ -43,13 +52,13 @@ export const UserService = {
             console.error("Error al eliminar el usuario:", error);
         }
     },
-    async updateUser(id, updatedUser) {
-        try {
-            return await apiClient.patch("/users/" + id, updatedUser);
-        } catch (error) {
-            console.error("Error al actualizar el usuario:", error);
-        }
-    }
+    // async updateUser(id, updatedUser) {
+    //     try {
+    //         return await apiClient.patch("/users/" + id, updatedUser);
+    //     } catch (error) {
+    //         console.error("Error al actualizar el usuario:", error);
+    //     }
+    // }
 }
 
 export default UserService;
