@@ -37,9 +37,9 @@ export const ProductService = {
         }
     
     },
-    async deleteProduct(id){
+    async deleteProductById(id){
         try {
-            return await apiClient.delete("/product/" + id);
+            return await apiClient.delete(`/product/delete_product/${id}`);
         } catch (error) {
             console.error("Error al eliminar la obra:", error);
         }

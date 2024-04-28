@@ -1,4 +1,4 @@
-import ProductService from '../services/ProductService';
+import ProductService from "../services/ProductService";
 
 export const ProductHandler = {
   async getAllProducts() {
@@ -11,7 +11,7 @@ export const ProductHandler = {
       let product = await ProductService.getProductById(id);
       return product;
     } catch (error) {
-      console.log(' error al obtener productos')
+      console.log(" error al obtener productos");
       throw error;
     }
   },
@@ -24,7 +24,7 @@ export const ProductHandler = {
       } else {
         // Error al crear la obra
         // Mostrar mensaje de error al usuario
-        throw new Error('Error al enviar la obra');
+        throw new Error("Error al enviar la obra");
       }
     });
   },
@@ -32,7 +32,7 @@ export const ProductHandler = {
   async searchProducts(searchTerm) {
     let allProducts = await ProductService.getAllProducts();
 
-    let filteredProducts = allProducts.filter(product =>
+    let filteredProducts = allProducts.filter((product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -50,7 +50,15 @@ export const ProductHandler = {
 
     return allProducts;
   },
-
-}
+  async deleteProduct(id) {
+    try {
+      const response = await ProductService.deleteProductById(id);
+      return response.data;
+      } catch (error) {
+      console.error("Error al eliminar la obra:", error);
+      throw error;
+    }
+  },
+};
 
 export default ProductHandler;

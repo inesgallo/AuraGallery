@@ -1,4 +1,4 @@
-import { useState , useContext, useEffect} from 'react';
+import { useState , useContext} from 'react';
 import { ProductHandler } from '../../handler/ProductHandler';
 import { Container } from 'reactstrap';
 import Dropzone from 'react-dropzone';
@@ -6,7 +6,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import './artistForm.css';
 import { UserContext } from './../../context/UserContext';
-import UsersCard from '../usersCard/UsersCard';
+import ProductCard from '../productCard/ProductCard'
 
 const ArtistForm = () => {
 
@@ -21,7 +21,6 @@ const ArtistForm = () => {
   const [Loading, setLoading] = useState("");
   const [stock_product, setStock_product] = useState (true)
   // const [id_user_artistFK, setId_user_artistFK] = useState();
-
   const [products ,setProducts] = useState([]);
 
   const handleChange = (e) => {
@@ -64,8 +63,8 @@ const ArtistForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
-    // Validar si todos los campos están rellenos
+
+
     const id_user_artistFK = user ? user.id : null;
     console.log(id_user_artistFK);
     
@@ -88,10 +87,9 @@ const ArtistForm = () => {
           formData.append('image_product', image);
         });
   
-       {/*  await ProductHandler.submitProduct(formData);*/}
         await ProductHandler.submitProduct(formData);
         setLoading(false);
-        // Limpiar los campos del formulario
+
         setTitle_product('');
         setCategory_product('');
         setPrice_product('');
@@ -99,7 +97,7 @@ const ArtistForm = () => {
         setImage_product([]);
         setStock_product(true);
         setImagePreviewArray([]);
-        // Mostrar SweetAlert de éxito
+
         Swal.fire({
           icon: 'success',
           title: '¡Éxito!',
@@ -108,7 +106,7 @@ const ArtistForm = () => {
       } catch (error) {
         console.error('Error al enviar la obra:', error);
         setLoading(false);
-        // Mostrar SweetAlert de error
+
         Swal.fire({
           icon: 'error',
           title: '¡Error!',
@@ -125,7 +123,7 @@ const ArtistForm = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <>
     <Container>
@@ -224,9 +222,7 @@ const ArtistForm = () => {
       </form>
       {Loading && <p>Cargando...</p>}
     </Container>
-    {products?.map((product, index) => (
-    <UsersCard key={index} product={product} />
-  ))}
+    <ProductCard products={products} />
     </>
   );
 }
