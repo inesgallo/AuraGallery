@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import useLocalStorage from "../../custom/useLocalStorage";
 import { UserContext } from "../../context/UserContext";
 import Swal from 'sweetalert2';
-import './Card.css';
-import ProductHandler from "../../handler/ProductHandler";
-
+import './card.css';
 
 function Card({ category_product }) {
  const [products, setProducts] = useState([]);
@@ -14,24 +12,40 @@ function Card({ category_product }) {
  const { isLoggedIn } = useContext(UserContext); 
 
 
-useEffect(() => {
-  ProductHandler.getFilteredProducts(category_product).then(
-    (filteredProducts) => {
-      setProducts(filteredProducts);
-      console.log(filteredProducts);
-    }
-  );
-}, [category_product]);
- const addToCart = (product) => {
-    setCart([...cart, product])
-    Swal.fire({
-      icon: 'success',
-      title: '¡Producto añadido al carrito!',
-      text: `${product.title_product} ha sido añadido a tu carrito.`,
-      showConfirmButton: false,
-      timer: 1500
+//  const addToCart = (product) => {
+//     setCart([...cart, product])
+//     Swal.fire({
+//       icon: 'success',
+//       title: '¡Producto añadido al carrito!',
+//       text: `${product.title_product} ha sido añadido a tu carrito.`,
+//       showConfirmButton: false,
+//       timer: 1500
+//   });
+//  }
+
+const addToCart = (product) => {
+  // Busca el índice del producto en el carrito
+  const index = cart.findIndex(item => item.title_product === product.title_product);
+ 
+  if (index === -1) {
+     // Si el producto no está en el carrito, añádelo con una cantidad de 1
+     setCart([...cart, { ...product, quantity: 1 }]);
+  } else {
+     // Si el producto ya está en el carrito, incrementa su cantidad
+     const updatedCart = [...cart];
+     updatedCart[index].quantity += 1;
+     setCart(updatedCart);
+  }
+ 
+  Swal.fire({
+     icon: 'success',
+     title: '¡Producto añadido al carrito!',
+     text: `${product.title_product} ha sido añadido a tu carrito.`,
+     showConfirmButton: false,
+     timer: 1500
   });
- }
+ };
+ 
 
  const buyNow = () => {
     const handleClick = () => {
