@@ -8,30 +8,7 @@ const apiClient = axios.create({
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-});
-
-const apiClientDB = axios.create({
-    baseURL: 'http://localhost:3000',
-    withCredentials: false,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
 })
-
-export const ProductServiceDB = {
-    async getProducts() {
-        try {
-            let response = await apiClientDB.get("/products");
-            console.log(response)
-            let allProducts = response.data;
-            console.log(allProducts)
-            return allProducts;
-        } catch (error) {
-            console.error("Error al obtener las obras:", error);
-        }
-    },
-};
 
 export const ProductService = {
     async getProducts() {
