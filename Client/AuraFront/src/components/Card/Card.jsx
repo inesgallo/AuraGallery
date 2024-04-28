@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useLocalStorage from "../../custom/useLocalStorage";
 import { UserContext } from "../../context/UserContext";
 import Swal from 'sweetalert2';
-import './card.css';
+import './Card.css';
 
 function Card({ category_product }) {
  const [products, setProducts] = useState([]);

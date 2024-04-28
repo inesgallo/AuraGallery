@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './catalogue.css'
+import './Catalogue.css'
 import Card from '../Card/Card'
 
 function Catalogue() {
