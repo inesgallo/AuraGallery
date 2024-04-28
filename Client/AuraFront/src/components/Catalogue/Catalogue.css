@@ -8,7 +8,7 @@
 }
 
 .catalogue-body {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 50px;
     margin-bottom: 100px
 }
@@ -24,6 +24,7 @@
     font-size: 58px;
     font-weight: 100;
     margin-right: 50px;
+    margin-left: 20px;
 }
 
 .filters-lines {
@@ -63,10 +64,21 @@
     justify-content: center;
     gap: 80px;
     margin: 0 auto; 
-    
 }
 
 .card {
     max-width: 250px;
     border: none;
+}
+
+
+@media (max-width: 470px) {
+    
+    .filters-container{
+        flex-direction: column;
+    }
+
+    .categories-buttons-container {
+        text-align: center;
+    }
 }
