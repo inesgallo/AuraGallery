@@ -1,6 +1,6 @@
+
 .artwork-detail-container {
- 
-    background-color: #f4f4f2; 
+    background-color: #f4f4f2;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -9,13 +9,13 @@
     margin-left: 24px;
     margin-right: 24px;
     margin-bottom: 20px;
-    
+
 }
 
 .artwork-detail-image {
     height: auto;
     padding-top: 100px;
-    padding-bottom: 100px;  
+    padding-bottom: 100px;
     max-width: 350px;
 
 }
@@ -24,4 +24,16 @@
     display: flex;
     flex-direction: column;
 
+}
+
+
+@media (max-width: 590px) {
+    .artwork-detail-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .artwork-detail-info {
+        margin-bottom: 30px;
+    }
 }

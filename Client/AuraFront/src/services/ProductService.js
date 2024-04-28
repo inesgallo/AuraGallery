@@ -5,20 +5,20 @@ const apiClient = axios.create({
     baseURL: 'http://localhost:5001',
     withCredentials: false,
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
     }
 })
 
 export const ProductService = {
     async getProducts() {
         try {
-         
+
             let response = await apiClient.get("/product/get_product");
             let allProducts = response.data;
             console.log(allProducts)
             console.log('Hola soy el get')
-            return allProducts; 
+            return allProducts;
         } catch (error) {
             console.error("Error al obtener las obras:", error);
 
@@ -33,15 +33,15 @@ export const ProductService = {
             throw error;
         }
     },
-    async submitProduct(newProduct){
+    async submitProduct(newProduct) {
         try {
             return await apiClient.post("/product/post_product", newProduct);
         } catch (error) {
             console.error("Error al enviar la obra:", error);
         }
-    
+
     },
-    async deleteProduct(id){
+    async deleteProduct(id) {
         try {
             return await apiClient.delete("/product/" + id);
         } catch (error) {
