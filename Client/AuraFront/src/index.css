@@ -51,5 +51,14 @@ p {
     --blanco: #FFFFFF;
     --gris: #F4F4F2;
     --negro: #161412;
-    --coral: #FC4308;
+    --coralito: #FC4308;
 }
+
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+

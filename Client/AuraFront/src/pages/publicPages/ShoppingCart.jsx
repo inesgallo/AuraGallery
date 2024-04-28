@@ -1,10 +1,9 @@
-import React from 'react'
-import { Outlet, useNavigation } from "react-router-dom";
+import ShoppingComp from '../../components/shoppingComp/ShoppingComp';
 
 const ShoppingCart = () => {
   return (
     <>
-    <h1>Shopping Cart</h1>
+      <ShoppingComp />
     </>
   )
 }

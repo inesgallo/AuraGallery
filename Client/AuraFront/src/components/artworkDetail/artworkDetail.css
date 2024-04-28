@@ -1,0 +1,27 @@
+.artwork-detail-container {
+ 
+    background-color: #f4f4f2; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 20px;
+    
+}
+
+.artwork-detail-image {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;  
+    max-width: 350px;
+
+}
+
+.artwork-detail-info {
+    display: flex;
+    flex-direction: column;
+
+}

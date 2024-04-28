@@ -1,12 +1,19 @@
-import React from 'react'
-import { Outlet, useNavigation } from "react-router-dom";
+import React, { useContext } from 'react';
+import { UserContext } from "../../context/UserContext";
+
+import AdminForm from '../../components/adminForm/AdminForm';
 
 const AdminDashboard = () => {
+
+  const { user } = useContext(UserContext);
   return (
     <>
-    <h1>Admi dashboard </h1>
+     {/* <div className='d-flex justify-content-center fs-1'>
+        {user && <p>¡Bienvenid@ {user.namePerson}!</p>} 
+      </div>*/}
+    <AdminForm/>
     </>
   )
 }
 
-export default AdminDashboard
+export default AdminDashboard;

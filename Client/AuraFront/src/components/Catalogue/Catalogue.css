@@ -1,0 +1,72 @@
+.header-catalogue {
+    width: 100%;
+}
+
+.catalogue-body button {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.catalogue-body {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px
+}
+
+.filters-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#filters-title {
+    font-size: 58px;
+    font-weight: 100;
+    margin-right: 50px;
+}
+
+.filters-lines {
+    width: 1030px;
+    border: none;
+    height: 1px;
+}
+
+.categories-buttons {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    font-weight: 400;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: left;
+}
+
+.categories-buttons:hover {
+    color: #FC4308;
+}
+
+.categories-buttons.selected::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #5C4B51;
+    margin-top: 5px;
+}
+
+.artwork-container {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+    margin: 0 auto; 
+    
+}
+
+.card {
+    max-width: 250px;
+    border: none;
+}

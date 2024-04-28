@@ -8,10 +8,9 @@ import Login from "../pages/publicPages/Login";
 import ArtDetail from "../pages/publicPages/ArtDetail";
 import ShoppingCart from "../pages/publicPages/ShoppingCart";
 import Home from "../pages/publicPages/Home";
+import ExitPayment from "../pages/privatePages/ExitPayment";
 
-{
-  /* Creacion de rutas publicas */
-}
+
 
 export const routerProvider = createBrowserRouter([
   {
@@ -34,6 +33,7 @@ export const routerProvider = createBrowserRouter([
       },
     ],
   },
+  
   {
     path: "/",
     element: <LayoutPublic />,
@@ -47,12 +47,17 @@ export const routerProvider = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/artdetail",
+        path: "/Artdetail/:id",
         element: <ArtDetail />,
       },
       {
-        path: "/shopping/:id",
+        // path: "/shopping/:id",
+        path: "/shopping",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/exitpayment",
+        element: <ExitPayment />,
       },
     ],
   },

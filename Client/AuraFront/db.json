@@ -1,0 +1,277 @@
+{
+  "users": [
+    {
+      "id_user": "",
+      "name_person_user": "",
+      "surname_person_user": "",
+      "name_user": "",
+      "password_user": "",
+      "user_typeFK": "",
+      "id": "40c4"
+    },
+    {
+      "id": "09e8",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "5c2d",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "c4f2",
+      "name_user": "ines@gmail.com",
+      "password_user": "123"
+    },
+    {
+      "id": "6af2",
+      "name_user": "yuliaestoycansada@gmail.com",
+      "password_user": "1234"
+    },
+    {
+      "id": "291f",
+      "name_person_user": "Ana",
+      "surname_person_user": "Lucena Puertas",
+      "name_user": "lucenapuertasana53@gmail.com",
+      "password_user": "erwet",
+      "user_typeFK": "artista"
+    },
+    {
+      "id": "92dc",
+      "name_person_user": "Mario",
+      "surname_person_user": "Díaz",
+      "name_user": "mariete@hotmail.com",
+      "password_user": "123",
+      "user_typeFK": "cliente"
+    },
+    {
+      "id": "8b46",
+      "name_person_user": "Yamila",
+      "surname_person_user": "Robles",
+      "name_user": "sayami@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
+    },
+    {
+      "id": "365f",
+      "name_person_user": "Ines",
+      "surname_person_user": "Gallo",
+      "name_user": "inesota@gmail.com",
+      "password_user": "123",
+      "user_typeFK": "artista"
+    }
+  ],
+  "products": [
+    {
+      "id_product": "1",
+      "image_product": "/img-8/banana.png",
+      "title_product": "Banana rama",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "472a"
+    },
+    {
+      "id_product": "2",
+      "image_product": "/img-8/fantasy.png",
+      "title_product": "Fantastic planet",
+      "name_artist": "Gemila",
+      "description_product": "acuarela sobre papel",
+      "category_product": "RealismoContemporaneo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "b1dc"
+    },
+    {
+      "id_product": "3",
+      "image_product": "/img-8/dalmatas.png",
+      "title_product": "Woooohoo",
+      "name_artist": "Manuel Villegas",
+      "description_product": "fdgds",
+      "category_product": "expresionismo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "35b8"
+    },
+    {
+      "id_product": "4",
+      "image_product": "/img-8/fruta.jpg",
+      "title_product": "Fruticas",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "RealismoContemporaneo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "2e46"
+    },
+    {
+      "id_product": "5",
+      "image_product": "/img-8/joungboy.png",
+      "title_product": "Obra 789",
+      "name_artist": "Manuel Villegas",
+      "description_product": "acuarela sobre papel",
+      "category_product": "expresionismo",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "6f89"
+    },
+    {
+      "id_product": "6",
+      "image_product": "/img-8/mural.png",
+      "title_product": "El mural",
+      "name_artist": "Manuel Villegas",
+      "description_product": "gouache",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "8015"
+    },
+    {
+      "id_product": "7",
+      "image_product": "/img-8/painting.png",
+      "title_product": "Pintura",
+      "name_artist": "Manuel Villegas",
+      "description_product": "óleo sobre lienzo",
+      "category_product": "ArteDigital",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "6c01"
+    },
+    {
+      "id_product": "8",
+      "image_product": "/img-8/womanred.png",
+      "title_product": "Obra 1",
+      "name_artist": "Manuel Villegas",
+      "description_product": "fotografía",
+      "category_product": "ArteAbstracto",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "9cd4"
+    },
+    {
+      "id_product": "9",
+      "image_product": "/img-8/womenmagnolias.png",
+      "title_product": "Obra 1",
+      "name_artist": "Manuel Villegas",
+      "description_product": "gouache",
+      "category_product": "NeoPop",
+      "price_product": 2000,
+      "stock_product": 1,
+      "id": "c244"
+    },
+
+    {
+      "id": "3c5c",
+      "id_user_artistFK": "Antonio Gala",
+      "title_product": "Frida Khalo",
+      "category_product": "ArteDigital",
+      "price_product": "23",
+      "description_product": "lienzo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713711872/WorkArtist/lliqvbnhhst5gppachlk.jpg"
+    },
+    {
+      "id": "89a3",
+      "id_user_artistFK": "Myriam",
+      "title_product": "mosaiko",
+      "price_product": "456",
+      "description_product": "acuarelas",
+      "category_product": "NeoPop",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713713092/WorkArtist/zee1lrzxaty0gfymaylm.jpg"
+    },
+    
+    {
+      "id": "1f83",
+      "id_user_artistFK": "Inés Gallo",
+      "title_product": "Circulos",
+      "category_product": "ArteAbstracto",
+      "price_product": "678",
+      "description_product": "lienzo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714356/WorkArtist/utlashxnqkqispq8bsi3.jpg"
+    },
+   
+    {
+      "id": "d754",
+      "id_user_artistFK": "Gabriela Ramos",
+      "title_product": "noche estrellada",
+      "category_product": "expresionismo",
+      "price_product": "76",
+      "description_product": "lienzo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713714616/WorkArtist/jtpkp6yoyvrizzkyyxmx.jpg"
+    },
+    {
+      "id": "8aaf",
+      "id_user_artistFK": "Myri Mira",
+      "title_product": "oleaje",
+      "category_product": "RealismoContemporaneo",
+      "price_product": "90",
+      "description_product": "cositas",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713715429/WorkArtist/hurnclodra9z9ludyyuv.jpg"
+    },
+
+    {
+      "id": "79de",
+      "id_user_artistFK": "Anita Dinamita",
+      "title_product": "mujeres klimt",
+      "category_product": "expresionismo",
+      "price_product": "530",
+      "description_product": "lienzo",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713716148/WorkArtist/c2sxwlfkhb8pn9eij36k.jpg"
+    },
+    {
+      "id": "a5d5",
+      "id_user_artistFK": "esto que es",
+      "title_product": "Manuela la peliculera",
+      "price_product": "1500",
+      "description_product": "Una obra preciosa ",
+      "category_product": "NeoPop",
+      "image_product": "https://res.cloudinary.com/dl6ri9wnd/image/upload/v1713719359/WorkArtist/pbxsuvrx0pgmvb5xwwd4.jpg"
+    }
+  ],
+  "user": [
+    {
+      "id_user": "1",
+      "name_person_user": "Alicia Client",
+      "surname_person_user": "Negra",
+      "name_user": "alicia_Client@gmail.com",
+      "password_user": "12345678911",
+      "user_typeFK": 3
+    },
+    {
+      "id_user": "2",
+      "name_person_user": "Alicia Client New",
+      "surname_person_user": "Negra",
+      "name_user": "alicia_Client@gmail.com",
+      "password_user": "12345678911",
+      "user_typeFK": 3
+    },
+    {
+      "id": "39ab",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": "{\"name_person_user\":\"uuuuu\",\"surname_person_user\":\"lllll\",\"name_user\":\"sldlh\",\"password_user\":\"235\",\"user_typeFK\":2}"
+    },
+    {
+      "id": "c8cf",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": "{\"name_person_user\":\"uuuuu\",\"surname_person_user\":\"lllll\",\"name_user\":\"sldlh\",\"password_user\":\"235\",\"user_typeFK\":2}"
+    },
+    {
+      "id": "fbf1",
+      "name_person_user": "uuuuu",
+      "surname_person_user": "lllll",
+      "name_user": "sldlh",
+      "password_user": "235",
+      "user_typeFK": 2
+    }
+  ]
+}

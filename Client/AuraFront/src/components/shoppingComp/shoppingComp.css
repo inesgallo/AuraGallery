@@ -1,0 +1,93 @@
+
+.shopping-comp {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.empty-cart {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 150;
+    display: flex;
+    justify-content: center;
+    margin: 300px;
+    color: #000;
+    font-size: 48px;
+}
+
+.shopping-comp h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    color: #f4f4f2;
+    font-size: 58px;
+    margin-bottom: -15px;
+    margin-left: 380px;
+}
+
+.cart-items {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-item {
+    background-color: #f4f4f2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.1fr;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+
+.cart-image {
+    width: 90px;
+    height: 90px;
+}
+
+.remove-button {
+    background-color: #464646;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 20px;
+}
+.remove-button:hover {
+    background-color: #e87171;
+}
+
+.info-total {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.total {
+    font-size: 20px;
+    margin: 40px 130px;
+
+}
+
+.buy-now-button {
+    width: 200px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.empty-cart-button {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    display: flex;
+    justify-content: center;
+margin-left: 40px;
+    color: #000;
+    font-size: 15px;
+}
