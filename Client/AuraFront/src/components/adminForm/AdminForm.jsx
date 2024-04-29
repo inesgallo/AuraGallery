@@ -194,11 +194,11 @@ const AdminForm = () => {
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Username</th>
-          <th>User Type</th>
-          <th>Action</th>
+          <th>nombre</th>
+          <th>apellido</th>
+          <th>email</th>
+          <th>tipo de usuario</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -210,9 +210,9 @@ const AdminForm = () => {
             <td>{user.name_user}</td>
             <td>{user.user_typeFK}</td>
             <td>
-              <button className='modifBotton' onClick={() => handleDelete(user.id_user)} >Delete</button> 
+              <button className='modifBotton' onClick={() => handleDelete(user.id_user)} >Eliminar</button> 
               
-              <button className='modifBotton' onClick={() => handleUpdate(user.id_user)}>Patch</button> 
+              <button className='modifBotton' onClick={() => handleUpdate(user.id_user)}>Editar</button> 
               
             </td>
           </tr>
@@ -363,7 +363,7 @@ export default AdminForm;
 
 //   //     // Implement your logic to update the user object
 
-//   //     await axios.patch(`http://localhost:5000/user_admin/${id}`, userToUpdate, {
+//   //     await axios.patch(http://localhost:5000/user_admin/${id}, userToUpdate, {
 //   //       headers: {
 //   //         'Content-Type': 'application/json',
 //   //       },
@@ -377,7 +377,7 @@ export default AdminForm;
 
 //   // const getUserById = async (id) => {
 //   //   try {
-//   //     const response = await axios.get(`http://127.0.0.1:5000/user_admin/get_user/${id}`, {
+//   //     const response = await axios.get(http://127.0.0.1:5000/user_admin/get_user/${id}, {
 //   //       withCredentials: true,
 //   //     });
 //   //     return response.data;
@@ -537,4 +537,4 @@ export default AdminForm;
 //   )
 // }
 
-// export default AdminForm;
+// export default AdminForm;
