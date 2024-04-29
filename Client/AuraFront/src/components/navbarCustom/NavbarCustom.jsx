@@ -7,7 +7,7 @@ import './navbarCustom.css';
 import { UserContext } from '../../context/UserContext';
 
 function NavbarCustom() {
-  const {isLoggedIn , logout, user}  = useContext(UserContext);
+  const { isLoggedIn, logout, user } = useContext(UserContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoginPage, setIsLoginPage] = useState(false);
 
@@ -17,13 +17,13 @@ function NavbarCustom() {
     setMenuOpen(!menuOpen); "login link"
   };
 
-  const handleLogout = () =>{
+  const handleLogout = () => {
     logout();
   }
 
-useEffect(() => {
-  setIsLoginPage(location.pathname === '/login');
-}, [location.pathname]);
+  useEffect(() => {
+    setIsLoginPage(location.pathname === '/login');
+  }, [location.pathname]);
 
   return (
     <>
@@ -44,23 +44,25 @@ useEffect(() => {
 
         <div className="iconHolder">
           <Link to="/">
-          <div className="catalogLink">
-            <h3 className='links closeactive'>catálogo</h3>
-          </div>
+            <div className="catalogLink">
+              <h3 className='links closeactive'>catálogo</h3>
+            </div>
           </Link>
 
           <h3 id='loginButton'>
-    {isLoggedIn ? 
-    <React.Fragment>
-      <div className='d-flex flex-grow-2'>
-        <Link to="/artist/dashboard" className="add-obra me-4 closeactive">Añadir obra</Link>
-        <Link to="/" onClick={handleLogout} className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Logout</Link>
-      </div>
-    </React.Fragment>
-    :
-    <Link to="/login" className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Login</Link>}</h3>
+            {isLoggedIn ?
+              <React.Fragment>
+                <div className='d-flex flex-grow-2'>
+                  <Link to="/artist/dashboard" className="add-obra me-4 closeactive">Añadir obra</Link>
+                  <Link to="/" onClick={handleLogout} className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Logout</Link>
+                </div>
+              </React.Fragment>
+              :
+              <Link to="/login" className={isLoggedIn ? 'login closeactive' : 'closedesable'}>Login</Link>}</h3>
 
+        </div>
 
+        <div className="searchAndBuyIcons">
           <Link to="/buscar">
             <img className="link" id='search' src={search} />
           </Link>
