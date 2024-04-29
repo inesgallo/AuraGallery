@@ -1,3 +1,5 @@
+
+
 nav {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
@@ -12,34 +14,15 @@ nav {
 .login {
     display: flex;
     align-items: center;
-}
-
-.iconHolder {
-    margin-right: 180px;
     color: black;
 }
 
 #logo {
-    width: 203px;
-    height: 33px;
+    width: 200px;
+    height: 30px;
     position: absolute;
     left: 180px;
     top: 55px;
-}
-
-#search,
-#buy {
-    width: 16px;
-    height: 16px;
-    margin-bottom: 9px;
-    margin-left: 30px;
-}
-
-#buy {
-    width: 16px;
-    height: 16px;
-    margin-bottom: 9px;
-    margin-left: 10px;
 }
 
 a {
@@ -79,6 +62,21 @@ link {
     margin-left: 20px;
 }
 
+.searchAndBuyIcons {
+    display: flex;
+    margin-right: 25px;
+}
+
+#search,
+#buy {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 9px;
+    margin-left: 20px;
+}
+
+
+
 @media screen and (max-width: 950px) {
 
     .navBar {
@@ -114,14 +112,14 @@ link {
     }
 
     #logo {
-        left: 70px;
+        left: 30px;
         top: 55px;
         padding: 0;
     }
 
     .link {
         font-size: 20px;
-        padding: 10px;
+        padding: 0;
     }
 
     .menuOpen .iconHolder {
@@ -130,6 +128,10 @@ link {
         background-color: var(--negro);
         padding-top: 10px;
         padding-right: 15px;
+    }
+
+    .closeactive {
+        color: white
     }
 
     .menuOpen .overlay {
@@ -170,6 +172,19 @@ link {
 
     .menuOpen .link:not(.active):hover {
         color: none;
+    }
+
+    .searchAndBuyIcons {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 75px;
+        margin-right: 45px;
+        transform: translateY(-50%);
+    }
+
+    #search {
+        margin-right: -10px;
     }
 
 }
